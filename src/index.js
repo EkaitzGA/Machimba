@@ -4,7 +4,7 @@ import router from './routes/router.js';// importar rutas
 const app = express();// crear servidor 
 
 app.set('view engine', 'pug');// configurar motor de plantillas
-app.set('views', 'src/views');// configurar directorio de plantillas
+app.set('views','src/views');// configurar directorio de plantillas
 
 app.use(express.static('src/public')); // configurar directorio de archivos estáticos
 app.use(express.urlencoded({ extended: true }));// configurar body parser para recibir datos de formularios
