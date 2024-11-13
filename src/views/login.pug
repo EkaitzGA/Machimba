@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+    h1 Área de usuario 
+    form(action="/login", method="post")
+        label(for="username") 
+        input(id="username", type="text", name="username" placeholder="Introduce tu nombre de usuario")
+        label(for="password") 
+        input(id="password", type="password", name="password" placeholder="Introduce tu contraseña")
+        button(type="submit") Iniciar sesión
+    a(href="/register") 
+        button(type="button") Regístrate
