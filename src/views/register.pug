@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    h1 DATOS PERSONALES 
+    form(action="/register", method="post")
+        label(for="username") 
+        input(id="username", type="text", name="username",placeholder="USUARIO") 
+        label(for="firstname") 
+        input(id="firstname", type="text", name="firstname",placeholder="NOMBRE") 
+        label(for="lastname") 
+        input(id="lastname", type="text", name="lastname",placeholder="APELLIDOS")
+        label(for="email") 
+        input(id="email", type="text", name="email",placeholder="EMAIL") 
+        label(for="password") 
+        input(id="password", type="text", name="password",placeholder="CONTRASEÑA")
+        button(type="submit") CREAR MI CUENTA  
+
+//- username
+//- first name 
+//- last name 
+//- email 
+//- password 
+
+
