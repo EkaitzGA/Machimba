@@ -1,0 +1,36 @@
+extends ../layout
+
+block header 
+    a(href="/shopping-cart") 
+        h1 ROCIO MACHIMBARRENA
+
+    nav.profile-nav
+    ul
+        li
+            a(href="/purses") CATÁLOGO
+        li
+            a(href="/login") INICIA SESIÓN
+
+block content
+    h1 TU CARRITO DE COMPRA
+
+    form(action="/shopping-cart", method="post")
+        if cart && cart.purses.length > 0
+            each purse in cart.purses
+                div
+                    img(src=purse.image alt=purse.name)
+                    p= purse.name 
+                    p Precio: $#{purse.price}
+       
+                    input(type="number" name=`quantity-${purse.id}` value=purse.quantity min="0")
+       
+                    button(type="submit" name="remove" value=purse.id) ELIMINAR
+       
+                    p Subtotal: $#{item.price * item.quantity}
+   
+            p TOTAL: $#{cart.total}
+   
+            button(type="submit" name="update") ACTUALIZAR CARRITO
+            button(type="submit" name="buy") COMPRAR
+        else
+            p Tu carrito está vacío

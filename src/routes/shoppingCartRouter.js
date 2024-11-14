@@ -1,8 +1,8 @@
 import { Router } from "express";
-import shoppingCartController from "../controllers/shop/shoppingCartController.js"
+import shoppingCartViewController from "../controllers/shop/shoppingCartViewController.js"
 
 const router = Router()
 
-router.get("/",shoppingCartController.showCart)
+router.get("/",shoppingCartViewController.showCart)
 
 export default router

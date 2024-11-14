@@ -1,10 +1,10 @@
 import { Router } from "express";
-import pursesController from "../controllers/shop/pursesController.js"
+import pursesViewController from "../controllers/shop/pursesViewController.js"
 
 const router = Router()
 
-router.get("/",pursesController.getAll)
-router.get("/:id",pursesController.getById)
+router.get("/",pursesViewController.getAll)
+router.get("/:id",pursesViewController.getById)
 
 export default router
 
