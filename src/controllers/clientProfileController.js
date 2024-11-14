@@ -1,8 +1,14 @@
 function showProfile(req,res){
-    res.send("Perfil cliente")
+    res.render("client/clientProfile")
+}
+
+// historial compras (solo ver)
+function showClientHistoy(req,res){
+    res.render("client/clientHistory")
 }
 
 export const functions ={
-    showProfile
+    showProfile,
+    showClientHistoy
 }
 export default functions

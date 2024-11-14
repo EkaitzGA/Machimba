@@ -1,12 +1,23 @@
 extends layout
 
+block header 
+    a(href="/home") 
+        h1 ROCIO MACHIMBARRENA
+
+    nav.profile-nav
+    ul
+        li
+            a(href="/purses") CATÁLOGO
+        li
+            a(href="/login") INICIA SESIÓN
+
 block content 
-    h1 Área de usuario 
+    h1 INICIA SESIÓN 
     form(action="/login", method="post")
-        label(for="username") 
-        input(id="username", type="text", name="username" placeholder="Introduce tu nombre de usuario")
+        label(for="email") 
+        input(id="email", type="text", name="email" placeholder="EMAIL")
         label(for="password") 
-        input(id="password", type="password", name="password" placeholder="Introduce tu contraseña")
-        button(type="submit") Iniciar sesión
+        input(id="password", type="password", name="password" placeholder="CONTRASEÑA")
+        button(type="submit") INICIAR SESIÓN
     a(href="/register") 
-        button(type="button") Regístrate
+        button(type="button") REGÍSTRATE
