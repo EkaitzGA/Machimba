@@ -1,3 +1,5 @@
+import adminController from "./adminController.js";
+
 /* function adminPage(req,res){
     res.send("PAGINA DE INICIO DE ADMINISTRADOR")
 }

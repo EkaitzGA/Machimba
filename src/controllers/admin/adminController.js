@@ -1,17 +1,23 @@
-function adminPage(req,res){
-    res.send("PAGINA DE INICIO DE ADMINISTRADOR")
+import clientModel from "../../models/clientModel.js";
+import historyModel from "../../models/historyModel.js";
+
+
+async function showUsers(){
+    const clients = await clientModel.findAll({
+
+    })
+    return clients
 }
 
-function showUsers(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS")
-}
+/* async function showProducts(){
+    const products = /* await Me falta el modelo de los productos de Ines }*/
 
-function showProducts(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ")
-}
 
-function showHistory(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ")
+async function showHistory(){
+    const history = await historyModel.findAll({
+
+    })
+    return history
 }
 
 //funciones updatePurse, deletePurse, createPurse
@@ -24,10 +30,6 @@ function updatePurseSubmit(req, res){
 
 }
 
-
-function createPurseForm(req, res){
-    res.render("admin/createPurse")
-}
 
 //mirar
 function createPurseSubmit(req, res){
@@ -49,12 +51,12 @@ function deletePurse(req, res){
 
 
 export const functions ={
-    adminPage,
+  
     showUsers,
-    showProducts,
+    /* showProducts, */
     showHistory,
     deletePurse,
-    createPurseForm,
+   /*  createPurseForm, */
     createPurseSubmit,
     updatePurseForm,
     updatePurseSubmit

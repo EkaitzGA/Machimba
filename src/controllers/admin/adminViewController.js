@@ -1,17 +1,25 @@
-/* function adminPage(req,res){
-    res.send("PAGINA DE INICIO DE ADMINISTRADOR")
+import adminController from "./adminController.js";
+
+function adminPage(req,res){
+    res.render("admin/adminMainPage")
 }
 
-function showUsers(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS")
+async function showUsers(req, res){
+    const clients = await adminController.showUsers();
+    res.render("admin/users",{clients})
+   /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
 }
 
-function showProducts(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ")
+async function showProducts(req, res){
+    const products = await adminController.showProducts();
+    res.render("admin/products",{products})
+    /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
 }
 
-function showHistory(req, res){
-    res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ")
+async function showHistory(req, res){
+    const history = await adminController.showHistory();
+    res.render("admin/history"), {history}
+    /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
 }
 
 //funciones updatePurse, deletePurse, createPurse
@@ -59,4 +67,4 @@ export const functions ={
     updatePurseForm,
     updatePurseSubmit
 }
-export default functions */
+export default functions
