@@ -1,4 +1,4 @@
-function adminPage(req,res){
+/* function adminPage(req,res){
     res.send("PAGINA DE INICIO DE ADMINISTRADOR")
 }
 
@@ -59,4 +59,4 @@ export const functions ={
     updatePurseForm,
     updatePurseSubmit
 }
-export default functions
+export default functions */
