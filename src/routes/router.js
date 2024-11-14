@@ -5,12 +5,15 @@ import loginRouter from "./loginRouter.js"
 import adminRouter from "./adminRouter.js"
 import registerRouter from "./registerRouter.js"
 import clientProfileRouter from "./clientProfileRouter.js"
+import homeRouter from "./homeRouter.js"
 
 const router = Router();
 
 router.get('/', (req, res) => {
     res.send("Bienvenide a Machimba");
 });
+
+router.use("/home", homeRouter)
 
 router.use("/purses", pursesRouter)
 

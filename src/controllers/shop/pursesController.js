@@ -1,5 +1,5 @@
 function getAll(req,res){
-    res.send("Catálogo completo de los bolsos")
+    res.render("purses/purses")
 }
 
 function getById(req,res){

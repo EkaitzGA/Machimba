@@ -1,0 +1,29 @@
+extends ../layout
+
+block content 
+    form(action="/admin/products/create", method="post")
+        h1 NUEVO BOLSO
+        label(for="pursename") 
+        input(id="pursename", type="text", name="pursename",placeholder="NOMBRE DEL BOLSO") 
+        label(for="description") 
+        input(id="description", type="text", name="description",placeholder="DESCRIPCION") 
+        label(for="collection") 
+        input(id="collection", type="text", name="collection",placeholder="COLECCION")
+        label(for="price") 
+        input(id="price", type="text", name="price",placeholder="PRECIO") 
+        label(for="color") 
+        input(id="color", type="text", name="color",placeholder="COLOR")
+        label(for="material") 
+        input(id="material", type="text", name="material",placeholder="MATERIAL")
+        label(for="image") 
+        input(id="image", type="text", name="image",placeholder="ENLACE IMAGEN")
+        button(type="submit") CREAR
+
+
+//- name
+//- description
+//- collection
+//- price
+//- color 
+//- material
+//- image
