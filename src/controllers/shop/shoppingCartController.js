@@ -1,8 +1,16 @@
-function showCart(req,res){
-    res.send("Aquí está el carrito de la compra")
+import shoppingCartModel from "../../models/shoppingCartModel.js"
 
+async function getAll(){
+    const purses = await purseModel.findAll();
+    return purses;
 }
-export const functions={
-    showCart
+
+async function getById(id){
+    const purse = await purseModel.findByPk(id);
+    return purse;
+}
+
+export const functions ={
+    
 }
 export default functions

@@ -1,11 +1,19 @@
-function getAll(req,res){
-    res.render("purses/purses")
+import purseModel from "../../models/purseModel.js"
+
+
+async function getAll(){
+    const purses = await purseModel.findAll({
+        order: [
+            ['name', 'ASC']
+        ]
+    });
+    return purses;
 }
 
-function getById(req,res){
-    res.send("Página individual de un bolso")
+async function getById(id){
+    const purse = await purseModel.findByPk(id);
+    return purse;
 }
-
 
 export const functions ={
     getAll,

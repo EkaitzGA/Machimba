@@ -1,0 +1,32 @@
+extends ../layout
+
+block header 
+    a(href="/home") 
+        h1 ROCIO MACHIMBARRENA
+
+    nav.profile-nav
+    ul
+        li
+            a(href="/purses") CATÁLOGO
+        li
+            a(href="/login") INICIA SESIÓN
+        li 
+            a(href="/shopping-cart") CARRITO
+
+block content
+    h1 Un solo bolso
+    a(href="/purses") Volver a todos los bolsos
+    if purse
+        div.purse-card-single
+            img(src=purse.image alt=purse.name)
+            h3= purse.name
+            p= purse.description
+            p Colección: #{purse.collection}
+            p Color: #{purse.color}
+            p Material: #{purse.material}
+            p Precio: #{purse.price}€
+            
+            button(type="submit" name="buy" value=purse.id) COMPRAR
+            
+            
+    

@@ -10,6 +10,22 @@ block header
             a(href="/purses") CATÁLOGO
         li
             a(href="/login") INICIA SESIÓN
+        li 
+            a(href="/shopping-cart") CARRITO
 
 block content
     h1 Todos los bolsos
+    div.purses-container
+        each purse in purses
+            div.purse-card
+                a(href=`/purses/${purse.product_id}`)
+                    img(src=purse.image alt=purse.name)
+                a(href=`/purses/${purse.product_id}`)
+                    h3= purse.name
+                p Precio: #{purse.price}€
+            
+                a(href=`/purses/${purse.product_id}`)
+                button(type="submit" name="buy" value=purse.id) COMPRAR
+
+
+//- Ni coleccion ni description ni color ni material
