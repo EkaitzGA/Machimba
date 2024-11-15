@@ -1,19 +1,5 @@
-import purseModel from "../../models.purseModel.js"
+import purseModel from "../../models/purseModel.js"
 
-// function getAll(req,res){
-//     res.render("purses/purses")
-// }
-
-// function getById(req,res){
-//     res.send("Página individual de un bolso")
-// }
-
-
-// export const functions ={
-//     getAll,
-//     getById,
-// }
-// export default functions
 
 async function getAll(){
     const purses = await purseModel.findAll();

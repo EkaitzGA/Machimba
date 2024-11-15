@@ -6,8 +6,9 @@ async function getAll(req,res){
 }
 
 async function getById(req,res){
-    const purse = parseInt(req.params.id)
-    res.render("purses/individualPurse") 
+    const id = parseInt(req.params.id);
+    const purse = await pursesController.getById(id);
+    res.render("purses/individualPurse", { purse }) 
 }
 
 export const functions ={

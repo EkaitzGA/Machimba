@@ -1,4 +1,5 @@
-//hacer imports
+import { DataTypes } from "sequelize";
+import sequelize from "../config/sequelize.js";
 
 const Purse = sequelize.define('product', {
     product_id:{
@@ -8,7 +9,7 @@ const Purse = sequelize.define('product', {
         autoIncrement:true
     },
     name:{
-        type: DataTypes.STING,
+        type: DataTypes.STRING,
         allowNull:false,
     },
     description:{
@@ -20,7 +21,7 @@ const Purse = sequelize.define('product', {
         allowNull:false
     },
     price:{
-        type: DataTypes.INT.UNSIGNED,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull:false,
     },
     image:{
@@ -39,9 +40,3 @@ const Purse = sequelize.define('product', {
 })
 
 export default Purse;
-
-// Collection
-// price
-// Image
-// Color
-// material

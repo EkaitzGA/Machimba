@@ -1,5 +1,5 @@
 function showCart(req,res){
-    res.send("Aquí está el carrito de la compra")
+    res.render("purses/shoppingCart")
 
 }
 export const functions={
@@ -7,4 +7,6 @@ export const functions={
 }
 export default functions
 
-// cambiar esto
+// router.get("/:id/update",shoppingCartViewController.updateCart)
+// router.post("/:id/delete", shoppingCartViewController.deleteItem)
+// router.post("/delete", shoppingCartViewController.deleteAll)
