@@ -1,7 +1,7 @@
 services:
 
   db:
-    container_name: prueba_mysql
+    container_name: contenedor_machimba
     image: mysql:8.0
     restart: unless-stopped
     environment:
