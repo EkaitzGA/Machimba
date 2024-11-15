@@ -1,12 +1,10 @@
-import clientModel from "../../models/clientModel.js";
+import adminUserModel from "../../models/adminUserModel.js";
 import historyModel from "../../models/historyModel.js";
 
 
 async function showUsers(){
-    const clients = await clientModel.findAll({
-
-    })
-    return clients
+    const users = await adminUserModel.findAll()
+    return users
 }
 
 /* async function showProducts(){
@@ -14,9 +12,7 @@ async function showUsers(){
 
 
 async function showHistory(){
-    const history = await historyModel.findAll({
-
-    })
+    const history = await historyModel.findAll()
     return history
 }
 

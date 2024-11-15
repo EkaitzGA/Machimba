@@ -1,0 +1,13 @@
+extends ../layout
+
+block content 
+    h1 Lista de usuarios
+    article(class="admin-users")
+    each user in users 
+            p ID de user: #{user.user_id}
+            p Nombre: #{user.user_name}
+            p Password: #{user.password}
+            p Email: #{user.email}
+            p Nombre: #{user.first_name}
+            p Apellido: #{user.last_name}
+            p Fecha de registro: #{user.register_date}

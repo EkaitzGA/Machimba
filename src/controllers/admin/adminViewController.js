@@ -5,8 +5,8 @@ function adminPage(req,res){
 }
 
 async function showUsers(req, res){
-    const clients = await adminController.showUsers();
-    res.render("admin/users",{clients})
+    const users = await adminController.showUsers();
+    res.render("admin/users",{ users })
    /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
 }
 
@@ -18,7 +18,7 @@ async function showProducts(req, res){
 
 async function showHistory(req, res){
     const history = await adminController.showHistory();
-    res.render("admin/history"), {history}
+    res.render("admin/history"), { history } 
     /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
 }
 
