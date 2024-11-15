@@ -15,14 +15,18 @@ block header
 
 block content
     h1 Un solo bolso
+    a(href="/purses") Volver a todos los bolsos
     if purse
         div.purse-card-single
             img(src=purse.image alt=purse.name)
             h3= purse.name
             p= purse.description
             p Colección: #{purse.collection}
-            p Precio: #{purse.price}€
             p Color: #{purse.color}
             p Material: #{purse.material}
-            a(href="/purses") Volver a todos los bolsos
+            p Precio: #{purse.price}€
+            
+            button(type="submit" name="buy" value=purse.id) COMPRAR
+            
+            
     

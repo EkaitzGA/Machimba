@@ -2,7 +2,11 @@ import purseModel from "../../models/purseModel.js"
 
 
 async function getAll(){
-    const purses = await purseModel.findAll();
+    const purses = await purseModel.findAll({
+        order: [
+            ['name', 'ASC']
+        ]
+    });
     return purses;
 }
 
