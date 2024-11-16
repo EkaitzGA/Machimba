@@ -14,7 +14,7 @@ router.post('/products/create', adminViewController.createPurseSubmit)
 
 router.get('/users', adminViewController.showUsers)
 
-router.get('/history', adminViewController.showHistory)
+router.get('/purchase_history', adminViewController.showHistory)
 
 
 export default router

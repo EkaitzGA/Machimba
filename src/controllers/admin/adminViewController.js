@@ -7,13 +7,11 @@ function adminPage(req,res){
 async function showUsers(req, res){
     const users = await adminController.showUsers();
     res.render("admin/users",{ users })
-   /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
 }
 
 async function showProducts(req, res){
     const purses = await adminController.showProducts();
     res.render("admin/adminProducts",{purses})
-    /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
 }
 
 async function updatePurseForm(req,res){
@@ -23,8 +21,8 @@ async function updatePurseForm(req,res){
 }
 
 async function showHistory(req, res){
-    const history = await adminController.showHistory();
-    res.render("admin/history"), { history } 
+    const histories = await adminController.showHistory();
+    res.render("admin/purchase_history",{ histories })
     /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
 }
 

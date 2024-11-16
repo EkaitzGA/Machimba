@@ -23,8 +23,8 @@ async function updatePurseForm(id){
 }
 
 async function showHistory(){
-    const history = await historyModel.findAll()
-    return history
+    const histories = await historyModel.findAll()
+    return histories
 }
 
 //funciones updatePurse, deletePurse, createPurse
