@@ -4,7 +4,7 @@ import shoppingCartRouter from "./shoppingCartRouter.js"
 import loginRouter from "./loginRouter.js"
 import adminRouter from "./adminRouter.js"
 import registerRouter from "./registerRouter.js"
-import clientProfileRouter from "./clientProfileRouter.js"
+import clientRouter from "./clientRouter.js"
 import homeRouter from "./homeRouter.js"
 
 const router = Router();
@@ -25,6 +25,6 @@ router.use("/admin", adminRouter)
 
 router.use("/register", registerRouter)
 
-router.use("/client-profile", clientProfileRouter)
+router.use("/client-profile", clientRouter)
 
 export default router;

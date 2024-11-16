@@ -15,3 +15,16 @@ block content
             a(href="/client-profile/purchase-history") Historial de compras
         li 
             a(href="/purses") Tienda
+
+    h1 Tus Compras
+    div.history-container
+        each register in history
+            div.register-card
+                p ID del pedido: #{register.purchase_id}
+                p Fecha: #{register.date}
+                p Estado: #{register.status}
+                p Producto: #{register.product_name}
+                p Material: #{register.product_material}
+                p Colección: #{register.product_collection}
+                p Cantidad: #{register.product_quantity}
+                p Subtotal: #{register.product_subtotal}€

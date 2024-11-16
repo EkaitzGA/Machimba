@@ -1,10 +1,10 @@
-import adminUserModel from "../../models/adminUserModel.js";
+import userModel from "../../models/userModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
 
 
 async function showUsers(){
-    const users = await adminUserModel.findAll()
+    const users = await userModel.findAll()
     return users
 }
 

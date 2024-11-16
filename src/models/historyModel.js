@@ -22,7 +22,7 @@ const history = sequelize.define("purchase_history",{
         allowNull: true,
     },
     status:{
-        type: DataTypes.ENUM("pendiente", "solicitado"),
+        type: DataTypes.ENUM("pendiente", "aceptado/solicitado"),
         allowNull: false,
     },
     product_name:{
@@ -41,11 +41,14 @@ const history = sequelize.define("purchase_history",{
         type: DataTypes.ENUM('Antique Collection', 'Permanent Collection', 'Unique Collection', 'Vintage Summer Collection', 'New York Collection', 'Hilma Collection'),
         allowNull: false,
     },
-    
-
+    product_price:{
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+    },
+    product_subtotal:{
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+    }
 })
 
 export default history
-
-
-  
