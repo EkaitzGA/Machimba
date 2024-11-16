@@ -1,0 +1,30 @@
+extends ../layout
+
+block header
+    h1 Gestión del negocio 
+    a(href="/admin/products") 
+        button(type="button") Productos
+    a(href="/admin/users") 
+        button(type="button") Usuarios
+    a(href="admin/history") 
+        button(type="button") Histórico
+
+block content 
+    div.purses-container-admin
+        a(href=`/admin/products/create`) 
+            h3 CREAR BOLSO NUEVO
+
+        h3 BOLSOS DISPONIBLES
+        each purse in purses
+            div.purse-card-admin
+                img(src=purse.image alt=purse.name)
+                h3= purse.name
+                p= purse.description
+                p Colección: #{purse.collection}
+                p Color: #{purse.color}
+                p Material: #{purse.material}
+                p Precio: #{purse.price}€
+                a(href=`/admin/products/${purse.product_id}/update`) ACTUALIZAR
+                    button(type="submit") ACTUALIZAR 
+                a(href=`/products/${purse.purse_id}/delete`)
+                    button(type="submit") BORRAR

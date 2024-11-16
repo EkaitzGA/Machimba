@@ -1,5 +1,6 @@
 import adminUserModel from "../../models/adminUserModel.js";
 import historyModel from "../../models/historyModel.js";
+import purseModel from "../../models/purseModel.js"
 
 
 async function showUsers(){
@@ -7,9 +8,19 @@ async function showUsers(){
     return users
 }
 
-/* async function showProducts(){
-    const products = /* await Me falta el modelo de los productos de Ines }*/
+async function showProducts(){
+    const purses = await purseModel.findAll({
+        order: [
+            ['name', 'ASC']
+        ]
+    });
+    return purses;
+}
 
+async function updatePurseForm(id){
+    const purse = await purseModel.findByPk(id);
+    return purse;
+}
 
 async function showHistory(){
     const history = await historyModel.findAll()
@@ -17,13 +28,7 @@ async function showHistory(){
 }
 
 //funciones updatePurse, deletePurse, createPurse
-
-function updatePurseForm(req, res){
-
-}
-
-function updatePurseSubmit(req, res){
-
+function createPurseForm(req, res){
 }
 
 
@@ -49,12 +54,11 @@ function deletePurse(req, res){
 export const functions ={
   
     showUsers,
-    /* showProducts, */
+    showProducts,
     showHistory,
     deletePurse,
-   /*  createPurseForm, */
+    createPurseForm,
     createPurseSubmit,
-    updatePurseForm,
-    updatePurseSubmit
+    updatePurseForm
 }
 export default functions

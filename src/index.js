@@ -12,4 +12,6 @@ app.use(express.json());// configurar body parser para recibir datos en formato 
 
 app.use('/', router);// configurar rutas
 
+app.use('/public', express.static('public'));
+
 app.listen(3000,() =>console.log("Estamos conectados al puerto 3000"));// iniciar servidor en el puerto indicado en las variables de entorno

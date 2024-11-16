@@ -1,3 +1,39 @@
 extends ../layout
 
-block content 
+block header
+    h1 Gestión del negocio 
+    a(href="/admin/products") 
+        button(type="button") Productos
+    a(href="/admin/users") 
+        button(type="button") Usuarios
+    a(href="admin/history") 
+        button(type="button") Histórico
+
+block content
+    a(href=`/admin/products`)  
+            button(type="button") VOLVER A BOLSOS
+    form(action=`/products/${purse.purse_id}/updatesubmit`, method="post")
+        
+        h1 ACTUALIZAR BOLSO
+        label(for="pursename") 
+        input(id="pursename", type="text", name="pursename",placeholder="NOMBRE DEL BOLSO", value=purse.name) 
+        label(for="description") 
+        textarea(id="description", name="description",placeholder="DESCRIPCION")=purse.descpription
+        label(for="collection") 
+        select(id="type",name="type") 
+            each collection of collections 
+                option(value=collection.value, selected=collection.type==collection.value)= collection.name 
+        label(for="price") 
+        input(id="price", type="text", name="price",placeholder="PRECIO" value=purse.price) 
+        label(for="color") 
+        input(id="color", type="text", name="color",placeholder="COLOR" value=purse.color)
+        label(for="material") 
+        input(id="material", type="text", name="material",placeholder="MATERIAL" value=purse.material)
+        label(for="image") 
+        input(id="image", type="text", name="image",placeholder="ENLACE IMAGEN" value=purse.image)
+        a(href=`/products`) 
+            button(type="submit") ACTUALIZAR 
+        
+
+
+

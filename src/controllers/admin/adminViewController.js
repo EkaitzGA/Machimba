@@ -11,9 +11,15 @@ async function showUsers(req, res){
 }
 
 async function showProducts(req, res){
-    const products = await adminController.showProducts();
-    res.render("admin/products",{products})
+    const purses = await adminController.showProducts();
+    res.render("admin/adminProducts",{purses})
     /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
+}
+
+async function updatePurseForm(req,res){
+    const id = parseInt(req.params.id);
+    const purse = await pursesController.getById(id);
+    res.render("admin/updatePurse", { purse }) 
 }
 
 async function showHistory(req, res){
@@ -24,9 +30,7 @@ async function showHistory(req, res){
 
 //funciones updatePurse, deletePurse, createPurse
 
-function updatePurseForm(req, res){
 
-}
 
 function updatePurseSubmit(req, res){
 

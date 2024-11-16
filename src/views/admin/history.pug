@@ -1,5 +1,14 @@
 extends ../layout
 
+block header
+    h1 Gestión del negocio 
+    a(href="/admin/products") 
+        button(type="button") Productos
+    a(href="/admin/users") 
+        button(type="button") Usuarios
+    a(href="admin/history") 
+        button(type="button") Histórico
+
 block content 
     h1 Histórico de compraventas
     article

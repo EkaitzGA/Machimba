@@ -5,11 +5,11 @@ const router = Router()
 
 router.get("/",adminViewController.adminPage)
 
-/* router.get('/products', adminViewController.showProducts) */
-router.get('/products/update', adminViewController.updatePurseForm)
-router.get('/products/update', adminViewController.updatePurseSubmit)
-router.post('/products/delete', adminViewController.deletePurse) //no hace falta vista un boton tipo form
-/* router.get('/products/create', adminViewController.createPurseForm) */ //form creado
+router.get('/products', adminViewController.showProducts)
+router.get('/products/:id/update', adminViewController.updatePurseForm)
+router.post('/products/:id/updatesubmit', adminViewController.updatePurseSubmit)
+router.post('/products/:id/delete', adminViewController.deletePurse) //no hace falta vista un boton tipo form
+router.get('/products/create', adminViewController.createPurseForm)
 router.post('/products/create', adminViewController.createPurseSubmit)
 
 router.get('/users', adminViewController.showUsers)
