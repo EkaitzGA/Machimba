@@ -37,7 +37,15 @@ async function filterPurses(filterParams) {
         if (filterParams.collection) {
             whereClause.collection = filterParams.collection;
         }
+
+        if (filterParams.color && filterParams.color !== '') {
+            whereClause.color = filterParams.color;  
+        }
         
+        if (filterParams.material && filterParams.material !== '') {
+            whereClause.material = filterParams.material;  
+        }
+
         const purses = await purseModel.findAll({
             where: whereClause,
             order: [['name', 'ASC']]

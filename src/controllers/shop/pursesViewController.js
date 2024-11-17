@@ -57,7 +57,9 @@ async function searchPurses(req, res) {
 async function filterPurses(req, res) {
     try {
         const filterParams = {
-            collection: req.query.collection
+            collection: req.query.collection,
+            color: req.query.color,
+            material: req.query.material
         };
         const purses = await pursesController.filterPurses(filterParams);
         res.render('purses/purses', { purses });

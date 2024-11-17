@@ -22,21 +22,129 @@ block content
             input(type="text" name="search" placeholder="Buscar bolso...")
             button(type="submit") Buscar
             
+        //- Ver todos
         form(action="/purses" method="GET" style="display: inline")
                 button(type="submit" class="clear-search") Ver todos
 
-        //- Filtro por coleccion
+        //- Filtro por coleccion, color, material
         form.filter-form(action="/purses/filter" method="GET")
-            select(name="collection")
-                option(value="") Todas las colecciones
-                option(value="Antique Collection") Antique Collection
-                option(value="Permanent Collection") Permanent Collection
-                option(value="Unique Collection") Unique Collection
-                option(value="Vintage Summer Collection") Vintage Summer Collection
-                option(value="New York Collection") New York Collection
-                option(value="Hilma Collection") Hilma Collection
 
-            button(type="submit") Filtrar
+            div.colection-group
+                label(for="collection") COLECCIÓN
+                select(name="collection")
+                    option(value="") Todas las colecciones
+                    option(value="Antique Collection") Antique Collection
+                    option(value="Permanent Collection") Permanent Collection
+                    option(value="Unique Collection") Unique Collection
+                    option(value="Vintage Summer Collection") Vintage Summer Collection
+                    option(value="New York Collection") New York Collection
+                    option(value="Hilma Collection") Hilma Collection
+
+                //- div.color-group
+                //-     label COLOR
+                //-     div.color-grid
+                //-         div.color-option
+                //-             input(type="radio" id="all-colors" name="color" value="" checked)
+                //-             label(for="all-colors") Todos los colores
+
+                        //- div.color-option
+                        //-     input(type="radio" id="combinado" name="color" value="Combinado" checked=(color === 'Combinado'))
+                        //-     div.color-box.combinado
+                        //-     label(for="combinado") Combinado
+
+                        //- div.color-option
+                        //-     input(type="radio" id="rojo" name="color" value="Rojo" checked=(color === 'Rojo'))
+                        //-     div.color-box.rojo
+                        //-     label(for="rojo") Rojo
+
+                        //- div.color-option
+                        //-     input(type="radio" id="verde" name="color" value="Verde" checked=(color === 'Verde'))
+                        //-     div.color-box.verde
+                        //-     label(for="verde") Verde
+
+                        //- div.color-option
+                        //-     input(type="radio" id="morado" name="color" value="Morado" checked=(color === 'Morado'))
+                        //-     div.color-box.morado
+                        //-     label(for="morado") Morado
+                        
+                        //- div.color-option
+                        //-     input(type="radio" id="azul" name="color" value="Azul" checked=(color === 'Azul'))
+                        //-     div.color-box.azul
+                        //-     label(for="azul") Azul
+
+                        //- div.color-option
+                        //-     input(type="radio" id="plateado" name="color" value="Plateado" checked=(color === 'Plateado'))
+                        //-     div.color-box.plateado
+                        //-     label(for="plateado") Plateado
+
+                        //- div.color-option
+                        //-     input(type="radio" id="burdeos" name="color" value="Burdeos" checked=(color === 'Burdeos'))
+                        //-     div.color-box.burdeos
+                        //-     label(for="burdeos") Burdeos
+                        
+                        //- div.color-option
+                        //-     input(type="radio" id="rosa" name="color" value="Rosa" checked=(color === 'Rosa'))
+                        //-     div.color-box.rosa
+                        //-     label(for="rosa") Rosa
+
+                        //- div.color-option
+                        //-     input(type="radio" id="beige" name="color" value="Beige" checked=(color === 'Beige'))
+                        //-     div.color-box.beige
+                        //-     label(for="beige") Beige
+
+                        //- div.color-option
+                        //-     input(type="radio" id="mostaza" name="color" value="Mostaza" checked=(color === 'Mostaza'))
+                        //-     div.color-box.mostaza
+                        //-     label(for="mostaza") Mostaza
+
+                        //- div.color-option
+                        //-     input(type="radio" id="lila" name="color" value="Lila" checked=(color === 'Lila'))
+                        //-     div.color-box.lila
+                        //-     label(for="lila") Lila
+
+                        //- div.color-option
+                        //-     input(type="radio" id="tabaco" name="color" value="Tabaco" checked=(color === 'Tabaco'))
+                        //-     div.color-box.tabaco
+                        //-     label(for="tabaco") Tabaco
+
+                        //- div.color-option
+                        //-     input(type="radio" id="amarillo" name="color" value="Amarillo" checked=(color === 'Amarillo'))
+                        //-     div.color-box.amarillo
+                        //-     label(for="amarillo") Amarillo
+
+            div.color-group
+                label(for="collection") COLOR
+                select(name="color")
+                    option(value="") Todos los colores
+                    option(value="Combinado" selected=(color === 'combinado')) Combinado
+                    option(value="Rojo" selected=(color === 'rojo')) Rojo
+                    option(value="Verde" selected=(color === 'verde')) Verde
+                    option(value="Morado" selected=(color === 'morado')) Morado
+                    option(value="Negro" selected=(color === 'negro')) Negro
+                    option(value="Azul" selected=(color === 'azul')) Azul
+                    option(value="Plateado" selected=(color === 'plateado')) Plateado
+                    option(value="Burdeos" selected=(color === 'burdeos')) Burdeos
+                    option(value="Rosa" selected=(color === 'rosa')) Rosa
+                    option(value="Beige" selected=(color === 'beige')) Beige
+                    option(value="Mostaza" selected=(color === 'mostaza')) Mostaza
+                    option(value="Lila" selected=(color === 'lila')) Lila
+                    option(value="Tabaco" selected=(color === 'tabaco')) Tabaco
+                    option(value="Amarillo" selected=(color === 'amarillo')) Amarillo
+
+            
+            div.material-group
+                label(for="collection") MATERIAL
+                select(name="material")
+                    option(value="") Todos los materiales
+                    option(value="Terciopelo") Terciopelo
+                    option(value="Piel") Piel
+                    option(value="Lino") Lino
+                    option(value="Pelo") Pelo
+                    option(value="Peluche") Peluche
+                    option(value="Toalla") Toalla
+
+
+            button(type="submit") Ver resultados
 
     div.purses-container
         each purse in purses
