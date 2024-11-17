@@ -10,6 +10,8 @@ block header
         button(type="button") Histórico
 
 block content 
+    a(href=`/admin`) 
+            button(type="button") VOLVER A ADMIN
     h1 Histórico de compraventas
     article(class="admin-purchase-history")
     each history in histories

@@ -10,6 +10,10 @@ block header
         button(type="button") Histórico
 
 block content 
+    a(href=`/admin`) 
+            button(type="button") VOLVER A ADMIN
+    a(href=`/admin/users/create`) 
+            h3 CREAR USUARIO NUEVO
     h1 Lista de usuarios
     article(class="admin-users")
     each user in users 
