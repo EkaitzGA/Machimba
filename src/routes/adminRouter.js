@@ -6,6 +6,7 @@ const router = Router()
 router.get("/",adminViewController.adminPage)
 
 router.get('/products', adminViewController.showProducts)
+router.get('/products/search', adminViewController.searchProducts)
 router.get('/products/:id/update', adminViewController.updatePurseForm)
 router.post('/products/:id/updatesubmit', adminViewController.updatePurseSubmit)
 router.post('/products/:id/delete', adminViewController.deletePurse) //no hace falta vista un boton tipo form

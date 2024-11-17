@@ -15,6 +15,29 @@ block header
 
 block content
     h1 Todos los bolsos
+
+    div.filters-container
+        //- Busqueda por nombre de bolso
+        form.search-form(action="/purses/search" method="GET")
+            input(type="text" name="search" placeholder="Buscar bolso...")
+            button(type="submit") Buscar
+            
+        form(action="/purses" method="GET" style="display: inline")
+                button(type="submit" class="clear-search") Ver todos
+
+        //- Filtro por coleccion
+        form.filter-form(action="/purses/filter" method="GET")
+            select(name="collection")
+                option(value="") Todas las colecciones
+                option(value="Antique Collection") Antique Collection
+                option(value="Permanent Collection") Permanent Collection
+                option(value="Unique Collection") Unique Collection
+                option(value="Vintage Summer Collection") Vintage Summer Collection
+                option(value="New York Collection") New York Collection
+                option(value="Hilma Collection") Hilma Collection
+
+            button(type="submit") Filtrar
+
     div.purses-container
         each purse in purses
             div.purse-card
@@ -22,6 +45,7 @@ block content
                     img(src=purse.image alt=purse.name)
                 a(href=`/purses/${purse.product_id}`)
                     h3= purse.name
+                p.collection= purse.collection
                 p Precio: #{purse.price}€
             
                 a(href=`/purses/${purse.product_id}`)

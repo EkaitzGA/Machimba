@@ -11,20 +11,28 @@ block header
 
 block content 
     div.purses-container-admin
-        a(href=`/admin/products/create`) 
-            h3 CREAR BOLSO NUEVO
+        div.create-purse
+            a(href=`/admin/products/create`) 
+                h3 CREAR BOLSO NUEVO
 
-        h3 BOLSOS DISPONIBLES
-        each purse in purses
-            div.purse-card-admin
-                img(src=purse.image alt=purse.name)
-                h3= purse.name
-                p= purse.description
-                p Colección: #{purse.collection}
-                p Color: #{purse.color}
-                p Material: #{purse.material}
-                p Precio: #{purse.price}€
-                a(href=`/admin/products/${purse.product_id}/update`) ACTUALIZAR
-                    button(type="submit") ACTUALIZAR 
-                a(href=`/products/${purse.purse_id}/delete`)
-                    button(type="submit") BORRAR
+        div.search-purse
+            form.search-form(action="/admin/products/search" method="GET")
+                label(for="search") Buscar bolso:
+                input(type="text" id="search" name="search" placeholder="Nombre del bolso...")
+                button(type="submit") Buscar
+
+        div.show-purses
+            h3 BOLSOS DISPONIBLES
+            each purse in purses
+                div.purse-card-admin
+                    img(src=purse.image alt=purse.name)
+                    h3= purse.name
+                    p= purse.description
+                    p Colección: #{purse.collection}
+                    p Color: #{purse.color}
+                    p Material: #{purse.material}
+                    p Precio: #{purse.price}€
+                    a(href=`/admin/products/${purse.product_id}/update`) ACTUALIZAR
+                    
+                    form(action=`/admin/products/${purse.product_id}/delete` method="POST")
+                        button(type="submit") BORRAR

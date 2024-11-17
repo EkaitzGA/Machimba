@@ -10,17 +10,6 @@ async function showUsers(req, res){
    /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
 }
 
-async function showProducts(req, res){
-    const purses = await adminController.showProducts();
-    res.render("admin/adminProducts",{purses})
-    /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
-}
-
-async function updatePurseForm(req,res){
-    const id = parseInt(req.params.id);
-    const purse = await pursesController.getById(id);
-    res.render("admin/updatePurse", { purse }) 
-}
 
 async function showHistory(req, res){
     const history = await adminController.showHistory();
@@ -28,41 +17,106 @@ async function showHistory(req, res){
     /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
 }
 
-//funciones updatePurse, deletePurse, createPurse
 
 
+//CRUD PRODUCTS
 
-function updatePurseSubmit(req, res){
-
+//READ
+async function showProducts(req, res){
+    const purses = await adminController.showProducts();
+    res.render("admin/adminProducts",{purses})
+    /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
 }
 
+async function searchProducts(req, res) {
+    try {
+        const searchTerm = req.query.search;
+        const purses = await adminController.searchProducts(searchTerm);
+        res.render("admin/adminProducts", { purses });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error en la búsqueda');
+    }
+}
 
+//UPDATE
+async function updatePurseForm(req,res){
+    const id = parseInt(req.params.id);
+    const { purse, collections } = await adminController.getById(id);
+    res.render("admin/updatePurse", { purse, collections }) 
+}
+
+async function updatePurseSubmit(req, res){
+    try {
+        const id = parseInt(req.params.id);
+        const updatedData = {
+            name: req.body.pursename,
+            description: req.body.description,
+            collection: req.body.collection,
+            price: req.body.price,
+            color: req.body.color,
+            material: req.body.material,
+            image: req.body.image
+        };
+        await adminController.updatePurse(id, updatedData);
+        res.redirect('/admin/products');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al actualizar el bolso');
+    }
+}
+
+//CREATE
 function createPurseForm(req, res){
-    res.render("admin/createPurse")
+    const collections = [
+        'Antique Collection',
+        'Permanent Collection',
+        'Unique Collection',
+        'Vintage Summer Collection',
+        'New York Collection',
+        'Hilma Collection'
+    ];
+    res.render("admin/createPurse", { collections });
 }
 
-//mirar
-function createPurseSubmit(req, res){
-    const {name, description, collection, price, color, material, image} = req.body;
-    res.json(req.body)
+async function createPurseSubmit(req, res) {
+    try {
+        const purseData = {
+            pursename: req.body.pursename,
+            description: req.body.description,
+            collection: req.body.collection,
+            price: req.body.price,
+            color: req.body.color,
+            material: req.body.material,
+            image: req.body.image
+        };
+        
+        await adminController.createPurse(purseData);
+        res.redirect('/admin/products');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al crear el bolso');
+    }
 }
 
-//- name
-//- description
-//- collection
-//- price
-//- color 
-//- material
-//- image
 
-function deletePurse(req, res){
-    res.send("administrador borra bolso")
+//DELETE
+async function deletePurse(req, res) {
+    try {
+        const id = parseInt(req.params.id);
+        await adminController.deletePurse(id);
+        res.redirect('/admin/products'); 
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al borrar el bolso');
+    }
 }
 
 
 export const functions ={
     adminPage,
     showUsers,
+    searchProducts,
     showProducts,
     showHistory,
     deletePurse,
