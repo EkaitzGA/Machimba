@@ -1,38 +1,38 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
-const user = sequelize.define("user",{
-    user_id:{
+const User = sequelize.define("user", {
+    user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey:true,
-        autoIncrement:true
+        primaryKey: true,
+        autoIncrement: true
     },
-    user_name:{
+    user_name: {
         type: DataTypes.STRING,
-        allowNull:true,
+        allowNull: false,
     },
-    password:{
+    password: {
         type: DataTypes.STRING,
-        allowNull:false,
+        allowNull: false,
     },
-    email:{
-        type:DataTypes.STRING,
-        allowNull:false
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    first_name:{
-        type:DataTypes.STRING,
-        allowNull:false
+    first_name: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    last_name:{
-        type:DataTypes.STRING,
-        allowNull:false
+    last_name: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    register_date:{
-        type:DataTypes.DATE,
+    register_date: {
+        type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull:true
+        allowNull: true
     }
 })
 
-export default user
+export default User;

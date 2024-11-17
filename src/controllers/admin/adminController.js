@@ -10,8 +10,8 @@ async function showUsers(){
 }
 
 async function showHistory(){
-    const history = await historyModel.findAll()
-    return history
+    const histories = await historyModel.findAll()
+    return histories
 }
 
 //CRUD BOLSOS
@@ -104,7 +104,7 @@ export const functions ={
     showHistory,
     updatePurse,
     deletePurse,
-    updatePurse,
+    createPurse,
     getById
 }
 export default functions

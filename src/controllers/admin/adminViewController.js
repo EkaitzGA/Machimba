@@ -3,7 +3,6 @@ import adminController from "./adminController.js";
 function adminPage(req,res){
     res.render("admin/adminMainPage")
 }
-
 async function showUsers(req, res){
     const users = await adminController.showUsers();
     res.render("admin/users",{ users })
@@ -12,8 +11,8 @@ async function showUsers(req, res){
 
 
 async function showHistory(req, res){
-    const history = await adminController.showHistory();
-    res.render("admin/history"), { history } 
+    const histories = await adminController.showHistory();
+    res.render("admin/purchase_history",{ histories })
     /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
 }
 

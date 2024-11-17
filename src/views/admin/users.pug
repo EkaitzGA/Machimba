@@ -6,15 +6,19 @@ block header
         button(type="button") Productos
     a(href="/admin/users") 
         button(type="button") Usuarios
-    a(href="admin/history") 
+    a(href="/admin/purchase_history") 
         button(type="button") Histórico
 
 block content 
+    a(href=`/admin`) 
+            button(type="button") VOLVER A ADMIN
+    a(href=`/admin/users/create`) 
+            h3 CREAR USUARIO NUEVO
     h1 Lista de usuarios
     article(class="admin-users")
     each user in users 
             p ID de user: #{user.user_id}
-            p Nombre: #{user.user_name}
+            p Nombre de usuario: #{user.user_name}
             p Password: #{user.password}
             p Email: #{user.email}
             p Nombre: #{user.first_name}
