@@ -1,12 +1,22 @@
 import adminUserModel from "../../models/adminUserModel.js";
+import adminClientModel from "../../models/adminClientModel.js";
+import adminWorkerModel from "../../models/adminWorkerModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
 
-
+//Funciones USUARIO
 
 async function showUsers(){
     const users = await adminUserModel.findAll()
     return users
+}
+async function showClients(){
+    const clients = await adminClientModel.findAll()
+    return clients
+}
+async function showWorkers(){
+    const workers = await adminWorkerModel.findAll()
+    return workers
 }
 
 async function showHistory(){
@@ -14,7 +24,55 @@ async function showHistory(){
     return histories
 }
 
-//CRUD BOLSOS
+async function getWorkerById(id){
+    const worker = await adminWorkerModel.findByPk(id);
+    
+    return { worker };
+}
+//UPDATE
+async function updateWorker(id, updatedData) {
+    try {
+        const worker = await adminWorkerModel.findByPk(id);
+        if (!worker) {
+            throw new Error('Trabajador no encontrado');
+        }
+        await worker.update(updatedData);
+        return worker;
+    } catch (error) {
+        console.error('Error al actualizar:', error);
+        throw error;
+    }
+}
+
+//CREATE
+
+async function createWorker(workerData) {
+    try {
+        const newWorker = await adminWorkerModel.create(workerData);
+        return newWorker;
+    } catch (error) {
+        console.error('Error al crear el trabajador:', error);
+        throw error;
+    }
+}
+
+
+//DELETE
+async function deleteWorker(id) {
+    try {
+        const worker = await adminWorkerModel.findByPk(id);
+        if (!worker) {
+            throw new Error('Trabajador no encontrado');
+        }
+        await worker.destroy();
+        return true;
+    } catch (error) {
+        console.error('Error al borrar el trabajador:', error);
+        throw error;
+    }
+}
+
+//FUNCIONES PRODUCTO
 
 //READ
 async function showProducts(){
@@ -105,6 +163,12 @@ export const functions ={
     updatePurse,
     deletePurse,
     createPurse,
-    getById
+    getById,
+    showClients,
+    showWorkers,
+    updateWorker,
+    createWorker,
+    deleteWorker,
+    getWorkerById
 }
 export default functions

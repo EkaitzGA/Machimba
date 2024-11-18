@@ -6,14 +6,84 @@ function adminPage(req,res){
 async function showUsers(req, res){
     const users = await adminController.showUsers();
     res.render("admin/users",{ users })
-   /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
+   
 }
-
+async function showClients(req, res){
+    const clients = await adminController.showClients();
+    res.render("admin/clients",{ clients })
+   
+}
+async function showWorkers(req, res){
+    const workers = await adminController.showWorkers();
+    res.render("admin/workers",{ workers })
+  
+}
 
 async function showHistory(req, res){
     const histories = await adminController.showHistory();
     res.render("admin/purchase_history",{ histories })
-    /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
+    
+}
+//UPDATE
+async function updateWorkerForm(req,res){
+    const id = parseInt(req.params.id);
+    const { worker } = await adminController.getWorkerById(id);
+    res.render("admin/updateWorker", { worker }) 
+}
+
+async function updateWorkerSubmit(req, res){
+    try {
+        const id = parseInt(req.params.id);
+        const updatedData = {
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            name: req.body.name,
+            surname: req.body.surname,
+            register_date: req.body.register_date,
+        };
+        await adminController.updateWorker(id, updatedData);
+        res.redirect('/admin/users/workers');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al actualizar el trabajador');
+    }
+}
+
+//CREATE
+function createWorkerForm(req, res){
+    res.render("admin/createWorker");
+}
+
+async function createWorkerSubmit(req, res) {
+    try {
+        const workerData = {
+            username: req.body.username,
+            password: req.body.password,
+            email: req.body.email,
+            name: req.body.name,
+            surname: req.body.surname,
+            register_date: req.body.register_date
+        };
+        
+        await adminController.createWorker(workerData);
+        res.redirect('/admin/users/workers');
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al crear el trabajador');
+    }
+}
+
+//DELETE
+async function deleteWorker(req, res) {
+    try {
+        const id = parseInt(req.params.id);
+        await adminController.deleteWorker(id);
+        res.redirect('/admin/users/workers'); 
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al borrar el trabajador');
+    }
 }
 
 
@@ -122,6 +192,14 @@ export const functions ={
     createPurseForm,
     createPurseSubmit,
     updatePurseForm,
-    updatePurseSubmit
+    updatePurseSubmit,
+    showClients,
+    showWorkers,
+    updateWorkerForm,
+    updateWorkerSubmit,
+    createWorkerForm,
+    createWorkerSubmit,
+    deleteWorker
+
 }
 export default functions

@@ -13,8 +13,15 @@ block content
     a(href=`/admin`) 
             button(type="button") VOLVER A ADMIN
     a(href=`/admin/users/create`) 
-            h3 CREAR USUARIO NUEVO
+            h3 CREAR USUARIO NUEVO, DESHABILITAR
     h1 Lista de usuarios
+    a(href=`/admin/users/clients`) 
+            button(type="button") Ver solo clientes
+    a(href=`/admin/users/workers`) 
+            button(type="button") Ver solo trabajadores
+
+   
+
     article(class="admin-users")
     each user in users 
             p ID de user: #{user.user_id}
