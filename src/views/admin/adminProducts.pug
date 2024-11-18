@@ -25,13 +25,15 @@ block content
             h3 BOLSOS DISPONIBLES
             each purse in purses
                 div.purse-card-admin
-                    img(src=purse.image alt=purse.name)
+                    p= purse.product_id
                     h3= purse.name
                     p= purse.description
                     p Colección: #{purse.collection}
+                    p Precio: #{purse.price}€
+                    img(src=purse.image alt=purse.name)
                     p Color: #{purse.color}
                     p Material: #{purse.material}
-                    p Precio: #{purse.price}€
+                    
                     a(href=`/admin/products/${purse.product_id}/update`) ACTUALIZAR
                     
                     form(action=`/admin/products/${purse.product_id}/delete` method="POST")

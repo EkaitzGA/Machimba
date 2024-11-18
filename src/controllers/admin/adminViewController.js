@@ -119,13 +119,13 @@ async function updatePurseSubmit(req, res){
     try {
         const id = parseInt(req.params.id);
         const updatedData = {
-            name: req.body.pursename,
+            name: req.body.name,
             description: req.body.description,
             collection: req.body.collection,
             price: req.body.price,
+            image: req.body.image,
             color: req.body.color,
-            material: req.body.material,
-            image: req.body.image
+            material: req.body.material
         };
         await adminController.updatePurse(id, updatedData);
         res.redirect('/admin/products');
@@ -151,7 +151,7 @@ function createPurseForm(req, res){
 async function createPurseSubmit(req, res) {
     try {
         const purseData = {
-            pursename: req.body.pursename,
+            name: req.body.name,
             description: req.body.description,
             collection: req.body.collection,
             price: req.body.price,
