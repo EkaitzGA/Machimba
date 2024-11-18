@@ -1,7 +1,10 @@
 import clientController from "./clientController.js";
 
-function showProfile(req,res){
-    res.render("client/clientProfile")
+async function showProfile(req,res){
+    const client_id = parseInt(req.params.id);
+    const history = await clientController.showClientHistory(client_id);
+    const personalData = await clientController.showPersonalData(client_id);
+    res.render("client/clientProfile", { history , personalData });
 }
 
 

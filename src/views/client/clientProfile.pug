@@ -5,13 +5,13 @@ block header
         h1 ROCIO MACHIMBARRENA
         
 block content 
-    h1 Bienvenido a tu perfil, UserName
+    h1 Bienvenido a tu perfil, #{personalData.user_name}
 
     nav.profile-nav
     ul
-        li
-            a(href=`/client-profile`) Datos personales
-        li
-            a(href=`/client-profile/purchase-history`) Historial de compras
         li 
             a(href="/purses") Tienda
+
+    if personalData 
+        include clientPersonalData
+        include clientHistory

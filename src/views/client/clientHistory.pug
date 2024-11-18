@@ -1,22 +1,4 @@
-extends ../layout
-
-block header 
-    a(href="/home") 
-        h1 ROCIO MACHIMBARRENA
-        
-block content 
-    h1 Bienvenido a tu perfil, UserName
-
-    nav.profile-nav
-    ul
-        li
-            a(href=`/client-profile`) Datos personales
-        li
-            a(href=`/client-profile/purchase-history`) Historial de compras
-        li 
-            a(href="/purses") Tienda
-
-    h1 Tus Compras
+h1 Tus Compras
     div.history-container
         each register in history
             div.register-card
