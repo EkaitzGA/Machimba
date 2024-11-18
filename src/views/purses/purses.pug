@@ -1,20 +1,23 @@
 extends ../layout
 
-block header 
-    a(href="/home") 
-        h1 ROCIO MACHIMBARRENA
+block header
+    div.shop-header
+        div.shop-title
+            a(href="/home") 
+                h1 ROCIO MACHIMBARRENA
 
-    nav.profile-nav
-    ul
-        li
-            a(href="/purses") CATÁLOGO
-        li
-            a(href="/login") INICIA SESIÓN
-        li 
-            a(href="/shopping-cart") CARRITO
+        div.shop-nav
+            nav.profile-nav
+                ul
+                    li
+                        a(href="/purses") CATÁLOGO
+                    li
+                        a(href="/login") INICIAR SESIÓN
+                    li 
+                        a(href="/shopping-cart") CARRITO
 
 block content
-    h1 Todos los bolsos
+    
 
     div.filters-container
         div.form1
@@ -152,18 +155,21 @@ block content
     div.purses-container
         each purse in purses
             div.purse-card
-                a(href=`/purses/${purse.product_id}`)
-                    img(src=purse.image alt=purse.name)
-                a(href=`/purses/${purse.product_id}`)
-                    h3= purse.name
-                p.collection= purse.collection
-                p Precio: #{purse.price}€
-            
-                a(href=`/purses/${purse.product_id}`)
-                if purse.collection === "Unique Collection"
-                    button(type="submit" name="buy" value=purse.id) SOLICITAR
-                else
-                    button(type="submit" name="buy" value=purse.id) COMPRAR
+                div.image-purse
+                    a(href=`/purses/${purse.product_id}`)
+                        img(src=purse.image alt=purse.name)
+                div.info-purse
+                    a(href=`/purses/${purse.product_id}`)
+                        h3= purse.name
+                    p.collection= purse.collection
+                    p Precio: #{purse.price}€
+                div.action-purse
+                    a(href=`/purses/${purse.product_id}`)
+                    if purse.collection === "Unique Collection"
+                        button(type="submit" name="buy" value=purse.id) SOLICITAR
+                    else
+                        button(type="submit" name="buy" value=purse.id) COMPRAR
 
-
-//- Ni coleccion ni description ni color ni material
+        if (page>1)
+            a(href=`/purses?page=${page-1}`) Anterior 
+        a(href=`/purses?page=${page+1}`) Siguiente 

@@ -1,8 +1,9 @@
 import pursesController from "./pursesController.js"
 
 async function getAll(req,res){
-    const purses = await pursesController.getAll();
-    res.render("purses/purses", { purses })
+    const page = parseInt(req.query.page || 1);
+    const purses = await pursesController.getAll(page);
+    res.render("purses/purses", { purses,page })
 }
 
 async function getById(req,res){

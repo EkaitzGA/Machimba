@@ -1,37 +1,40 @@
 extends layout 
 
-block header 
-    a(href="/home") 
-        h1 ROCIO MACHIMBARRENA
+block header
+    div.shop-header
+        div.shop-title
+            a(href="/home") 
+                h1 ROCIO MACHIMBARRENA
 
-    nav.profile-nav
-    ul
-        li
-            a(href="/purses") CATÁLOGO
-        li
-            a(href="/login") INICIA SESIÓN
-        li 
-            a(href="/shopping-cart") CARRITO
+        div.shop-nav
+            nav.profile-nav
+                ul
+                    li
+                        a(href="/purses") CATÁLOGO
+                    li
+                        a(href="/login") INICIAR SESIÓN
+                    li 
+                        a(href="/shopping-cart") CARRITO
 
 block content 
-    h1 DATOS PERSONALES 
-    form(action="/register", method="post")
-        label(for="username") 
-        input(id="username", type="text", name="username",placeholder="USUARIO") 
-        label(for="firstname") 
-        input(id="firstname", type="text", name="firstname",placeholder="NOMBRE") 
-        label(for="lastname") 
-        input(id="lastname", type="text", name="lastname",placeholder="APELLIDOS")
-        label(for="email") 
-        input(id="email", type="text", name="email",placeholder="EMAIL") 
-        label(for="password") 
-        input(id="password", type="text", name="password",placeholder="CONTRASEÑA")
-        button(type="submit") CREAR MI CUENTA  
+    div.register-container
+        div.register-title
+            h1 DATOS PERSONALES 
+        div.register-form
+            form(action="/register", method="post")
+                label(for="username") 
+                input(id="username", type="text", name="username",placeholder="USUARIO") 
+                label(for="firstname") 
+                input(id="firstname", type="text", name="firstname",placeholder="NOMBRE") 
+                label(for="lastname") 
+                input(id="lastname", type="text", name="lastname",placeholder="APELLIDOS")
+                label(for="email") 
+                input(id="email", type="text", name="email",placeholder="EMAIL") 
+                label(for="password") 
+                input(id="password", type="text", name="password",placeholder="CONTRASEÑA")
+                label(for="password") 
+                input(id="password", type="text", name="password",placeholder="CONFIRMAR CONTRASEÑA")
+                button(type="submit") CREAR MI CUENTA  
 
-//- username
-//- first name 
-//- last name 
-//- email 
-//- password 
 
 
