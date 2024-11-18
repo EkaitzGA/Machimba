@@ -1,0 +1,178 @@
+/* LOGIN */
+
+.login-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+ }
+ 
+ .login-title h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+ }
+ 
+ .login-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+ 
+ .login-form input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+ }
+ 
+ .login-form input::placeholder {
+    color: #999;
+ }
+ 
+ .login-form input:focus {
+    border-bottom: 1px solid #333;
+ }
+ 
+ .login-form button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #333;
+    background: white;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+ 
+ .login-form button:hover {
+    background: #333;
+    color: white;
+ }
+ 
+ .login-to-register {
+    text-align: center;
+ }
+ 
+ .login-to-register button {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    background: #333;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+ 
+ .login-to-register button:hover {
+    background: white;
+    color: #333;
+ }
+ 
+ /* Para quitar los autofill de Chrome */
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover,
+ input:-webkit-autofill:focus,
+ input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 480px) {
+    .login-container {
+        margin: 40px auto;
+        padding: 20px;
+    }
+ }
+
+
+
+/* REGISTER */
+
+.register-container {
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+ }
+ 
+ .register-title h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: normal;
+    letter-spacing: 1px;
+ }
+ 
+ .register-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+ 
+ .register-form input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+ }
+ 
+ .register-form input::placeholder {
+    color: #999;
+ }
+ 
+ .register-form input:focus {
+    border-bottom: 1px solid #333;
+ }
+ 
+ .register-form button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 30px;  /* Un poco más de espacio antes del botón */
+    border: 1px solid #333;
+    background: #333;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+ }
+ 
+ .register-form button:hover {
+    background: white;
+    color: #333;
+ }
+ 
+ /* Para quitar los autofill de Chrome */
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover,
+ input:-webkit-autofill:focus,
+ input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+ }
+ 
+ /* Responsive */
+ @media (max-width: 480px) {
+    .register-container {
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .register-form form {
+        gap: 15px;  /* Menos espacio en móvil */
+    }
+ }

@@ -1,11 +1,16 @@
 import purseModel from "../../models/purseModel.js"
 
 
-async function getAll(){
+async function getAll(page=1){
+    const limit = 12
+    const offset = (page-1)*limit
+    console.log("page",page);
     const purses = await purseModel.findAll({
         order: [
             ['name', 'ASC']
-        ]
+        ],
+        limit:limit,
+        offset: offset
     });
     return purses;
 }
@@ -29,6 +34,7 @@ async function searchPurses(searchTerm) {
         throw error;
     }
 }
+
 
 async function filterPurses(filterParams) {
     try {

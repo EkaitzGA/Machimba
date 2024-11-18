@@ -14,8 +14,8 @@ block content
             button(type="button") VOLVER A BOLSOS
     form(action="/admin/products/create", method="post")
         h1 NUEVO BOLSO
-        label(for="pursename") 
-        input(id="pursename", type="text", name="pursename",placeholder="NOMBRE DEL BOLSO") 
+        label(for="name") 
+        input(id="name", type="text", name="name",placeholder="NOMBRE DEL BOLSO") 
 
         label(for="description") 
         input(id="description", type="text", name="description",placeholder="DESCRIPCION") 
@@ -33,14 +33,15 @@ block content
         label(for="price") 
         input(id="price", type="text", name="price",placeholder="PRECIO") 
 
+        label(for="image") 
+        input(id="image", type="text", name="image",placeholder="ENLACE IMAGEN")
+
         label(for="color") 
         input(id="color", type="text", name="color",placeholder="COLOR")
 
         label(for="material") 
         input(id="material", type="text", name="material",placeholder="MATERIAL")
 
-        label(for="image") 
-        input(id="image", type="text", name="image",placeholder="ENLACE IMAGEN")
 
         button(type="submit") CREAR
 

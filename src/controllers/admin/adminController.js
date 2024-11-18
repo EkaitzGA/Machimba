@@ -18,11 +18,7 @@ async function showHistory(){
 
 //READ
 async function showProducts(){
-    const purses = await purseModel.findAll({
-        order: [
-            ['name', 'ASC']
-        ]
-    });
+    const purses = await purseModel.findAll();
     return purses;
 }
 

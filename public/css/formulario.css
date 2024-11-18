@@ -1,4 +1,4 @@
-.color-group {
+/* .color-group {
     padding: 20px;
 }
 
@@ -27,7 +27,7 @@
 }
 
 /* Colores específicos */
-.rojo { background-color: #FF0000; }
+/* .rojo { background-color: #FF0000; }
 .verde { background-color: #008000; }
 .morado { background-color: #800080; }
 .negro { background-color: #000000; }
@@ -42,23 +42,23 @@
 .amarillo { background-color: #FFFF00; }
 
 /* Estilo cuando está seleccionado */
-.color-option input[type="radio"]:checked + label,
+/* .color-option input[type="radio"]:checked + label,
 .color-option input[type="radio"]:checked + .color-box + label {
     font-weight: bold;
 }
 
 .color-option:hover label {
     text-decoration: underline;
-}
+} */
 
 /* Para que el cursor pointer funcione en toda la opción */
-.color-option label {
+/* .color-option label {
     cursor: pointer;
-}
+} */
 
 /* Estilos para el label principal COLOR */
-.color-group > label {
+/* .color-group > label {
     font-weight: bold;
     margin-bottom: 10px;
     display: block;
-}
+}  */
