@@ -3,29 +3,35 @@ import clientController from "./clientController.js";
 async function showProfile(req,res){
     const client_id = parseInt(req.params.id);
     const history = await clientController.showClientHistory(client_id);
-    const personalData = await clientController.showPersonalData(client_id);
-    res.render("client/clientProfile", { history , personalData });
+    const client = await clientController.getClientById(client_id);
+    res.render("client/clientProfile", { history , client });
 }
 
-
-async function getClientHistory(req, res){
+async function updateForm(req, res) {
     const client_id = parseInt(req.params.id);
-    const history = await clientController.showClientHistory(client_id);
-    res.render("client/clientHistory", { history });
+    const client = await clientController.getClientById(client_id)
+    res.render("client/updateClientPersonalData", { client })
 }
 
+async function update(req, res) {
+    const {user_name, password, email, first_name, last_name, address, phone} = req.body;
+    const client_id = parseInt(req.params.id);
+    await clientController.updatePersonalData(client_id, user_name, password, email, first_name, last_name, address, phone);
+    res.redirect('/client-profile/' + client_id);
+}
 
-async function getPersonalData(req,res){
-    const id = parseInt(req.params.id);
-    const personalData = await clientController.showPersonalData(id);
-    res.render("client/clientPersonalData", { personalData }) 
+async function remove(req, res) {
+    const client_id = parseInt(req.params.id);
+    await clientController.removeClientProfile(client_id);
+    res.redirect("/home");
 }
 
 
 
 export const functions ={
     showProfile,
-    getClientHistory,
-    getPersonalData
+    updateForm,
+    update,
+    remove
 }
 export default functions

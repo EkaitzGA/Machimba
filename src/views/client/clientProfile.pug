@@ -5,13 +5,19 @@ block header
         h1 ROCIO MACHIMBARRENA
         
 block content 
-    h1 Bienvenido a tu perfil, #{personalData.user_name}
+    if(client)
+        h1 Bienvenido a tu perfil, #{client.user.user_name}
 
-    nav.profile-nav
-    ul
-        li 
-            a(href="/purses") Tienda
+        nav.profile-nav
+        ul
+            li 
+                a(href="/purses") Tienda
 
-    if personalData 
-        include clientPersonalData
-        include clientHistory
+        if client.user 
+            include clientPersonalData
+                a(href=`/client-profile/${client.client_id}/personal-data/update`)
+                    button Editar
+            include clientHistory
+
+    else
+        p Usuario no encontrado
