@@ -1,0 +1,27 @@
+extends ../layout
+
+block header
+    h1 Gestión del negocio 
+    a(href="/admin/products") 
+        button(type="button") Productos
+    a(href="/admin/users") 
+        button(type="button") Usuarios
+    a(href="/admin/purchase_history") 
+        button(type="button") Histórico
+
+block content 
+    a(href=`/admin/users/workers`) 
+            button(type="button") VOLVER A TRABAJADORES
+    form(action="/admin/users/workers/create", method="post")
+        h1 NUEVO TRABAJADOR
+        label(for="username") 
+        input(id="username", type="text", name="username",placeholder="NOMBRE DEL USUARIO") 
+        label(for="password") 
+        input(id="password", type="text", name="password",placeholder="CONTRASEÑA") 
+        label(for="email") 
+        input(id="email", type="text", name="email",placeholder="EMAIL")
+        label(for="name") 
+        input(id="name", type="text", name="name",placeholder="NOMBRE") 
+        label(for="surname") 
+        input(id="surname", type="text", name="surname",placeholder="APELLIDO")
+        button(type="submit") CREAR

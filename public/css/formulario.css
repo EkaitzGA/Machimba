@@ -1,64 +1,313 @@
-/* .color-group {
-    padding: 20px;
+.filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+
+
+
+
+/*BUSCAR POR QUERY*/
+.form1 {
+    margin: 20px 0;
+}
+
+.search-form {
+    position: relative;
+    max-width: 300px;
+}
+
+.search-form input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.search-form input::placeholder {
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.search-form input:focus {
+    border-bottom: 1px solid #333;
+}
+
+.search-form button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+
+
+
+
+/*VER TODOS*/
+.form2 button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    min-width: 100px; 
+ }
+ 
+ .clear-search {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+ }
+ 
+ 
+
+
+
+/*FORM COLLECTION*/
+
+.filter-dropdown-collection  {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-collection-button  {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.collection-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 800px;
+    padding: 15px;
+}
+
+.hiddenC {
+    display: none;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;
+    width: 100%;
+    
+}
+
+.collection-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 2px;
+    border: 1px solid white;
+}
+
+
+/* Ocultar radio button original */
+.collection-option input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo cuando está seleccionado */
+.collection-option input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/*FORM COLOR*/
+
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.color-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 800px;
+    padding: 15px;
+}
+
+.hidden {
+    display: none;
 }
 
 .color-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-    margin-top: 10px;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 10px;
+    width: 100%;
+    
 }
 
 .color-option {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
     gap: 10px;
-    cursor: pointer;
-}
-
-.color-option input[type="radio"] {
-    display: none;
+    width: 100%;
+    padding: 2px;
+    border: 1px solid white;
 }
 
 .color-box {
     width: 20px;
     height: 20px;
     border: 1px solid #ddd;
+    flex-shrink: 0;
 }
 
 /* Colores específicos */
-/* .rojo { background-color: #FF0000; }
+.todos { background-color: transparent; }
+.combinado { background: linear-gradient(45deg, #FFA07A, #87CEEB); }
+.negro { background-color: black; }
+.rojo { background-color: #C22825; }
 .verde { background-color: #008000; }
 .morado { background-color: #800080; }
-.negro { background-color: #000000; }
-.azul { background-color: #0000FF; }
+.azul { background-color: #536E9D; }
 .plateado { background-color: #C0C0C0; }
 .burdeos { background-color: #800020; }
 .rosa { background-color: #FFC0CB; }
 .beige { background-color: #F5F5DC; }
-.mostaza { background-color: #FFD700; }
-.lila { background-color: #E6E6FA; }
-.tabaco { background-color: #8B4513; }
-.amarillo { background-color: #FFFF00; }
+.mostaza { background-color: #DFB134; }
+.lila { background-color: #BC739F; }
+.tabaco { background-color: #C3772F; }
+.amarillo { background-color: #FBD325; }
+
+/* Ocultar radio button original */
+.color-option input[type="checkbox"] {
+    display: none;
+}
 
 /* Estilo cuando está seleccionado */
-/* .color-option input[type="radio"]:checked + label,
-.color-option input[type="radio"]:checked + .color-box + label {
+.color-option input[type="checkbox"]:checked + label,
+.color-option input[type="checkbox"]:checked + .color-box + label {
     font-weight: bold;
 }
 
-.color-option:hover label {
-    text-decoration: underline;
-} */
 
-/* Para que el cursor pointer funcione en toda la opción */
-/* .color-option label {
+
+/* FORM MATERIAL */
+
+.filter-dropdown-material  {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-material-button  {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: white;
     cursor: pointer;
-} */
+}
 
-/* Estilos para el label principal COLOR */
-/* .color-group > label {
+.material-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 300px;
+    padding: 15px;
+}
+
+.hiddenM {
+    display: none;
+}
+
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    width: 100%;
+    
+}
+
+.material-option {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 2px;
+    border: 1px solid white;
+}
+
+
+/* Ocultar radio button original */
+.material-option input[type="checkbox"] {
+    display: none;
+}
+
+/* Estilo cuando está seleccionado */
+.material-option input[type="checkbox"]:checked + label {
     font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
-}  */
+}
+
+
+.form3button {
+    width: 10%;  /* O un ancho específico si prefieres */
+    padding: 10px;
+    margin-top: 20px;  /* Espacio arriba del botón */
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 1px;
+ }
+ 
+ .form3button:hover {
+    background: #f8f8f8;  /* Ligero efecto hover */
+ }

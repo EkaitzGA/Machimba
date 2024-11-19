@@ -1,29 +1,29 @@
-extends ../layout
+//- extends ../layout
 
-block header
-    h1 Gestión del negocio 
-    a(href="/admin/products") 
-        button(type="button") Productos
-    a(href="/admin/users") 
-        button(type="button") Usuarios
-    a(href="/admin/purchase_history") 
-        button(type="button") Histórico
+//- block header
+//-     h1 Gestión del negocio 
+//-     a(href="/admin/products") 
+//-         button(type="button") Productos
+//-     a(href="/admin/users") 
+//-         button(type="button") Usuarios
+//-     a(href="/admin/purchase_history") 
+//-         button(type="button") Histórico
 
-block content 
-    a(href=`/admin/users`) 
-            button(type="button") VOLVER A USUARIOS
-    form(action="/admin/users/create", method="post")
-        h1 NUEVO USUARIO
-        label(for="username") 
-        input(id="username", type="text", name="username",placeholder="NOMBRE DEL USUARIO") 
-        label(for="password") 
-        input(id="password", type="text", name="password",placeholder="CONTRASEÑA") 
-        label(for="email") 
-        input(id="email", type="text", name="email",placeholder="EMAIL")
-        label(for="name") 
-        input(id="name", type="text", name="name",placeholder="NOMBRE") 
-        label(for="surname") 
-        input(id="surname", type="text", name="surname",placeholder="APELLIDO")
-        label(for="register_date") 
-        input(id="register_date", type="date", name="register_date",placeholder="FECHA DE REGISTRO")
-        button(type="submit") CREAR
+//- block content 
+//-     a(href=`/admin/users`) 
+//-             button(type="button") VOLVER A USUARIOS
+//-     form(action="/admin/users/create", method="post")
+//-         h1 NUEVO USUARIO
+//-         label(for="username") 
+//-         input(id="username", type="text", name="username",placeholder="NOMBRE DEL USUARIO") 
+//-         label(for="password") 
+//-         input(id="password", type="text", name="password",placeholder="CONTRASEÑA") 
+//-         label(for="email") 
+//-         input(id="email", type="text", name="email",placeholder="EMAIL")
+//-         label(for="name") 
+//-         input(id="name", type="text", name="name",placeholder="NOMBRE") 
+//-         label(for="surname") 
+//-         input(id="surname", type="text", name="surname",placeholder="APELLIDO")
+//-         label(for="register_date") 
+//-         input(id="register_date", type="date", name="register_date",placeholder="FECHA DE REGISTRO")
+//-         button(type="submit") CREAR

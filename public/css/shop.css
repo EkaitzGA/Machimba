@@ -6,15 +6,14 @@ html {
 
 .shop-header {
     display: flex;
-    flex-direction: column;  /* Cambiado a column */
+    flex-direction: column;
     align-items: center;
     padding: 20px 40px;
     background-color: white;
-    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
 }
 
 .shop-title {
-    margin-bottom: 20px;  /* Espacio entre título y nav */
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -78,27 +77,22 @@ html {
 
 .purses-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
-    gap: 60px; /* Espacio entre cards */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 60px; 
     padding: 20px;
-    max-width: 1200px; /* O el ancho máximo que prefieras */
-    margin: 0 auto; /* Centra el contenedor */
+    max-width: 1200px; 
+    margin: 0 auto; 
  }
  
  /* Card individual de cada bolso */
  .purse-card {
     display: flex;
-    flex-direction: column; /* Elementos uno debajo de otro */
+    flex-direction: column; 
     background: white;
-    /* border: 1px solid #eee; */
     padding: 15px;
  }
  
- /* .purse-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
- } */
- 
+
  /* Sección de imagen */
  .image-purse {
     width: 100%;
@@ -107,14 +101,14 @@ html {
  
  .image-purse img {
     width: 100%;
-    height: 350px; /* O el alto que prefieras */
+    height: 350px; 
     object-fit: cover;
     display: block;
  }
  
  /* Sección de información */
  .info-purse {
-    flex-grow: 1; /* Ocupa el espacio disponible */
+    flex-grow: 1; 
     margin-bottom: 15px;
  }
  
@@ -135,11 +129,11 @@ html {
  
  /* Sección de acción (botón) */
  .action-purse {
-    margin-top: auto; /* Empuja el botón hacia abajo */
+    margin-top: auto; 
  }
  
  .action-purse button {
-    width: 100%;
+    width: 40%;
     padding: 10px 20px;
     background-color: white;
     color: black;
@@ -154,15 +148,48 @@ html {
     border: 1px black;
  }
  
+ .button-pages {
+    display: flex;
+    justify-content: center;
+    gap: 40px; 
+    margin: 40px 0; 
+    padding-bottom: 50px; 
+}
+
+.button-pages a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover con línea debajo (similar al del nav) */
+.button-pages a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: #333;
+    transition: width 0.3s ease;
+}
+
+.button-pages a:hover:after {
+    width: 100%;
+}
+
  /* Responsive */
  @media (max-width: 1024px) {
     .purses-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        grid-template-columns: repeat(2, 1fr); 
     }
  }
  
  @media (max-width: 768px) {
     .purses-container {
-        grid-template-columns: 1fr; /* 1 columna en móviles */
+        grid-template-columns: 1fr; 
     }
  }
