@@ -7,6 +7,8 @@ router.get("/:id",clientViewController.showProfile)
 
 router.get("/:id/personal-data/update",clientViewController.updateForm);
 
+router.get("/:id/purchase-history",clientViewController.showCompleteHistory);
+
 router.post("/:id/personal-data",clientViewController.update);
 
 router.post("/:id/delete",clientViewController.remove);

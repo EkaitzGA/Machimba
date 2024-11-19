@@ -12,8 +12,8 @@ app.use(session({
 app.use(function (req, res, next) {
     res.locals.user = req.session.user || null;
     next();
- });// middleware para sacar informacion de sesion en vistas
- 
+});// middleware para sacar informacion de sesion en vistas
+
 app.set('view engine', 'pug');// configurar motor de plantillas
 app.set('views','src/views');// configurar directorio de plantillas
 

@@ -13,5 +13,22 @@ html(lang="es")
         title Machimba
     body
         block header
-        include navbar 
+            div.shop-header
+                div.shop-title
+                    a(href="/home") 
+                        h1 ROCIO MACHIMBARRENA
+        block navbar 
+            div.shop-nav
+                nav.profile-nav
+                    ul
+                        li
+                            a(href="/purses") CATÁLOGO
+                        if user
+                            li 
+                                a(href=`/client-profile/${user.client_id}`) MI PERFIL 
+                        else
+                            li
+                                a(href="/login") INICIAR SESIÓN
+                        li 
+                            a(href="/shopping-cart") CARRITO
         block content

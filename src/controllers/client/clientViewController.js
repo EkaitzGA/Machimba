@@ -7,6 +7,12 @@ async function showProfile(req,res){
     res.render("client/clientProfile", { client, history });
 }
 
+async function showCompleteHistory(req,res){
+    const client_id = parseInt(req.params.id);
+    const history = await clientController.showClientHistory(client_id);
+    res.render("client/clientHistory", { history });
+}
+
 async function updateForm(req, res) {
     const client_id = parseInt(req.params.id);
     const client = await clientController.getClientById(client_id)
@@ -32,6 +38,7 @@ export const functions ={
     showProfile,
     updateForm,
     update,
-    remove
+    remove,
+    showCompleteHistory
 }
 export default functions
