@@ -17,7 +17,7 @@
 Añadido login
 
 ## Version 0.1.1
-Añadidas funcionaloidades de la sección del administrador
+Añadidas funcionalidades de la sección del administrador
 
 ## Version 0.1.0. 
 Añadidas funcionalidades de la sección del comprador
