@@ -1,0 +1,7 @@
+h1 Tus Compras
+div(class="short-history")
+    each purchase in history
+        div.short-purchase-info
+            p ID del pedido: #{purchase.purchase_id}
+            p Fecha: #{purchase.date}
+            p Estado: #{purchase.status}

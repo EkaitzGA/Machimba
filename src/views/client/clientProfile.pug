@@ -1,19 +1,15 @@
 extends ../layout
 
-block header 
-    a(href="/home") 
-        h1 ROCIO MACHIMBARRENA
-        
-block content 
-    h1 Bienvenido a tu perfil, #{client.user.user_name}
-
-    nav.profile-nav
-    ul
-        li 
-            a(href="/purses") Tienda
-
-    if client.user 
-        include clientPersonalData
-            a(href=`/client-profile/${client.client_id}/personal-data/update`)
-                button Editar
-        include clientHistory
+block content
+    main(class= 'client-profile-container')
+        h1 Bienvenide a tu perfil, #{client.user.user_name}
+        article(class= 'client-info-container')
+            if client.user 
+                article(class= 'personal-data-container')
+                    include clientPersonalData
+                    a(href=`/client-profile/${client.client_id}/personal-data/update`)
+                        button Editar
+                article(class= 'history-container')
+                    include clientResumePurchase
+                    a(href=`/client-profile/${client.client_id}/purchase-history`)
+                        button Todos los pedidos
