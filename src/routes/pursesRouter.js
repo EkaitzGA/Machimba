@@ -1,6 +1,6 @@
 import { Router } from "express";
-import pursesViewController from "../controllers/shop/pursesViewController.js"
-import pursesApiController from "../controllers/shop/pursesApiController.js"
+import pursesViewController from "../controllers/purses/pursesViewController.js"
+import pursesApiController from "../controllers/purses/pursesApiController.js"
 
 const router = Router()
 

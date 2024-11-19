@@ -1,6 +1,6 @@
-import adminUserModel from "../../models/adminUserModel.js";
-import adminClientModel from "../../models/adminClientModel.js";
-import adminWorkerModel from "../../models/adminWorkerModel.js";
+import userModel from "../../models/userModel.js";
+import clientModel from "../../models/clientModel.js";
+import workerModel from "../../models/workerModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
 
@@ -8,18 +8,18 @@ import purseModel from "../../models/purseModel.js"
 //Funciones USUARIO
 
 async function showUsers(){
-    const users = await adminUserModel.findAll()
+    const users = await userModel.findAll()
     return users
 }
 async function showClients(){
-    const clients = await adminClientModel.findAll({
-        include:adminUserModel
+    const clients = await clientModel.findAll({
+        include:userModel
     })
     return clients
 }
 async function showWorkers(){
-    const workers = await adminWorkerModel.findAll({
-        include: adminUserModel
+    const workers = await workerModel.findAll({
+        include: userModel
     });
     return workers
 }
@@ -30,15 +30,28 @@ async function showHistory(){
 }
 
 async function getWorkerById(worker_id){
-    const worker = await adminWorkerModel.findByPk(worker_id,{
-        include: adminUserModel
+    const worker = await workerModel.findByPk(worker_id,{
+        include: userModel
     });
     return worker;
 }
+
+async function getWorkertByEmail(email) {
+    const worker = await workerModel.findOne({
+        include: {
+            model: userModel,
+            where: {
+                email: email
+            }
+        }
+    })
+    return worker;
+}
+
 //UPDATE
 async function updateWorker(worker_id,user_name,password,email,first_name,last_name) {
-    const worker = await adminWorkerModel.findByPk(worker_id);
-    const user = await adminUserModel.findByPk(worker.user_id);
+    const worker = await workerModel.findByPk(worker_id);
+    const user = await userModel.findByPk(worker.user_id);
     user.user_name= user_name;
     user.password= password;
     user.email= email;
@@ -54,7 +67,7 @@ async function updateWorker(worker_id,user_name,password,email,first_name,last_n
 
 async function createWorker(workerData) {
     try {
-    const newUser = await adminUserModel.create({
+    const newUser = await userModel.create({
     user_name: workerData.user_name,
     password: workerData.password, 
     email: workerData.email,
@@ -63,7 +76,7 @@ async function createWorker(workerData) {
     register_date: workerData.register_date
     });
     
-    const newWorker = await adminWorkerModel.create({
+    const newWorker = await workerModel.create({
     user_id: newUser.user_id,
     });
     
@@ -90,7 +103,7 @@ async function createWorker(workerData) {
 //DELETE
 async function deleteWorker(id) {
     try {
-        const worker = await adminWorkerModel.findByPk(id);
+        const worker = await workerModel.findByPk(id);
         if (!worker) {
             throw new Error('Trabajador no encontrado');
         }
@@ -195,6 +208,7 @@ export const functions ={
     updateWorker,
     createWorker,
     deleteWorker,
-    getWorkerById
+    getWorkerById,
+    getWorkertByEmail
 }
 export default functions

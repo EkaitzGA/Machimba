@@ -1,10 +1,10 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import adminUserModel from "./adminUserModel.js";
+import userModel from "./userModel.js";
 
 const Client = sequelize.define("client", {
     client_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
@@ -15,15 +15,15 @@ const Client = sequelize.define("client", {
     },
     address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     phone: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     }
 })
 
 export default Client;
 
-adminUserModel.hasOne(Client, {foreignKey: 'user_id'});
-Client.belongsTo(adminUserModel, {foreignKey: 'user_id'});
+userModel.hasOne(Client, {foreignKey: 'user_id'});
+Client.belongsTo(userModel, {foreignKey: 'user_id'});

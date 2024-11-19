@@ -16,7 +16,7 @@ block content
         label(for="phone") Teléfono
         input(id="phone", type="text", name="phone",placeholder="Teléfono", value=client.phone)
         label(for="password") Contraseña
-        input(id="password", type="text", name="password", placeholder="Contraseña", value=client.user.password)
+        input(id="password", type="text", name="password", placeholder="Contraseña")
 
         a(href=`/client-profile/${client.client_id}`) 
             button(type="submit") Guardar

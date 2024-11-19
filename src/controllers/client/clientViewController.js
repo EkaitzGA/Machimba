@@ -2,9 +2,9 @@ import clientController from "./clientController.js";
 
 async function showProfile(req,res){
     const client_id = parseInt(req.params.id);
-    const history = await clientController.showClientHistory(client_id);
     const client = await clientController.getClientById(client_id);
-    res.render("client/clientProfile", { history , client });
+    const history = await clientController.showClientHistory(client_id);
+    res.render("client/clientProfile", { client, history });
 }
 
 async function updateForm(req, res) {

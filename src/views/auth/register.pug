@@ -1,4 +1,4 @@
-extends layout 
+extends ../layout 
 
 block header
     div.shop-header
@@ -20,20 +20,23 @@ block content
     div.register-container
         div.register-title
             h1 DATOS PERSONALES 
+        block message
+            if(message && messageType)
+                p(class=`message ${messageType}`)= message
         div.register-form
             form(action="/register", method="post")
-                label(for="username") 
-                input(id="username", type="text", name="username",placeholder="USUARIO") 
-                label(for="firstname") 
-                input(id="firstname", type="text", name="firstname",placeholder="NOMBRE") 
-                label(for="lastname") 
-                input(id="lastname", type="text", name="lastname",placeholder="APELLIDOS")
+                label(for="user_name") 
+                input(id="user_name", type="text", name="user_name",placeholder="USUARIO") 
+                label(for="first_name") 
+                input(id="first_name", type="text", name="first_name",placeholder="NOMBRE") 
+                label(for="last_name") 
+                input(id="last_name", type="text", name="last_name",placeholder="APELLIDOS")
                 label(for="email") 
                 input(id="email", type="text", name="email",placeholder="EMAIL") 
                 label(for="password") 
                 input(id="password", type="text", name="password",placeholder="CONTRASEÑA")
-                label(for="password") 
-                input(id="password", type="text", name="password",placeholder="CONFIRMAR CONTRASEÑA")
+                label(for="passwordConfirm") 
+                input(id="passwordConfirm", type="text", name="passwordConfirm",placeholder="CONFIRMAR CONTRASEÑA")
                 button(type="submit") CREAR MI CUENTA  
 
 

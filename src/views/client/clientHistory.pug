@@ -1,12 +1,13 @@
 h1 Tus Compras
     div.history-container
-        each register in history
+        each purchase in history
             div.register-card
-                p ID del pedido: #{register.purchase_id}
-                p Fecha: #{register.date}
-                p Estado: #{register.status}
-                p Producto: #{register.product_name}
-                p Material: #{register.product_material}
-                p Colección: #{register.product_collection}
-                p Cantidad: #{register.product_quantity}
-                p Subtotal: #{register.product_subtotal}€
+                p ID del pedido: #{purchase.purchase_id}
+                p Fecha: #{purchase.date}
+                p Estado: #{purchase.status}
+                each product in purchase.products
+                    p Producto: #{product.product_name}
+                    p Material: #{product.product_material}
+                    p Colección: #{product.product_collection}
+                    p Cantidad: #{product.product_quantity}
+                    p Subtotal: #{product.product_subtotal}€
