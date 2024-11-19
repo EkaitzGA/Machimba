@@ -6,14 +6,71 @@ function adminPage(req,res){
 async function showUsers(req, res){
     const users = await adminController.showUsers();
     res.render("admin/users",{ users })
-   /*  res.send("PAGINA PARA ACCEDER A LA TABLA USER DE LA BASE DE DATOS") */
+   
 }
-
+async function showClients(req, res){
+    const clients = await adminController.showClients();
+    res.render("admin/clients",{ clients })
+   
+}
+async function showWorkers(req, res){
+    const workers = await adminController.showWorkers();
+    res.render("admin/workers",{ workers })
+  
+}
 
 async function showHistory(req, res){
     const histories = await adminController.showHistory();
     res.render("admin/purchase_history",{ histories })
-    /* res.send("PAGINA PARA ACCEDER A LA TABLA PURCHASE_HISTORY DE LA BASE DE DATOS ") */
+    
+}
+//UPDATE
+async function updateWorkerForm(req,res){
+    const worker_id = parseInt(req.params.id);
+    const worker = await adminController.getWorkerById(worker_id);
+    console.log("worker")
+    res.render("admin/updateWorker", { worker }) 
+}
+
+async function updateWorkerSubmit(req, res){
+   
+        const worker_id = parseInt(req.params.id);
+        console.log("worker id",worker_id)
+        const {user_name,password,email,first_name,last_name} = req.body
+        await adminController.updateWorker(worker_id, user_name,password,email,first_name,last_name);
+        res.redirect('/admin/users/workers');    
+}
+
+//CREATE
+function createWorkerForm(req, res){
+    res.render("admin/createWorker");
+}
+
+async function createWorkerSubmit(req, res) {
+    
+        const workerData = {
+            user_name: req.body.username,    
+            password: req.body.password,
+            email: req.body.email,
+            first_name: req.body.name,      
+            last_name: req.body.surname,    
+        };
+
+        await adminController.createWorker(workerData);
+        res.redirect('/admin/users/workers');
+    
+}
+
+//DELETE
+async function deleteWorker(req, res) {
+    try {
+        const id = parseInt(req.params.id);
+        await adminController.deleteWorker(id);
+        res.redirect('/admin/users/workers'); 
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error al borrar el trabajador');
+    }
 }
 
 
@@ -122,6 +179,14 @@ export const functions ={
     createPurseForm,
     createPurseSubmit,
     updatePurseForm,
-    updatePurseSubmit
+    updatePurseSubmit,
+    showClients,
+    showWorkers,
+    updateWorkerForm,
+    updateWorkerSubmit,
+    createWorkerForm,
+    createWorkerSubmit,
+    deleteWorker
+
 }
 export default functions
