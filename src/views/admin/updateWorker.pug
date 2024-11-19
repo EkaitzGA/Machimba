@@ -14,16 +14,14 @@ block content
             button(type="button") VOLVER A TRABAJADORES
     form(action=`/admin//users/workers/${worker.worker_id}/updatesubmit`, method="post")
         h1 ACTUALIZAR TRABAJADOR
-        label(for="username") 
-        input(id="username", type="text", name="username",placeholder="NOMBRE DEL USUARIO") 
+        label(for="user_name") 
+        input(id="user_name", type="text", name="user_name",placeholder="NOMBRE DEL USUARIO", value=worker.user.user_name) 
         label(for="password") 
         input(id="password", type="text", name="password",placeholder="CONTRASEÑA") 
         label(for="email") 
-        input(id="email", type="text", name="email",placeholder="EMAIL")
-        label(for="name") 
-        input(id="name", type="text", name="name",placeholder="NOMBRE") 
-        label(for="surname") 
-        input(id="surname", type="text", name="surname",placeholder="APELLIDO")
-        label(for="register_date") 
-        input(id="register_date", type="date", name="register_date",placeholder="FECHA DE REGISTRO")
+        input(id="email", type="text", name="email",placeholder="EMAIL", value=worker.user.email)
+        label(for="first_name") 
+        input(id="name", type="text", name="first_name",placeholder="NOMBRE",value=worker.user.first_name) 
+        label(for="last_name") 
+        input(id="last_name", type="text", name="last_name",placeholder="APELLIDO", value=worker.user.last_name)
         button(type="submit") ACTUALIZAR

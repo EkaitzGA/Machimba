@@ -26,28 +26,19 @@ async function showHistory(req, res){
 }
 //UPDATE
 async function updateWorkerForm(req,res){
-    const id = parseInt(req.params.id);
-    const { worker } = await adminController.getWorkerById(id);
+    const worker_id = parseInt(req.params.id);
+    const worker = await adminController.getWorkerById(worker_id);
+    console.log("worker")
     res.render("admin/updateWorker", { worker }) 
 }
 
 async function updateWorkerSubmit(req, res){
-    try {
-        const id = parseInt(req.params.id);
-        const updatedData = {
-            username: req.body.username,
-            password: req.body.password,
-            email: req.body.email,
-            name: req.body.name,
-            surname: req.body.surname,
-            register_date: req.body.register_date,
-        };
-        await adminController.updateWorker(id, updatedData);
-        res.redirect('/admin/users/workers');
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al actualizar el trabajador');
-    }
+   
+        const worker_id = parseInt(req.params.id);
+        console.log("worker id",worker_id)
+        const {user_name,password,email,first_name,last_name} = req.body
+        await adminController.updateWorker(worker_id, user_name,password,email,first_name,last_name);
+        res.redirect('/admin/users/workers');    
 }
 
 //CREATE
@@ -56,22 +47,18 @@ function createWorkerForm(req, res){
 }
 
 async function createWorkerSubmit(req, res) {
-    try {
+    
         const workerData = {
-            username: req.body.username,
+            user_name: req.body.username,    
             password: req.body.password,
             email: req.body.email,
-            name: req.body.name,
-            surname: req.body.surname,
-            register_date: req.body.register_date
+            first_name: req.body.name,      
+            last_name: req.body.surname,    
         };
-        
+
         await adminController.createWorker(workerData);
         res.redirect('/admin/users/workers');
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al crear el trabajador');
-    }
+    
 }
 
 //DELETE

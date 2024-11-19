@@ -16,9 +16,14 @@ block content
             h3 CREAR TRABAJADOR NUEVO
     h1 Lista de trabajadores
     article(class="admin-workers")
-    each worker in workers 
+         each worker in workers 
             p ID de worker: #{worker.worker_id}
             p ID de usuario: #{worker.user_id}
+            p Nombre de usuario: #{worker.user.user_name}
+            p Contraseña: #{worker.user.password}
+            p Email: #{worker.user.email}
+            p Nombre: #{worker.user.first_name}
+            p Apellido: #{worker.user.last_name}
             a(href=`/admin/users/workers/${worker.worker_id}/update`) ACTUALIZAR
                     
                     form(action=`/admin/users/workers/${worker.worker_id}/delete` method="POST")
