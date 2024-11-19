@@ -35,69 +35,35 @@ INSERT INTO `Machimba`.`product` (`name`, `description`, `collection`, `price`, 
 ('Luna', 'Místico bolso en terciopelo combinado que captura la magia nocturna en sus tonos y texturas.', 'Antique Collection', 100, 'https://i.ibb.co/d015tXm/Luna.png', 'Combinado', 'Terciopelo'),
 ('Luna small', 'Elegante versión reducida en terciopelo que mantiene el encanto enigmático de Luna.', 'Antique Collection', 100, 'https://i.ibb.co/K6PWCtt/Luna-small.png', 'Combinado', 'Terciopelo'),
 ('Lysandra', 'Refinado bolso en terciopelo combinado que fusiona delicadeza y carácter aristocrático.', 'Antique Collection', 100, 'https://i.ibb.co/qW96Ng2/Lysandra.png', 'Combinado', 'Terciopelo'),
-('Lysandra small', 'Delicada versión pequeña en terciopelo que conserva la esencia noble del modelo original.', 'Antique Collection', 100, 'https://i.ibb.co/gw7vJw6/Lysandra-small.png', 'Combinado', 'Terciopelo'),
-('Juniper', 'Cautivador bolso en terciopelo combinado que evoca la sofisticación de épocas pasadas.', 'Antique Collection', 100, 'https://i.ibb.co/XtmdWFM/Juniper.png', 'Combinado', 'Terciopelo'),
-('Morgana', 'Misterioso diseño en terciopelo combinado que desprende un aura de elegancia intemporal.', 'Antique Collection', 100, 'https://i.ibb.co/yk71cNm/Morgana.png', 'Combinado', 'Terciopelo'),
-('Nixie', 'Encantador bolso en terciopelo combinado que fusiona fantasía y refinamiento clásico.', 'Antique Collection', 100, 'https://i.ibb.co/wJGNxFb/Nixie.png', 'Combinado', 'Terciopelo'),
-('Selene', 'Etéreo diseño en terciopelo combinado que refleja luminosidad y elegancia nocturna.', 'Antique Collection', 100, 'https://i.ibb.co/1Lfc6QB/Selene.png', 'Combinado', 'Terciopelo'),
-('Susy-Q', 'Distinguido bolso en terciopelo combinado que evoca el glamour vintage.', 'Antique Collection', 100, 'https://i.ibb.co/q0RTXd1/susy-q-antique.png', 'Combinado', 'Terciopelo'),
-('Susy', 'Elegante bolso en piel burdeos que combina sofisticación y carácter atemporal.', 'Permanent Collection', 90, 'https://i.ibb.co/nDmHSGS/piel-burdeos.png', 'Burdeos', 'Piel'),
-('Susy', 'Bolso en piel multicolor que fusiona tonos para crear un accesorio único.', 'Permanent Collection', 90, 'https://i.ibb.co/ZJht2QX/metalizado-fantasia.png', 'Combinado', 'Piel'),
-('Susy', 'Clásico bolso en piel tabaco que destaca por su elegancia intemporal.', 'Permanent Collection', 90, 'https://i.ibb.co/tKZ7zwX/piel-tabaco.png', 'Tabaco', 'Piel'),
-('Susy', 'Sofisticado bolso en piel negra, un clásico que nunca pasa de moda.', 'Permanent Collection', 90, 'https://i.ibb.co/n74RpWL/piel-negra.png', 'Negro', 'Piel'),
-('Susy', 'Delicado diseño en terciopelo rosa que irradia dulzura y feminidad.', 'Permanent Collection', 90, 'https://i.ibb.co/zZKTGL6/rosa-perla.png', 'Rosa', 'Terciopelo'),
-('Susy', 'Cautivador bolso en terciopelo verde que aporta un toque de distinción natural.', 'Permanent Collection', 90, 'https://i.ibb.co/CM7RTN6/verde-billar.png', 'Verde', 'Terciopelo'),
-('Susy', 'Sofisticado diseño en terciopelo azul que transmite serenidad y elegancia.', 'Permanent Collection', 90, 'https://i.ibb.co/d4V1sHy/azul-elegante.png', 'Azul', 'Terciopelo'),
-('Susy', 'Versátil bolso en terciopelo beige que destaca por su refinada neutralidad.', 'Permanent Collection', 90, 'https://i.ibb.co/pryvHcF/beige.png', 'Beige', 'Terciopelo'),
-('Susy', 'Elegante pieza en terciopelo verde que evoca la frescura con estilo.', 'Permanent Collection', 90, 'https://i.ibb.co/MspRNPJ/musgo.png', 'Verde', 'Terciopelo'),
-('Susy', 'Vibrante bolso en terciopelo mostaza que aporta calidez y personalidad.', 'Permanent Collection', 90, 'https://i.ibb.co/FD25JP7/mostaza.png', 'Mostaza', 'Terciopelo'),
-('Susy', 'Romántico diseño en terciopelo lila que irradia delicadeza y misterio.', 'Permanent Collection', 90, 'https://i.ibb.co/nCVTBkk/lila.png', 'Lila', 'Terciopelo'),
-('Susy', 'Majestuoso bolso en terciopelo morado que transmite realeza y distinción.', 'Permanent Collection', 90, 'https://i.ibb.co/NKTNxtP/morado.png', 'Morado', 'Terciopelo'),
-('Susy', 'Eterno diseño en terciopelo negro que encarna la elegancia absoluta.', 'Permanent Collection', 90, 'https://i.ibb.co/CtH7RpP/terciopelo-negro.png', 'Negro', 'Terciopelo'),
-('Fuzzy', 'Fresco diseño en lino multicolor complementado con asas de madera natural, perfecto para un look cosmopolita y casual.', 'New York Collection', 85, 'https://i.ibb.co/FxmNZW1/japo.png', 'Combinado', 'Lino'),
-('Fuzzy', 'Vibrante bolso en lino amarillo con asas de madera, que aporta un toque de alegría veraniega al estilo neoyorquino.', 'New York Collection', 85, 'https://i.ibb.co/93fBP3K/amarillo.png', 'Amarillo', 'Lino'),
-('Fuzzy', 'Cautivador bolso en terciopelo rojo con distintivas asas de madera, que fusiona calidez y elegancia urbana.', 'New York Collection', 85, 'https://i.ibb.co/RN1G65K/rojo.png', 'Rojo', 'Terciopelo'),
-('Machimbag', 'Clásico bolso en terciopelo verde con asas de piel negra, un diseño original que marcó el estilo de la marca.', 'Permanent Collection', 90, 'https://i.ibb.co/KrK1BC5/verde-rayado.png', 'Verde', 'Terciopelo'),
-('Machimbag', 'Emblemático diseño en terciopelo verde realzado por sus asas de piel negra, símbolo del legado de la marca.', 'Permanent Collection', 90, 'https://i.ibb.co/N9WPMMh/verde-pistacho.png', 'Verde', 'Terciopelo'),
-('Machimbag', 'Distinguido bolso en terciopelo mostaza con asas de piel negra, que evoca la esencia vintage de la colección.', 'Permanent Collection', 90, 'https://i.ibb.co/vxkd2rF/mostaza-y-verde.png', 'Mostaza', 'Terciopelo'),
-('Machimbag', 'Icónico bolso en terciopelo rojo contrastado con asas de piel negra, un clásico atemporal.', 'Permanent Collection', 90, 'https://i.ibb.co/c6TfSfZ/rojo.png', 'Rojo', 'Terciopelo'),
-('Machimbag', 'Eterno diseño en terciopelo verde complementado con asas de piel negra, parte de la historia de la marca.', 'Permanent Collection', 90, 'https://i.ibb.co/Dfr3dQh/verde-musgo.png', 'Verde', 'Terciopelo'),
-('Machimbag', 'Sofisticado bolso en terciopelo mostaza con asas de piel negra, que mantiene viva la tradición.', 'Permanent Collection', 90, 'https://i.ibb.co/tJvJXkX/mostaza-y-marron.png', 'Mostaza', 'Terciopelo'),
-('Machimbag', 'Legendario diseño en terciopelo verde y asas de piel negra, un tributo al origen de la marca.', 'Permanent Collection', 90, 'https://i.ibb.co/1ZL46Bk/verde-botella.png', 'Verde', 'Terciopelo'),
-('Machimbag', 'Elegante bolso en terciopelo azul con asas de piel negra, que representa la herencia de la marca.', 'Permanent Collection', 90, 'https://i.ibb.co/CnjJXWf/azul-celeste.png', 'Azul', 'Terciopelo'),
-('Machimbag', 'Distinguido diseño en terciopelo tabaco con asas de piel negra, un testamento al estilo original.', 'Permanent Collection', 90, 'https://i.ibb.co/BnRpqpn/tabaco.png', 'Tabaco', 'Terciopelo'),
-('Machimbag', 'Majestuoso bolso en terciopelo morado realzado por asas de piel negra, un clásico reinventado.', 'Permanent Collection', 90, 'https://i.ibb.co/cDVbbb9/morado.png', 'Morado', 'Terciopelo'),
-('Machimbag', 'Emblemático diseño en terciopelo azul con asas de piel negra, que mantiene vivo el espíritu original.', 'Permanent Collection', 90, 'https://i.ibb.co/YkGqbSh/azul-otro-forro.png', 'Azul', 'Terciopelo');
-
+('Lysandra small', 'Delicada versión pequeña en terciopelo que conserva la esencia noble del modelo original.', 'Antique Collection', 100, 'https://i.ibb.co/gw7vJw6/Lysandra-small.png', 'Combinado', 'Terciopelo');
 
 
 -- Insertar usuarios
 INSERT INTO `Machimba`.`user` (`user_name`, `password`, `email`, `first_name`, `last_name`)
 VALUES
-  ('EkaitzGA', 'admin1234', 'ekaitzguerra@gmail.com', 'Ekaitz', 'Guerra'),
-  ('inesu', 'admin1234', 'inesuribeb@gmail.com', 'Ines', 'Uribe'),
-  ('samucopp', 'admin1234', 'samucop@icloud.com', 'Samuel', 'Correia'),
-  ('lauracastillo', 'laura2024', 'lauracastillo@mail.com', 'Laura', 'Castillo'),
-  ('jorgefernandez', 'jorgepass', 'jorgefernandez@mail.com', 'Jorge', 'Fernández'),
-  ('silviaperez', 'silviapassword', 'silviaperez@mail.com', 'Silvia', 'Pérez'),
-  ('luisgomez', 'luisgomez2024', 'luisgomez@mail.com', 'Luis', 'Gómez'),
-  ('carlaruiz', 'carla4321', 'carlaruiz@mail.com', 'Carla', 'Ruiz'),
-  ('pablovargas', 'pablovargas123', 'pablovargas@mail.com', 'Pablo', 'Vargas'),
-  ('marcosluna', 'marcos2024', 'marcosluna@mail.com', 'Marcos', 'Luna'),
-  ('mariarojas', 'mariarojas2024', 'mariarojas@mail.com', 'María', 'Rojas'),
-  ('franciscogarcia', 'franpass2024', 'franciscogarcia@mail.com', 'Francisco', 'García'),
-  ('aliciarivera', 'alicia2024', 'aliciarivera@mail.com', 'Alicia', 'Rivera'),
-  ('gabrielmendoza', 'gabrielmendoza123', 'gabrielmendoza@mail.com', 'Gabriel', 'Mendoza'),
-  ('monicacruz', 'monicacross', 'monicacruz@mail.com', 'Mónica', 'Cruz'),
-  ('danielrodriguez', 'danielpass2024', 'danielrodriguez@mail.com', 'Daniel', 'Rodríguez'),
-  ('elenaortega', 'elena2345', 'elenaortega@mail.com', 'Elena', 'Ortega'),
-  ('ricardovazquez', 'ricardo2024', 'ricardovazquez@mail.com', 'Ricardo', 'Vázquez'),
-  ('teresablanca', 'teresa1234', 'teresablanca@mail.com', 'Teresa', 'Blanca');
+  ('EkaitzGA', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'ekaitzguerra@gmail.com', 'Ekaitz', 'Guerra'),
+  ('inesu', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'inesuribeb@gmail.com', 'Ines', 'Uribe'),
+  ('samucopp', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'samucop@icloud.com', 'Samuel', 'Correia'),
+  ('lauracastillo', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'lauracastillo@mail.com', 'Laura', 'Castillo'),
+  ('jorgefernandez', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'jorgefernandez@mail.com', 'Jorge', 'Fernández'),
+  ('silviaperez', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'silviaperez@mail.com', 'Silvia', 'Pérez'),
+  ('luisgomez', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'luisgomez@mail.com', 'Luis', 'Gómez'),
+  ('carlaruiz', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'carlaruiz@mail.com', 'Carla', 'Ruiz'),
+  ('pablovargas', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'pablovargas@mail.com', 'Pablo', 'Vargas'),
+  ('marcosluna', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'marcosluna@mail.com', 'Marcos', 'Luna'),
+  ('mariarojas', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'mariarojas@mail.com', 'María', 'Rojas'),
+  ('franciscogarcia', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'franciscogarcia@mail.com', 'Francisco', 'García'),
+  ('aliciarivera', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'aliciarivera@mail.com', 'Alicia', 'Rivera'),
+  ('gabrielmendoza', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'gabrielmendoza@mail.com', 'Gabriel', 'Mendoza'),
+  ('monicacruz', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'monicacruz@mail.com', 'Mónica', 'Cruz'),
+  ('danielrodriguez', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'danielrodriguez@mail.com', 'Daniel', 'Rodríguez'),
+  ('elenaortega', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'elenaortega@mail.com', 'Elena', 'Ortega'),
+  ('ricardovazquez', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'ricardovazquez@mail.com', 'Ricardo', 'Vázquez'),
+  ('teresablanca', '$2a$10$97Y9FlAmeCpR7nySuane1eE2d1sp.YFTEbAgaPBHcwq8LGYlwjNWi', 'teresablanca@mail.com', 'Teresa', 'Blanca');
 
 -- Insertar clientes
 INSERT INTO `Machimba`.`client` (`address`, `phone`, `user_id`)
 VALUES
-
   ('Calle Gran Vía 200, Valencia', '963678901', 4),
   ('Calle Larga 50, Zaragoza', '976789012', 5),
   ('Calle de las Flores 33, Bilbao', '944890123', 6),
@@ -110,7 +76,10 @@ VALUES
   ('Calle Rosaleda 8, Salamanca', '923567890', 13),
   ('Avenida del Norte 50, Oviedo', '985678901', 14),
   ('Calle de la Luna 99, Lugo', '982789012', 15),
-  ('Calle del Río 75, León', '987890123', 16);
+  ('Calle del Río 75, León', '987890123', 16),
+  ('', '', 17),
+  ('', '', 18),
+  ('', '', 19);
 
 -- Insertar trabajadores
 INSERT INTO `Machimba`.`worker` (`user_id`)
@@ -123,18 +92,18 @@ VALUES
 INSERT INTO `Machimba`.`purchase` (`client_id`, `status`)
 VALUES
     (1, 'pendiente'), 
-    (2, 'aceptado/solicitado'),
+    (2, 'pendiente'),
     (3, 'pendiente'),
-    (4, 'aceptado/solicitado'),
+    (4, 'pendiente'),
     (5, 'pendiente'),
-    (6, 'aceptado/solicitado'),
+    (6, 'pendiente'),
     (7, 'pendiente'),
-    (8, 'aceptado/solicitado'),
-    (12, 'aceptado/solicitado'),
+    (8, 'pendiente'),
+    (12, 'pendiente'),
     (13, 'pendiente'),
-    (14, 'aceptado/solicitado'),
+    (14, 'pendiente'),
     (15, 'pendiente'),
-    (16, 'aceptado/solicitado');
+    (16, 'pendiente');
     
 -- Inserta productos en las compras (product_id entre 1 y 34)
 INSERT INTO `Machimba`.`purchase_has_product` (`purchase_id`, `product_id`, `quantity`)
@@ -157,3 +126,7 @@ VALUES
     (11, 25, 5), -- Compra 14: Producto 25, cantidad 5
     (12, 30, 2), -- Compra 15: Producto 30, cantidad 2
     (13, 34, 3); -- Compra 16: Producto 34, cantidad 3
+
+UPDATE `Machimba`.`purchase`
+SET status = 'aceptado/solicitado'
+WHERE client_id IN (2, 4, 6, 8, 12, 14, 16);

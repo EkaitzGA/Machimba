@@ -1,11 +1,11 @@
 import { Router } from "express";
-import registerController from "../controllers/shop/registerController.js"
+import registerViewController from "../controllers/auth/registerViewController.js"
 
 const router = Router()
 
-router.get("/",registerController.registerForm)
+router.get("/",registerViewController.registerForm)
 
-router.post("/",registerController.registerSubmit)
+router.post("/",registerViewController.registerNewClient)
 
 
 export default router

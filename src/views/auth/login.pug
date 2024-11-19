@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 block header
     div.shop-header
@@ -20,6 +20,9 @@ block content
     div.login-container
         div.login-title
             h1 INICIA SESIÓN 
+        block message
+            if(message && messageType)
+                p(class=`message ${messageType}`)= message
         div.login-form
             form(action="/login", method="post")
                 label(for="email") 

@@ -1,11 +1,13 @@
 import { Router } from "express";
-import loginController from "../controllers/shop/loginController.js"
+import loginViewController from "../controllers/auth/loginViewController.js"
 
 const router = Router()
 
-router.get("/",loginController.login)
+router.get("/",loginViewController.loginForm)
 
-router.post("/",loginController.loginAccess)
+router.post("/",loginViewController.login)
+
+router.get("/logout",loginViewController.logout);
 
 
 export default router

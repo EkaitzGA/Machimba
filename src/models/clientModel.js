@@ -4,7 +4,7 @@ import adminUserModel from "./adminUserModel.js";
 
 const Client = sequelize.define("client", {
     client_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         primaryKey: true,
         autoIncrement: true
@@ -15,11 +15,11 @@ const Client = sequelize.define("client", {
     },
     address: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     },
     phone: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
     }
 })
 

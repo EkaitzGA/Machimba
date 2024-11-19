@@ -2,10 +2,9 @@ h1 Tus Datos
 article(class="personal-data")
     if client.user
         p Nombre de usuario: #{client.user.user_name}
-        p Contraseña: #{client.user.password}
         p Email: #{client.user.email}
         p Nombre: #{client.user.first_name}
         p Apellido: #{client.user.last_name}
         p Dirección: #{client.address}
         p Teléfono: #{client.phone}
-        p Fecha de registro: #{client.user.register_date}
+        p Fecha de registro: #{client.formatted_date}

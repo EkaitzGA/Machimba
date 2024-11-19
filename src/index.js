@@ -1,8 +1,19 @@
 import express from 'express'; // framework para crear el servidor
 import router from './routes/router.js';// importar rutas
+import session from "express-session";
 
 const app = express();// crear servidor 
 
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(function (req, res, next) {
+    res.locals.user = req.session.user || null;
+    next();
+ });// middleware para sacar informacion de sesion en vistas
+ 
 app.set('view engine', 'pug');// configurar motor de plantillas
 app.set('views','src/views');// configurar directorio de plantillas
 
