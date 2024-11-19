@@ -1,4 +1,4 @@
-import adminUserModel from "../../models/adminUserModel.js"
+import userModel from "../../models/userModel.js"
 import clientModel from "../../models/clientModel.js"
 import historyModel from "../../models/historyModel.js"
 import { hashPassword } from "../../config/bcrypt.js";
@@ -36,7 +36,7 @@ function cleanHistoryByPurchase(history) {
 
 async function getClientById(client_id) {
     const personalData = await clientModel.findByPk(client_id, {
-        include: adminUserModel
+        include: userModel
     });
     const options = {
         year: 'numeric',
@@ -50,7 +50,7 @@ async function getClientById(client_id) {
 async function getClientByEmail(email) {
     const client = await clientModel.findOne({
         include: {
-            model: adminUserModel,
+            model: userModel,
             where: {
                 email: email
             }
@@ -62,7 +62,7 @@ async function getClientByEmail(email) {
 async function getClientByUserName(user_name) {
     const client = await clientModel.findOne({
         include: {
-            model: adminUserModel,
+            model: userModel,
             where: {
                 user_name: user_name
             }
@@ -73,7 +73,7 @@ async function getClientByUserName(user_name) {
 
 async function createClient(user_name, first_name, last_name, email, password) {
     const hash = await hashPassword(password);
-    const newUser = await adminUserModel.create({
+    const newUser = await userModel.create({
         user_name: user_name,
         password: hash,
         email: email,
@@ -88,7 +88,7 @@ async function createClient(user_name, first_name, last_name, email, password) {
 
 async function updatePersonalData(client_id, user_name, password, email, first_name, last_name, address, phone) {
     const client = await clientModel.findByPk(client_id);
-    const user = await adminUserModel.findByPk(client.user_id);
+    const user = await userModel.findByPk(client.user_id);
     user.user_name = user_name;
     if (password) {
         const hash = hashPassword(password);
@@ -106,7 +106,7 @@ async function updatePersonalData(client_id, user_name, password, email, first_n
 
 async function removeClientProfile(client_id) {
     const client = await clientModel.findByPk(client_id);
-    const userToRemove = await adminUserModel.findByPk(client.user_id);
+    const userToRemove = await userModel.findByPk(client.user_id);
     await userToRemove.destroy();
     return userToRemove;
 }
@@ -119,6 +119,6 @@ export const functions = {
     getClientById,
     getClientByEmail,
     createClient,
-    getClientByUserName
+    getClientByUserName,
 }
 export default functions

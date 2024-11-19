@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import adminUserModel from "./adminUserModel.js";
+import userModel from "./userModel.js";
 
 const Client = sequelize.define("client", {
     client_id: {
@@ -25,5 +25,5 @@ const Client = sequelize.define("client", {
 
 export default Client;
 
-adminUserModel.hasOne(Client, {foreignKey: 'user_id'});
-Client.belongsTo(adminUserModel, {foreignKey: 'user_id'});
+userModel.hasOne(Client, {foreignKey: 'user_id'});
+Client.belongsTo(userModel, {foreignKey: 'user_id'});

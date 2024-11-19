@@ -6,6 +6,7 @@ import adminRouter from "./adminRouter.js"
 import registerRouter from "./registerRouter.js"
 import clientRouter from "./clientRouter.js"
 import homeRouter from "./homeRouter.js"
+import { isWorker } from '../middlewares/view/authMiddleware.js';
 
 const router = Router();
 
@@ -21,7 +22,7 @@ router.use("/shopping-cart",shoppingCartRouter)
 
 router.use("/login", loginRouter)
 
-router.use("/admin", adminRouter)
+router.use("/admin", isWorker, adminRouter)
 
 router.use("/register", registerRouter)
 

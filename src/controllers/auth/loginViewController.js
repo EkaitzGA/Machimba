@@ -12,11 +12,16 @@ async function login(req, res) {
         const { email, password } = req.body;
         const user = await loginController.login(email, password);
         req.session.user={
-            email:user.email,
-            user_name: user.user_name,
-            client_id:user.client_id
+            email:user.user.email,
+            user_name: user.user.user_name,
+            client_id:user.client_id,
+            worker_id:user.worker_id
         }
-        const url=(`/home/?message=sesión iniciada correctamente&messageType=success`)
+        console.log(req.session.user);
+        let url=`/home/?message=sesión iniciada correctamente&messageType=success`;
+        if (user.worker_id){
+            url=`/admin`;
+        }
         res.redirect(url);
     } catch (error) {
         console.error(error);
