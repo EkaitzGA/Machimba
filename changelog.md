@@ -14,13 +14,13 @@
 
 
 ## Version 0.2.0
-
-
-## Version 0.1.2
-
+Añadido login
 
 ## Version 0.1.1
+Añadidas funcionaloidades de la sección del administrador
 
+## Version 0.1.0. 
+Añadidas funcionalidades de la sección del comprador
 
 ## Version 0.0.3
 Añadidas vistas principales de la sección del administrador
