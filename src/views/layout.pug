@@ -9,7 +9,26 @@ html(lang="es")
         link(rel="stylesheet", href="/css/shop.css")
         link(rel="stylesheet", href="/css/login-register.css")
         link(rel="stylesheet", href="/css/single-purse.css")
+        link(rel="stylesheet", href="/css/navbar.css")
         title Machimba
     body
-        block header 
+        block header
+            div.shop-header
+                div.shop-title
+                    a(href="/home") 
+                        h1 ROCIO MACHIMBARRENA
+        block navbar 
+            div.shop-nav
+                nav.profile-nav
+                    ul
+                        li
+                            a(href="/purses") CATÁLOGO
+                        if user
+                            li 
+                                a(href=`/client-profile/${user.client_id}`) MI PERFIL 
+                        else
+                            li
+                                a(href="/login") INICIAR SESIÓN
+                        li 
+                            a(href="/shopping-cart") CARRITO
         block content

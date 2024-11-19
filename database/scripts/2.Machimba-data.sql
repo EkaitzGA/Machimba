@@ -92,6 +92,7 @@ VALUES
 INSERT INTO `Machimba`.`purchase` (`client_id`, `status`)
 VALUES
     (1, 'pendiente'), 
+    (1, 'pendiente'),
     (2, 'pendiente'),
     (3, 'pendiente'),
     (4, 'pendiente'),
@@ -129,4 +130,4 @@ VALUES
 
 UPDATE `Machimba`.`purchase`
 SET status = 'aceptado/solicitado'
-WHERE client_id IN (2, 4, 6, 8, 12, 14, 16);
+WHERE client_id IN (1, 4, 6, 8, 12, 14, 16);
