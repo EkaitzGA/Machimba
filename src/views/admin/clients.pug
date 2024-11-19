@@ -10,8 +10,11 @@ block header
         button(type="button") Histórico
 
 block content 
-    a(href=`/admin/users`) 
-            button(type="button") VOLVER A USERS
+    div.clients-workers
+                    a(href=`/admin/users/clients`) 
+                            button(type="button") Ver solo clientes
+                    a(href=`/admin/users/workers`) 
+                            button(type="button") Ver solo trabajadores
     h1 Lista de clientes
     article(class="admin-clients")
     each client in clients 
