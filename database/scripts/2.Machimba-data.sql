@@ -97,9 +97,7 @@ VALUES
 -- Insertar clientes
 INSERT INTO `Machimba`.`client` (`address`, `phone`, `user_id`)
 VALUES
-  ('Calle Falsa 123, Madrid', '912345678', 1),
-  ('Avenida de la Paz 45, Barcelona', '932456789', 2),
-  ('Calle del Sol 10, Sevilla', '954567890', 3),
+
   ('Calle Gran Vía 200, Valencia', '963678901', 4),
   ('Calle Larga 50, Zaragoza', '976789012', 5),
   ('Calle de las Flores 33, Bilbao', '944890123', 6),

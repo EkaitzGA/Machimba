@@ -1,0 +1,25 @@
+extends ../layout
+
+block content 
+    h1 Editar Datos Personales
+    form(action=`/client-profile/${client.client_id}/personal-data`, method="post") 
+        label(for="user_name") Nombre de usuario
+        input(id="user_name", type="text", name="user_name", placeholder="Nombre de usuario", value=client.user.user_name)
+        label(for="first_name") Nombre
+        input(id="first_name", type="text", name="first_name", placeholder="Nombre", value=client.user.first_name) 
+        label(for="last_name") Apellidos
+        input(id="last_name", type="text", name="last_name", placeholder="Apellidos", value=client.user.last_name)
+        label(for="email") Correo electrónico
+        input(id="email", type="email", name="email",placeholder="Correo electrónico", value=client.user.email)
+        label(for="address") Dirección
+        input(id="address", type="text", name="address",placeholder="Dirección", value=client.address)
+        label(for="phone") Teléfono
+        input(id="phone", type="text", name="phone",placeholder="Teléfono", value=client.phone)
+        label(for="password") Contraseña
+        input(id="password", type="text", name="password", placeholder="Contraseña", value=client.user.password)
+
+        a(href=`/client-profile/${client.client_id}`) 
+            button(type="submit") Guardar
+            button(type="button") Cancelar 
+    form(action=`/client-profile/${client.client_id}/delete`, method="post") 
+        button(type="submit") Borrar Cuenta

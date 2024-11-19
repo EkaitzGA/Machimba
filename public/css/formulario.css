@@ -1,0 +1,64 @@
+/* .color-group {
+    padding: 20px;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.color-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.color-option input[type="radio"] {
+    display: none;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Colores específicos */
+/* .rojo { background-color: #FF0000; }
+.verde { background-color: #008000; }
+.morado { background-color: #800080; }
+.negro { background-color: #000000; }
+.azul { background-color: #0000FF; }
+.plateado { background-color: #C0C0C0; }
+.burdeos { background-color: #800020; }
+.rosa { background-color: #FFC0CB; }
+.beige { background-color: #F5F5DC; }
+.mostaza { background-color: #FFD700; }
+.lila { background-color: #E6E6FA; }
+.tabaco { background-color: #8B4513; }
+.amarillo { background-color: #FFFF00; }
+
+/* Estilo cuando está seleccionado */
+/* .color-option input[type="radio"]:checked + label,
+.color-option input[type="radio"]:checked + .color-box + label {
+    font-weight: bold;
+}
+
+.color-option:hover label {
+    text-decoration: underline;
+} */
+
+/* Para que el cursor pointer funcione en toda la opción */
+/* .color-option label {
+    cursor: pointer;
+} */
+
+/* Estilos para el label principal COLOR */
+/* .color-group > label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}  */

@@ -5,10 +5,10 @@ const router = Router()
 
 router.get("/:id",clientViewController.showProfile)
 
-router.get("/:id/personal-data",clientViewController.getPersonalData)
+router.get("/:id/personal-data/update",clientViewController.updateForm);
 
-router.get("/:id/purchase-history",clientViewController.getClientHistory)
+router.post("/:id/personal-data",clientViewController.update);
 
-
+router.post("/:id/delete",clientViewController.remove);
 
 export default router

@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
-import userModel from "./userModel.js";
+import adminUserModel from "./adminUserModel.js";
 
 
 const Worker = sequelize.define("worker", {
@@ -18,6 +18,6 @@ const Worker = sequelize.define("worker", {
 
 export default Worker;
 
-userModel.hasOne(Worker, {foreignKey: 'user_id'});
-Worker.belongsTo(userModel, {foreignKey: 'user_id'});
+adminUserModel.hasOne(Worker, {foreignKey: 'user_id'});
+Worker.belongsTo(adminUserModel, {foreignKey: 'user_id'});
 
