@@ -142,7 +142,7 @@
  .register-form button {
     width: 100%;
     padding: 15px;
-    margin-top: 30px;  /* Un poco más de espacio antes del botón */
+    margin-top: 30px;
     border: 1px solid #333;
     background: #333;
     color: white;
@@ -173,6 +173,6 @@
     }
     
     .register-form form {
-        gap: 15px;  /* Menos espacio en móvil */
+        gap: 15px; 
     }
  }

@@ -17,19 +17,28 @@ block header
                         a(href="/shopping-cart") CARRITO
 
 block content
-    h1 Un solo bolso
-    a(href="/purses") Volver a todos los bolsos
-    if purse
-        div.purse-card-single
-            img(src=purse.image alt=purse.name)
-            h3= purse.name
-            p= purse.description
-            p Colección: #{purse.collection}
-            p Color: #{purse.color}
-            p Material: #{purse.material}
-            p Precio: #{purse.price}€
+    div.single-container
+        div.single-close
+            a(href="/purses") X
+
+        div.single-title
+            h1= purse.name
             
-            button(type="submit" name="buy" value=purse.id) COMPRAR
+        
+        div.single-details
+            if purse
+                div.purse-card-single
+                    div.column-1
+                        img(src=purse.image alt=purse.name)
+                    div.column-2
+                        h3= purse.name
+                        p= purse.description
+                        p Colección: #{purse.collection}
+                        p Color: #{purse.color}
+                        p Material: #{purse.material}
+                        p Precio: #{purse.price}€
+                        
+                        button(type="submit" name="buy" value=purse.id) COMPRAR
             
             
     
