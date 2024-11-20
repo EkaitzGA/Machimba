@@ -33,12 +33,28 @@ class PASSWORDS_DONT_MATCH extends Error{
     }
 }
 
+class ORDER_ALREADY_OPEN extends Error{
+    constructor(){
+        super("Ya existe un pedido abierto");
+        this.status = 409;
+    }
+}
+
+class ORDER_DOESNT_EXIST extends Error {
+    constructor(){
+        super("No existe un pedido abierto");
+        this.status = 404;
+    }
+}
+
 export const errors ={
     CLIENT_NOT_FOUND,
     CLIENT_ALREADY_EXISTS,
     EMAIL_ALREADY_EXISTS,
     INVALID_CREDENTIALS,
-    PASSWORDS_DONT_MATCH
+    PASSWORDS_DONT_MATCH,
+    ORDER_ALREADY_OPEN,
+    ORDER_DOESNT_EXIST
 }
 
 export default errors;

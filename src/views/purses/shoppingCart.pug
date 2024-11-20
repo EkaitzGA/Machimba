@@ -1,25 +1,50 @@
 extends ../layout
 
 block content
-    h1 TU CARRITO DE COMPRA
+   h1.title TU CARRITO
 
-    form(action="/shopping-cart", method="post")
-        if cart && cart.purses.length > 0
-            each purse in cart.purses
-                div
-                    img(src=purse.image alt=purse.name)
-                    p= purse.name 
-                    p Precio: #{purse.price}€
-       
-                    input(type="number" name=`quantity-${purse.id}` value=purse.quantity min="0")
-       
-                    button(type="submit" name="remove" value=purse.id) ELIMINAR
-       
-                    p Subtotal: #{purse.price * purse.quantity}€
-   
-            p TOTAL: #{cart.total}€
-   
-            button(type="submit" name="update") ACTUALIZAR CARRITO
-            button(type="submit" name="buy") COMPRAR
-        else
-            p Tu carrito está vacío
+   if cart && cart.products.length > 0
+       .cart-container
+           .cart-items
+               each purse in cart.products
+                   - const subtotal = purse.purchase_has_product.subtotal
+                   - total = (total || 0) + subtotal
+                   .cart-item
+                       .item-image
+                           img(src=purse.image alt=purse.name)
+                       .item-details
+                           .item-name= purse.name
+                           .item-price #{purse.price}€
+                           .item-controls
+                               form.quantity-form(action="/shopping-cart/update" method="post")
+                                   input(type="hidden" name="product_id" value=purse.product_id)
+                                   .quantity-control
+                                       button.qty-btn(type="button") -
+                                       input.qty-input(type="number" name="quantity" 
+                                                     value=purse.purchase_has_product.quantity min="1")
+                                       button.qty-btn(type="button") +
+                                   button.update-btn(type="submit") Actualizar
+                               form.remove-form(action="/shopping-cart/delete" method="post")
+                                   input(type="hidden" name="product_id" value=purse.product_id)
+                                   button.remove-btn(type="submit") Eliminar
+                           .item-subtotal Subtotal: #{subtotal}€
+
+           .cart-summary
+               .summary-total
+                   span Total 
+                   span #{total}€
+               button#checkout-btn(type="button") FINALIZAR COMPRA
+
+       form#checkout-form.checkout-form(action="/shopping-cart/buy" method="post")
+           .form-group
+               label(for="address") Dirección
+               input#address(type="text" name="address" value=client.address)
+           .form-group
+               label(for="phone") Teléfono 
+               input#phone(type="text" name="phone" value=client.phone)
+           button.submit-btn(type="submit") CONFIRMAR PEDIDO
+   else
+       .empty-cart
+           p Tu carrito está vacío
+
+   script(src="/js/shopping-cart.js")

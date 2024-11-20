@@ -196,11 +196,9 @@ block content
                     p.collection= purse.collection
                     p Precio: #{purse.price}€
                 div.action-purse
-                    a(href=`/purses/${purse.product_id}`)
-                    if purse.collection === "Unique Collection"
-                        button(type="submit" name="buy" value=purse.id) SOLICITAR
-                    else
-                        button(type="submit" name="buy" value=purse.id) COMPRAR
+                    form(action="/shopping-cart", method="post") 
+                        input(type="hidden" name='product_id' value=purse.product_id)
+                        button(type="submit" name="buy" value=purse.id) AÑADIR
 
     div.button-pages
         if (page>1)
