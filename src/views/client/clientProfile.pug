@@ -1,8 +1,11 @@
 extends ../layout
 
+block styles 
+    link(rel="stylesheet", href="/css/client-profile.css")
+
 block content
     main(class= 'client-profile-container')
-        h1 Bienvenide a tu perfil, #{client.user.user_name}
+        h1(class='profile-title') Bienvenide a tu perfil, #{client.user.user_name}
         article(class= 'client-info-container')
             if client.user 
                 article(class= 'personal-data-container')
