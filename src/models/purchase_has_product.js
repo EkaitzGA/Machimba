@@ -13,6 +13,7 @@ const Purchase_has_product = sequelize.define("purchase_has_product", {
     quantity: {
         type: DataTypes.INTEGER.UNSIGNED,
         allowNull: false,
+        defaultValue: 1,
     },
     subtotal: {
         type: DataTypes.INTEGER.UNSIGNED,

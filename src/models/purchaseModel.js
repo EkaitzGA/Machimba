@@ -37,5 +37,5 @@ const Purchase = sequelize.define("purchase", {
 
 export default Purchase;
 
-Purchase.belongsToMany(purseModel, {through:phpModel, foreignKey: 'product_id'})
-purseModel.belongsToMany(Purchase, {through:phpModel, foreignKey: 'purchase_id'})
+Purchase.belongsToMany(purseModel, {through:phpModel, foreignKey: 'purchase_id'})
+purseModel.belongsToMany(Purchase, {through:phpModel, foreignKey: 'product_id'})

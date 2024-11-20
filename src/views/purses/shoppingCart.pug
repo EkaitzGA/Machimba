@@ -3,23 +3,33 @@ extends ../layout
 block content
     h1 TU CARRITO DE COMPRA
 
-    form(action="/shopping-cart", method="post")
-        if cart && cart.purses.length > 0
-            each purse in cart.purses
+    if cart && cart.products.length > 0
+        - let total = 0
+        each purse in cart.products
+            - const subtotal = purse.purchase_has_product.subtotal
+            - total += subtotal
                 div
                     img(src=purse.image alt=purse.name)
                     p= purse.name 
-                    p Precio: #{purse.price}€
-       
-                    input(type="number" name=`quantity-${purse.id}` value=purse.quantity min="0")
-       
-                    button(type="submit" name="remove" value=purse.id) ELIMINAR
-       
-                    p Subtotal: #{purse.price * purse.quantity}€
-   
-            p TOTAL: #{cart.total}€
-   
-            button(type="submit" name="update") ACTUALIZAR CARRITO
-            button(type="submit" name="buy") COMPRAR
-        else
-            p Tu carrito está vacío
+                    form(action="/shopping-cart/update", method="post")
+                        input(type="hidden" name='product_id' value=purse.product_id)
+                        input(type="number" name=`quantity` value=purse.purchase_has_product.quantity min="1")
+                        button(type="submit" name='update' value=purse.purchase_has_product.quantity) ACTUALIZAR
+                    form(action="/shopping-cart/delete", method="post")
+                        input(type="hidden" name='product_id' value=purse.product_id)
+                        button(type="submit" name="remove") ELIMINAR
+                    p Subtotal: #{subtotal}€
+        p TOTAL: #{total}€
+
+        button(type='submit' name='client-data' id='button-show-data') REVISAR DATOS
+        form(action="/shopping-cart/buy", method="post" class='hidden-data' id='form-show-data')
+            label(for="address") Dirección
+            input(id="address", type="text", name="address",placeholder="Dirección", value=client.address)
+            label(for="phone") Teléfono
+            input(id="phone", type="text", name="phone",placeholder="Teléfono", value=client.phone)
+            button(type="submit" name="buy") FINALIZAR PEDIDO
+    else
+        p Tu carrito está vacío
+
+
+    script(src="/js/shopping-cart.js") 
