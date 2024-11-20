@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.client-profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.profile-title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Section Styles */
+.client-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #555;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.personal-data-container,
+.history-container {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Personal Data */
+.personal-data p {
+    margin: 5px 0;
+    color: #666;
+}
+
+/* General Styles for Short History */
+.short-history {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que las tarjetas pasen a la siguiente fila si no caben */
+    gap: 20px;
+    /* Espacio entre las tarjetas */
+    margin-bottom: 20px;
+}
+
+.short-purchase-info {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: calc(50% - 20px);
+    /* Dos tarjetas por fila, considerando el espacio del gap */
+    box-sizing: border-box;
+    /* Asegura que padding no afecte el ancho */
+}
+
+.short-purchase-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+
+
+/* Buttons */
+a button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+a button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .client-profile-container {
+        padding: 15px;
+    }
+    
+    .profile-title {
+        font-size: 20px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    a button {
+        width: 100%;
+        text-align: center;
+    }
+    .short-purchase-info {
+        width: 100%;
+        /* Las tarjetas ocuparán todo el ancho en pantallas pequeñas */
+    }
+}
