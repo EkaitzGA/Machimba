@@ -3,6 +3,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 }
 
 .title {
@@ -35,9 +37,25 @@
 }
 
 .item-name {
-    font-size: 16px;
     color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 15px;
 }
+
+.item-price {
+    font-size: 13px;
+}
+
+.item-subtotal {
+    font-size: 14px;
+}
+
+.summary-total {
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
 
 
 .quantity-control {
@@ -78,6 +96,7 @@
     border: none;
     margin-top: 20px;
     cursor: pointer;
+    margin-bottom: 40px;
 }
 
 /* Checkout Form */
@@ -110,4 +129,21 @@
     color: white;
     border: none;
     cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border: 1px solid #eee;
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.empty-cart p {
+    font-size: 15px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }

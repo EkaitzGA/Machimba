@@ -1,7 +1,7 @@
 extends ../layout
 
 block content
-   h1.title TU CARRITO
+   h1.title
 
    if cart && cart.products.length > 0
        .cart-container
@@ -14,7 +14,7 @@ block content
                            img(src=purse.image alt=purse.name)
                        .item-details
                            .item-name= purse.name
-                           .item-price #{purse.price}€
+                           .item-price #{purse.price} EUR
                            .item-controls
                                form.quantity-form(action="/shopping-cart/update" method="post")
                                    input(type="hidden" name="product_id" value=purse.product_id)
@@ -27,12 +27,12 @@ block content
                                form.remove-form(action="/shopping-cart/delete" method="post")
                                    input(type="hidden" name="product_id" value=purse.product_id)
                                    button.remove-btn(type="submit") Eliminar
-                           .item-subtotal Subtotal: #{subtotal}€
+                           .item-subtotal Subtotal: #{subtotal} EUR
 
            .cart-summary
                .summary-total
                    span Total 
-                   span #{total}€
+                   span #{total} EUR
                button#checkout-btn(type="button") FINALIZAR COMPRA
 
        form#checkout-form.checkout-form(action="/shopping-cart/buy" method="post")
