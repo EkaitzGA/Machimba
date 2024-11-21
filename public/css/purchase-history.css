@@ -1,15 +1,18 @@
-body {
+main {
     margin: 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    color: #333;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .title-history {
     text-align: center;
-    color: #444;
-    font-size: 2.5em;
-    margin-bottom: 30px;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .history {
@@ -18,23 +21,31 @@ body {
 }
 
 .purchase-container {
-    background-color: #fff;
+    background-color: #F7F3F1;
     border: 1px solid #ddd;
-    border-radius: 8px;
     margin-bottom: 20px;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .purchase-info {
     border-bottom: 1px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.purchase-info p {
+.purchase-info p,
+.total {
     margin: 5px 0;
-    font-weight: bold;
+    color: #444;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.total {
+    padding-top: 10px;
+    margin-top: 10px;
 }
 
 .purchase-products-container {
@@ -46,11 +57,9 @@ body {
 .purchase-products {
     background-color: #f7f7f7;
     border: 1px solid #ddd;
-    border-radius: 8px;
     padding: 10px;
     flex: 1;
     min-width: 200px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .purchase-products p {
@@ -64,10 +73,6 @@ body {
     color: #333;
 }
 
-.purchase-info p:first-child {
-    color: #007BFF;
-}
-
-.purchase-info p:last-child {
-    color: #28a745;
+footer {
+    padding: 10px;
 }

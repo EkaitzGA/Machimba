@@ -4,18 +4,23 @@ block styles
     link(rel="stylesheet", href="/css/purchase-history.css")
 
 block content
-    h1(class='title-history') Tus Compras
-    div(class="history")
-        each purchase in history
-            div.purchase-container 
-                div.purchase-info
-                    p ID del pedido: #{purchase.purchase_id}
-                    p Fecha: #{purchase.date}
-                div.purchase-products-container
-                    each product in purchase.products
-                        div.purchase-products
-                            p Producto: #{product.product_name}
-                            p Material: #{product.product_material}
-                            p Colección: #{product.product_collection}
-                            p Cantidad: #{product.product_quantity}
-                            p Subtotal: #{product.product_subtotal}€
+    main(class= 'client-history-container')
+        h1(class='title-history') Tus Compras
+        div(class="history")
+            each purchase in history
+                div.purchase-container 
+                    div.purchase-info
+                        p ID del pedido: #{purchase.purchase_id}
+                        p Fecha: #{purchase.date}
+                    div.purchase-products-container
+                        each product in purchase.products
+                            - const subtotal = product.product_subtotal
+                            - total = (total || 0) + subtotal
+                            div.purchase-products
+                                p Producto: #{product.product_name}
+                                p Material: #{product.product_material}
+                                p Colección: #{product.product_collection}
+                                p Cantidad: #{product.product_quantity}
+                                p Subtotal: #{product.product_subtotal}€
+                    p.total Total: #{total}€
+    footer
