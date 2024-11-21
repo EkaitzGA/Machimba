@@ -4,21 +4,43 @@ function adminPage(req,res){
     res.render("admin/adminProfile")
 }
 async function showUsers(req, res){
-    const users = await adminController.showUsers();
+    try{const users = await adminController.showUsers();
     res.render("admin/adminUsers",{ users })
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
 }
+}
+
 async function showClients(req, res){
-    const clients = await adminController.showClients();
+    try{const clients = await adminController.showClients();
     res.render("admin/adminClients",{ clients })
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
 }
+}
+
 async function showWorkers(req, res){
-    const workers = await adminController.showWorkers();
+    try{const workers = await adminController.showWorkers();
     res.render("admin/adminWorkers",{ workers })
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function showHistory(req, res){
-    const histories = await adminController.showHistory();
+    try{const histories = await adminController.showHistory();
     res.render("admin/purchase-history",{ histories })
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 //UPDATE
@@ -53,7 +75,7 @@ function createWorkerForm(req, res){
 }
 
 async function createWorkerSubmit(req, res) {
-    const workerData = {
+    try{const workerData = {
         user_name: req.body.username,    
         password: req.body.password,
         email: req.body.email,
@@ -62,6 +84,11 @@ async function createWorkerSubmit(req, res) {
     };
     await adminController.createWorker(workerData);
     res.redirect('/admin/workers');
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 //DELETE
@@ -83,10 +110,15 @@ async function deleteWorker(req, res) {
 
 //READ
 async function showProducts(req, res){
-    const page = parseInt(req.query.page || 1)
+    try{const page = parseInt(req.query.page || 1)
     const purses = await adminController.showProducts(page);
     res.render("admin/adminProducts",{purses, page})
-    /* res.send("PAGINA PARA ACCEDER A LA TABLA PRODUCTS DE LA BASE DE DATOS ") */
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
+    
 }
 
 async function searchProducts(req, res) {
@@ -95,16 +127,22 @@ async function searchProducts(req, res) {
         const purses = await adminController.searchProducts(searchTerm);
         res.render("admin/adminProducts", { purses });
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error en la búsqueda');
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 
 //UPDATE
 async function updatePurseForm(req,res){
-    const id = parseInt(req.params.id);
+    try{const id = parseInt(req.params.id);
     const { purse, collections } = await adminController.getById(id);
     res.render("admin/updateProduct", { purse, collections }) 
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function updatePurseSubmit(req, res){
@@ -122,14 +160,15 @@ async function updatePurseSubmit(req, res){
         await adminController.updatePurse(id, updatedData);
         res.redirect('/admin/products');
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al actualizar el bolso');
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 
 //CREATE
 function createPurseForm(req, res){
-    const collections = [
+    try{const collections = [
         'Antique Collection',
         'Permanent Collection',
         'Unique Collection',
@@ -138,6 +177,11 @@ function createPurseForm(req, res){
         'Hilma Collection'
     ];
     res.render("admin/createProduct", { collections });
+} catch (error) {
+    console.error(error);
+    const url=`/admin?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function createPurseSubmit(req, res) {
@@ -155,8 +199,9 @@ async function createPurseSubmit(req, res) {
         await adminController.createPurse(purseData);
         res.redirect('/admin/products');
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al crear el bolso');
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 
@@ -168,8 +213,9 @@ async function deletePurse(req, res) {
         await adminController.deletePurse(id);
         res.redirect('/admin/products'); 
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al borrar el bolso');
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 

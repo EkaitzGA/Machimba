@@ -9,6 +9,8 @@ async function showClientHistory(client_id) {
     const history = await historyModel.findAll({
         where: { client_id: client_id }
     });
+    if(!history){
+        throw new error.FINDALL_EMPTY();}
     return cleanHistoryByPurchase(history);
 }
 
@@ -61,6 +63,9 @@ async function getClientByEmail(email) {
             }
         }
     })
+    if(!client){
+        throw new error.EMAIL_NOT_FOUND();
+    }
     return client;
 }
 
@@ -73,11 +78,17 @@ async function getClientByUserName(user_name) {
             }
         }
     })
+    if(!client){
+        throw new error.USERNAME_NOT_FOUND();
+    }
     return client;
 }
 
 async function createClient(user_name, first_name, last_name, email, password) {
     const hash = await hashPassword(password);
+    if(!hash){
+        throw new error.INVALID_CREDENTIALS();
+    }
     const newUser = await userModel.create({
         user_name: user_name,
         password: hash,
@@ -85,9 +96,15 @@ async function createClient(user_name, first_name, last_name, email, password) {
         first_name: first_name,
         last_name: last_name
     });
+    if(!newUser){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     const newClient = await clientModel.create({
         user_id: newUser.user_id
     });
+    if(!newClient){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     return newClient, newUser;
 }
 
@@ -104,6 +121,9 @@ async function updatePersonalData(client_id, user_name, password, email, first_n
     if (password) {
         const hash = hashPassword(password);
         user.password = hash;
+        if(!hash){
+            throw new error.INVALID_CREDENTIALS();
+        }
     }
     user.email = email;
     user.first_name = first_name;

@@ -2,10 +2,15 @@ import shoppingCartController from "./shoppingCartController.js"
 import clientController from "../client/clientController.js"
 
 async function showCart(req,res){
-    const client_id = req.session.user.client_id;
+    try{const client_id = req.session.user.client_id;
     const client = await clientController.getClientById(client_id);
     const shoppingCart = await shoppingCartController.getOpenPurchaseByClient(client_id);
     res.render("purses/shoppingCart", {cart:shoppingCart, client});
+}catch{
+    console.error(error);
+    const url=`/purses?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function addProduct(req,res){
@@ -14,10 +19,11 @@ async function addProduct(req,res){
         const client_id = req.session.user.client_id;
         const purchase = await shoppingCartController.addPurse(client_id,parseInt(product_id));
         res.redirect('/purses');
+    }catch{
+        console.error(error);
+        const url=`/purses?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
-    catch(error){
-        console.error(error)
-    } 
 }
 
 async function setProductQuantity(req,res){
@@ -26,9 +32,10 @@ async function setProductQuantity(req,res){
         const client_id = req.session.user.client_id;
         const purchase = await shoppingCartController.setPurseQuantity(client_id,parseInt(product_id),parseInt(quantity));
         res.redirect("/shopping-cart");
-    }
-    catch(error){
-        console.error(error)
+    }catch{
+        console.error(error);
+        const url=`/shopping-cart?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
     
 }
@@ -39,10 +46,11 @@ async function removeProduct(req,res){
         const client_id = req.session.user.client_id;
         const purchase = await shoppingCartController.setPurseQuantity(client_id,parseInt(product_id),0);
         res.redirect("/shopping-cart");
+    }catch{
+        console.error(error);
+        const url=`/shopping-cart?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
-    catch(error){
-        console.error(error)
-    } 
 }
 
 async function finishPurchase(req,res){
@@ -50,8 +58,10 @@ async function finishPurchase(req,res){
         const client_id = req.session.user.client_id;
         await shoppingCartController.closePurchase(client_id)
         res.redirect(`/client-profile/${client_id}`);
-    } catch (error) {
-    console.error(error);   
+    }catch{
+        console.error(error);
+        const url=`/client-profile/${client_id}?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 
@@ -63,7 +73,3 @@ export const functions={
     finishPurchase
 }
 export default functions
-
-// router.get("/:id/update",shoppingCartViewController.updateCart)
-// router.post("/:id/delete", shoppingCartViewController.deleteItem)
-// router.post("/delete", shoppingCartViewController.deleteAll)

@@ -1,4 +1,5 @@
 import purseModel from "../../models/purseModel.js"
+import error from "../../helpers/errors.js"
 
 
 async function getAll(page=1){
@@ -12,32 +13,37 @@ async function getAll(page=1){
         limit:limit,
         offset: offset
     });
+    if (!purses) {
+        throw new error.FINDALL_EMPTY();
+    }
     return purses;
 }
 
 async function getById(id){
     const purse = await purseModel.findByPk(id);
+    if (!purse) {
+        throw new error.PURSE_NOT_FOUND();
+    }
     return purse;
 }
 
 //formularios de Busqueda
 
 async function searchPurses(searchTerm) {
-    try {
+   
         const allPurses = await purseModel.findAll();
         const purses = allPurses.filter(purse => 
             purse.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
+        if (!purses) {
+            throw new error.FINDALL_EMPTY();
+        }
         return purses;
-    } catch (error) {
-        console.error('Error en búsqueda:', error);
-        throw error;
-    }
+    
 }
 
 
 async function filterPurses(filterParams) {
-    try {
         let whereClause = {};
         
         if (filterParams.collection) {
@@ -56,11 +62,11 @@ async function filterPurses(filterParams) {
             where: whereClause,
             order: [['name', 'ASC']]
         });
+        if (!purses) {
+            throw new error.FINDALL_EMPTY();
+        }
         return purses;
-    } catch (error) {
-        console.error('Error en filtrado:', error);
-        throw error;
-    }
+   
 }
 
 export const functions ={

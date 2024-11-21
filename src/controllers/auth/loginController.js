@@ -6,15 +6,15 @@ import { verifyPassword } from "../../config/bcrypt.js";
 async function login(email,password){
     let user = await clientController.getClientByEmail(email);
     if(!user){
-        user = await adminController.getWorkertByEmail(email);
+        user = await adminController.getWorkerByEmail(email);
         if (!user) {
-            throw new error.CLIENT_NOT_FOUND();
+            throw new error.EMAIL_NOT_FOUND();
         }
     }
     const verified = await verifyPassword(password,user.user.password);
     if(!verified){
         throw new error.INVALID_CREDENTIALS();
-    }
+    } //Revisar por si diese error
     return user;
 }
 

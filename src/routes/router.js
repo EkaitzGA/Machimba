@@ -7,6 +7,7 @@ import registerRouter from "./registerRouter.js"
 import clientRouter from "./clientRouter.js"
 import homeRouter from "./homeRouter.js"
 import { isWorker } from '../middlewares/view/authMiddleware.js';
+import { isAuthenticated } from '../middlewares/view/authMiddleware.js';
 
 const router = Router();
 
@@ -26,6 +27,6 @@ router.use("/admin", isWorker, adminRouter)
 
 router.use("/register", registerRouter)
 
-router.use("/client-profile", clientRouter)
+router.use("/client-profile", isAuthenticated, clientRouter)
 
 export default router;

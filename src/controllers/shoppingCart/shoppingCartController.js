@@ -5,6 +5,9 @@ import error from "../../helpers/errors.js"
 
 async function getOpenPurchaseByClient(client_id){
     const purchase = await Purchase.findOne({where:{client_id:client_id,status:"pendiente"},include:Purse})
+    if(!purchase){
+        throw new error.PURCHASE_NOT_FOUND();
+    }
     return purchase;
 }
 
@@ -12,6 +15,9 @@ async function getOrCreateOpenPurchaseByClient(client_id){
     let purchase = await getOpenPurchaseByClient(client_id);
     if(!purchase){
         purchase = await create(client_id);
+    }
+    if(!purchase){
+        throw new error.CREATE_DOESNT_WORK();
     }
     return purchase;
 }
@@ -22,6 +28,9 @@ async function create(client_id){
         throw new error.ORDER_ALREADY_OPEN();
     }
     const newPurchase = await Purchase.create({client_id});
+    if(!newPurchase){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     return newPurchase;
 }
 

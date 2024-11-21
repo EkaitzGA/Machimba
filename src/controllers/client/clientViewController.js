@@ -9,20 +9,29 @@ async function showProfile(req,res){
         console.error(error);
         const url=`/client?message=${error.message}&messageType=error`
         res.redirect(url);
-
     }
 }
 
 async function showCompleteHistory(req,res){
-    const client_id = parseInt(req.params.id);
+    try{const client_id = parseInt(req.params.id);
     const history = await clientController.showClientHistory(client_id);
     res.render("client/clientHistory", { history });
+}catch{
+    console.error(error);
+    const url=`/client?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function updateForm(req, res) {
-    const client_id = parseInt(req.params.id);
+    try{const client_id = parseInt(req.params.id);
     const client = await clientController.getClientById(client_id)
     res.render("client/updateClientPersonalData", { client })
+}catch{
+    console.error(error);
+    const url=`/client?message=${error.message}&messageType=error`
+    res.redirect(url);
+}
 }
 
 async function update(req, res) {
