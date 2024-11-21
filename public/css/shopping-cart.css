@@ -1,0 +1,113 @@
+
+.cart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    padding-top: 30px;
+    font-size: 24px;
+    margin-bottom: 30px;
+    margin-left: 120px;
+    text-align: left;
+}
+
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.item-name {
+    font-size: 16px;
+    color: #333;
+}
+
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.qty-input {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+
+.update-btn, .remove-btn {
+    margin-top: 5px;
+    padding: 8px 15px;
+    background: white;
+    border: 1px solid #ddd;
+    color: #333;
+    cursor: pointer;
+}
+
+#checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: black;
+    color: white;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Checkout Form */
+.checkout-form {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
