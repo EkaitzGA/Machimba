@@ -1,4 +1,3 @@
-
 html(lang="es") 
 
     head
@@ -12,6 +11,7 @@ html(lang="es")
         link(rel="stylesheet", href="/css/navbar.css")
         block styles
         title Machimba
+
     body
         block header
             div.shop-header
@@ -23,13 +23,11 @@ html(lang="es")
                 nav.profile-nav
                     ul
                         li
-                            a(href="/purses") CATÁLOGO
-                        if user
-                            li 
-                                a(href=`/client-profile/${user.client_id}`) MI PERFIL 
-                        else
-                            li
-                                a(href="/login") INICIAR SESIÓN
+                            a(href='/admin/products') PRODUCTOS
                         li 
-                            a(href="/shopping-cart") CARRITO
+                            a(href='/admin/clients') CLIENTES 
+                        li 
+                            a(href='/admin/workers') TRABAJADORES
+                        li
+                            a(href='/admin/purchase-history') PEDIDOS
         block content

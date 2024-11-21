@@ -1,0 +1,24 @@
+extends layout
+
+block styles 
+    link(rel="stylesheet", href="/css/adminWorkers.css")
+
+block content
+    main.workers-container
+        a(href=`/admin/users/workers/create`) 
+            h3 CREAR TRABAJADOR NUEVO
+        h1 Lista de trabajadores
+        article.workers-list
+            each worker in workers 
+                section.worker-card
+                    p.worker-id ID-Worker: #{worker.worker_id}
+                    p.worker-user-name Nombre de usuario: #{worker.user_name}
+                    p.worker-email Email: #{worker.email}
+                    p.worker-first-name Nombre: #{worker.first_name}
+                    p.worker-last-name Apellido: #{worker.last_name}
+                    p.worker-register-date Fecha de registro: #{worker.register_date}
+                    div.edit-buttons
+                        a(href=`/admin/users/workers/${worker.worker_id}/update`)
+                            button(type="button") ACTUALIZAR
+                        form(action=`/admin/users/workers/${worker.worker_id}/delete` method="POST")
+                            button(type="submit") BORRAR       

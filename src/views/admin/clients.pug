@@ -1,24 +1,15 @@
-extends ../layout
-
-block header
-    h1 Gestión del negocio 
-    a(href="/admin/products") 
-        button(type="button") Productos
-    a(href="/admin/users") 
-        button(type="button") Usuarios
-    a(href="/admin/purchase_history") 
-        button(type="button") Histórico
+extends layout
 
 block content 
-    a(href=`/admin/users`) 
-            button(type="button") VOLVER A USERS
-    h1 Lista de clientes
-    article(class="admin-clients")
-    each client in clients 
-            p ID de cliente: #{client.client_id}
-            p Nombre: #{client.user.first_name}
-            p Apellido: #{client.user.last_name}
-            p Dirección: #{client.address}
-            p Teléfono: #{client.phone}
-            p Email: #{client.user.email}
-            p Id de usuario: #{client.user_id}
+        a(href=`/admin/users`) 
+                button(type="button") VOLVER A USERS
+        h1 Lista de clientes
+        article(class="admin-clients")
+        each client in clients 
+                p ID de cliente: #{client.client_id}
+                p Nombre: #{client.user.first_name}
+                p Apellido: #{client.user.last_name}
+                p Dirección: #{client.address}
+                p Teléfono: #{client.phone}
+                p Email: #{client.user.email}
+                p Id de usuario: #{client.user_id}
