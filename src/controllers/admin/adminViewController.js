@@ -26,19 +26,28 @@ async function showHistory(req, res){
 }
 //UPDATE
 async function updateWorkerForm(req,res){
-    const worker_id = parseInt(req.params.id);
+    try{const worker_id = parseInt(req.params.id);
     const worker = await adminController.getWorkerById(worker_id);
-    console.log("worker")
+    
     res.render("admin/updateWorker", { worker }) 
+    }catch(error){
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
+    }
 }
 
 async function updateWorkerSubmit(req, res){
-   
-        const worker_id = parseInt(req.params.id);
+   try{const worker_id = parseInt(req.params.id);
         console.log("worker id",worker_id)
         const {user_name,password,email,first_name,last_name} = req.body
         await adminController.updateWorker(worker_id, user_name,password,email,first_name,last_name);
-        res.redirect('/admin/users/workers');    
+        res.redirect('/admin/users/workers');  
+    }catch(error){
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
+    }  
 }
 
 //CREATE
@@ -68,8 +77,9 @@ async function deleteWorker(req, res) {
         await adminController.deleteWorker(id);
         res.redirect('/admin/users/workers'); 
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error al borrar el trabajador');
+        console.error(error);
+        const url=`/admin?message=${error.message}&messageType=error`
+        res.redirect(url);
     }
 }
 

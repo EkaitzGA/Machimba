@@ -2,6 +2,8 @@ import userModel from "../../models/userModel.js"
 import clientModel from "../../models/clientModel.js"
 import historyModel from "../../models/historyModel.js"
 import { hashPassword } from "../../config/bcrypt.js";
+import error from  "../../helpers/errors.js"
+
 
 async function showClientHistory(client_id) {
     const history = await historyModel.findAll({
@@ -38,6 +40,9 @@ async function getClientById(client_id) {
     const personalData = await clientModel.findByPk(client_id, {
         include: userModel
     });
+    if(!personalData){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const options = {
         year: 'numeric',
         month: 'long',
@@ -88,7 +93,13 @@ async function createClient(user_name, first_name, last_name, email, password) {
 
 async function updatePersonalData(client_id, user_name, password, email, first_name, last_name, address, phone) {
     const client = await clientModel.findByPk(client_id);
+    if(!client){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const user = await userModel.findByPk(client.user_id);
+    if(!user){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     user.user_name = user_name;
     if (password) {
         const hash = hashPassword(password);
@@ -106,7 +117,13 @@ async function updatePersonalData(client_id, user_name, password, email, first_n
 
 async function removeClientProfile(client_id) {
     const client = await clientModel.findByPk(client_id);
+    if(!client){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const userToRemove = await userModel.findByPk(client.user_id);
+    if(!userToRemove){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     await userToRemove.destroy();
     return userToRemove;
 }
