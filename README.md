@@ -7,17 +7,17 @@ Este repositorio contiene el backend para la tienda online **Machimba**, especia
 - [Descripción del Proyecto](#descripción-del-proyecto)
 - [Estructura de la Base de Datos](#estructura-de-la-base-de-datos)
 - [Requisitos](#requisitos)
-<!-- - [Instalación y Configuración](#instalación-y-configuración)
+- [Instalación y Configuración](#instalación-y-configuración) 
 - [Endpoints de la API](#endpoints-de-la-api)
 - [Contribuciones](#contribuciones)
-- [Licencia](#licencia) -->
+- [Licencia](#licencia) 
 - [Equipo de Desarrollo](#equipo-de-desarrollo)
 
 ---
 
 ## Descripción del Proyecto
 
-Este proyecto permite gestionar una tienda online de bolsos, donde los usuarios pueden registrarse, ver y comprar productos, y realizar un seguimiento de sus pedidos. También cuenta con un panel administrativo para gestionar productos y usuarios.
+Este proyecto permite gestionar una tienda online de bolsos, donde los usuarios pueden registrarse, ver y comprar productos, y consultar un histórico de sus pedidos. También cuenta con un panel administrativo para gestionar productos,usuarios y trabajadores.
 
 ### Funcionalidades
 
@@ -45,6 +45,16 @@ Para ejecutar este proyecto, asegúrate de tener instalados los siguientes progr
 
 - [Node.js](https://nodejs.org/) (v14 o superior)
 - [MySQL](https://www.mysql.com/) (v5.7 o superior)
+
+## Instalación y configuración
+
+## Endpoints de la API
+
+Se han añadido dos endpoints distintos como muestra para recibir información de todos los bolsos o de forma individual. Esto sirve de ejemplo y se podrían crear endpoints para
+
+## Contribuciones
+
+## Licencia
 
 ## Equipo de Desarrollo
 
