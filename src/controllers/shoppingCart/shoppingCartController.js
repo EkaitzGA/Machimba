@@ -5,9 +5,6 @@ import error from "../../helpers/errors.js"
 
 async function getOpenPurchaseByClient(client_id){
     const purchase = await Purchase.findOne({where:{client_id:client_id,status:"pendiente"},include:Purse})
-    if(!purchase){
-        throw new error.PURCHASE_NOT_FOUND();
-    }
     return purchase;
 }
 

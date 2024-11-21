@@ -142,8 +142,6 @@ async function getWorkerByEmail(email) {
             }
         }
     })
-    if(!worker){
-        throw new error.CLIENT_NOT_FOUND();}
     return worker;
 }
 

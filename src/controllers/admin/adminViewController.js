@@ -153,16 +153,6 @@ async function searchProductsBy(req, res) {
     }
 }
 
-async function searchProductsBy(req, res) {
-    try {
-        const searchTerm = req.query.search;
-        const purses = await adminController.searchProductsBy(searchTerm);
-        res.render("admin/adminProducts", { purses });
-    } catch (error) {
-        console.error('Error:', error);
-        res.status(500).send('Error en la búsqueda');
-    }
-}
 
 //UPDATE
 async function updatePurseForm(req, res) {

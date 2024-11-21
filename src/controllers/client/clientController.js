@@ -63,9 +63,6 @@ async function getClientByEmail(email) {
             }
         }
     })
-    if(!client){
-        throw new error.EMAIL_NOT_FOUND();
-    }
     return client;
 }
 
