@@ -18,7 +18,7 @@ async function showClients(){
     const clients = await clientModel.findAll({
         include:userModel
     })
-    if(!users){
+    if(!clients){
         throw new error.FINDALL_EMPTY();}
     return cleanClientsByUser(clients);
 }
