@@ -108,6 +108,7 @@ function cleanHistoryByPurchase(history) {
                 };
             const formatedDate = new Date(register.date).toLocaleDateString('es-ES', options);
             purchase = {
+                client_id: register.client_id,
                 purchase_id: register.purchase_id,
                 date: formatedDate,
                 status: register.status,
