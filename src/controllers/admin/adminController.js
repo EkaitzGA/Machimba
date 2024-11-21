@@ -90,7 +90,9 @@ function cleanWorkersByUser(workers) {
 
 
 async function showHistory(){
-    const history = await historyModel.findAll()
+    const history = await historyModel.findAll({
+        order: [['history_id', 'DESC']]
+        });
     if(!history){
         throw new error.FINDALL_EMPTY();}
     return cleanHistoryByPurchase(history);
@@ -245,7 +247,7 @@ async function searchProducts(searchTerm) {
 }
 
 async function searchProductsBy(query) {
-    try {
+    
         const purses = await purseModel.findAll({
             where: {
                 [Op.or]: [{product_id: query}, {name: {
@@ -255,10 +257,7 @@ async function searchProductsBy(query) {
             order: [['name', 'ASC']]
         });
         return purses;
-    } catch (error) {
-        console.error('Error en búsqueda:', error);
-        throw error;
-    }
+    
 }
 
 async function getById(id){

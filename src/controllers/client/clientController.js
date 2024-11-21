@@ -47,7 +47,7 @@ async function getClientById(client_id) {
     }
     const options = {
         year: 'numeric',
-        month: 'long',
+        month: 'numeric',
         };
     personalData.formatted_date = new Date(personalData.user.register_date).toLocaleDateString('es-ES', options);
     console.log(personalData);
@@ -75,9 +75,6 @@ async function getClientByUserName(user_name) {
             }
         }
     })
-    if(!client){
-        throw new error.USERNAME_NOT_FOUND();
-    }
     return client;
 }
 

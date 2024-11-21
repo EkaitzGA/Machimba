@@ -1,4 +1,7 @@
-h1(class='section-title') Tus Datos
+div.title-button-container
+    h1(class='section-title') Tus Datos
+    a(href=`/client-profile/${client.client_id}/personal-data/update`)
+        button Editar
 div(class="personal-data")
     if client.user
         p Nombre de usuario: #{client.user.user_name}

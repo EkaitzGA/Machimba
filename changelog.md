@@ -1,7 +1,13 @@
 # Changelog Machimba
 
-## Version 0.4.1
+## Version 0.4.3
+Barra de búsqueda inteligente añadida
 
+## Version 0.4.2
+Añadida gestión de errores y try catchs
+
+## Version 0.4.1
+Dockerización del proyecto incluyendo node
 
 ## Version 0.4.0
 Carrito de la compra funcional
