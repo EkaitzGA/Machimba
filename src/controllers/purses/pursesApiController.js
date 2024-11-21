@@ -22,7 +22,7 @@ async function getPurseById(req, res) {
     try {
         const id = parseInt(req.params.id);
         const purse = await pursesController.getById(id);
-        
+
         if (!purse) {
             return res.status(404).json({
                 status: 'error',
@@ -43,7 +43,7 @@ async function getPurseById(req, res) {
     }
 }
 
-export const functions ={
+export const functions = {
     getAllPurses,
     getPurseById
 }
