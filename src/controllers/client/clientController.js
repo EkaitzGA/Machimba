@@ -75,9 +75,6 @@ async function getClientByUserName(user_name) {
             }
         }
     })
-    if(!client){
-        throw new error.USERNAME_NOT_FOUND();
-    }
     return client;
 }
 
