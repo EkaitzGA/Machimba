@@ -35,7 +35,7 @@ async function updateWorkerForm(req,res){
 }
 
 async function updateWorkerSubmit(req, res){
-   try{const worker_id = parseInt(req.params.id);
+    try{const worker_id = parseInt(req.params.id);
         console.log("worker id",worker_id)
         const {user_name,password,email,first_name,last_name} = req.body
         await adminController.updateWorker(worker_id, user_name,password,email,first_name,last_name);
@@ -93,6 +93,17 @@ async function searchProducts(req, res) {
     try {
         const searchTerm = req.query.search;
         const purses = await adminController.searchProducts(searchTerm);
+        res.render("admin/adminProducts", { purses });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error en la búsqueda');
+    }
+}
+
+async function searchProductsBy(req, res) {
+    try {
+        const searchTerm = req.query.search;
+        const purses = await adminController.searchProductsBy(searchTerm);
         res.render("admin/adminProducts", { purses });
     } catch (error) {
         console.error('Error:', error);
@@ -191,7 +202,7 @@ export const functions ={
     updateWorkerSubmit,
     createWorkerForm,
     createWorkerSubmit,
-    deleteWorker
-
+    deleteWorker,
+    searchProductsBy
 }
 export default functions

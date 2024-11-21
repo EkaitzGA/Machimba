@@ -4,7 +4,7 @@ import workerModel from "../../models/workerModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
 import error from  "../../helpers/errors.js"
-
+import { Op } from "sequelize";
 
 //Funciones USUARIO
 
@@ -237,6 +237,23 @@ async function searchProducts(searchTerm) {
     }
 }
 
+async function searchProductsBy(query) {
+    try {
+        const purses = await purseModel.findAll({
+            where: {
+                [Op.or]: [{product_id: query}, {name: {
+                    [Op.like]: `%${query}%`,
+            }}]
+            },
+            order: [['name', 'ASC']]
+        });
+        return purses;
+    } catch (error) {
+        console.error('Error en búsqueda:', error);
+        throw error;
+    }
+}
+
 async function getById(id){
     const purse = await purseModel.findByPk(id);
     const collections = purseModel.getAttributes().collection.values.map(value => ({
@@ -291,7 +308,6 @@ async function deletePurse(id) {
 
 
 export const functions ={
-  
     showUsers,
     showProducts,
     searchProducts,
@@ -306,6 +322,7 @@ export const functions ={
     createWorker,
     deleteWorker,
     getWorkerById,
-    getWorkertByEmail
+    getWorkertByEmail,
+    searchProductsBy
 }
 export default functions
