@@ -28,7 +28,7 @@ router.use("/admin", isWorker, adminRouter)
 
 router.use("/register", registerRouter)
 
-router.use("/client-profile", isClient, clientRouter)
+router.use("/client-profile", isAuthenticated, clientRouter)
 
 router.use("/contact", contactRouter)
 
