@@ -12,13 +12,15 @@ block content
                     p ID del cliente: #{purchase.client_id}
                     p ID de la compra: #{purchase.purchase_id}
                     p Fecha: #{purchase.date}
-                    p Status: #{purchase.status}
                     section.purchase-product-list
                         each product in purchase.products
+                            - const subtotal = product.product_subtotal
+                            - total = (total || 0) + subtotal
                             section.purchase-product-card
                                 p Nombre del producto: #{product.product_name}
                                 p Material: #{product.product_material}
                                 p Colección: #{product.product_collection}
                                 p Precio del producto: #{product.product_price}
                                 p Cantidad: #{product.product_quantity}
-                                p Subtotal: #{product.product_subtotal}
+                                p Subtotal: #{subtotal}€
+                    p Total: #{total}€
