@@ -28,9 +28,11 @@ html(lang="es")
                         if user
                             li 
                                 a(href=`/client-profile/${user.client_id}`) MI PERFIL 
+                            li 
+                                a(href="/shopping-cart") CARRITO
                         else
                             li
                                 a(href="/login") INICIAR SESIÓN
-                        li 
-                            a(href="/shopping-cart") CARRITO
+                            li
+                                a(href="/contact") CONTACTO
         block content
