@@ -5,16 +5,13 @@ block styles
 
 block content
     main(class= 'client-profile-container')
-        h1(class='profile-title') Bienvenide a tu perfil, #{client.user.user_name}
-        form(action="/login/logout", method="get")
-            button(type="submit") CERRAR SESIÓN
+        div.header-container
+            img(src="/resources/logo/logo.png", alt="logo-image", class='logo-image')
+            form(action="/login/logout", method="get")
+                button(type="submit") CERRAR SESIÓN
         article(class= 'client-info-container')
             if client.user 
                 article(class= 'personal-data-container')
                     include clientPersonalData
-                    a(href=`/client-profile/${client.client_id}/personal-data/update`)
-                        button Editar
                 article(class= 'history-container')
                     include clientResumePurchase
-                    a(href=`/client-profile/${client.client_id}/purchase-history`)
-                        button Todos los pedidos

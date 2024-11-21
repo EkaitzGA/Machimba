@@ -1,7 +1,9 @@
-h1(class='section-title') Tus Compras
+div.title-button-container
+    h1(class='section-title') Tus Compras
+    a(href=`/client-profile/${client.client_id}/purchase-history`)
+        button Todos los pedidos
 div(class="short-history")
     each purchase in history
         div.short-purchase-info
             p ID del pedido: #{purchase.purchase_id}
             p Fecha: #{purchase.date}
-            p Estado: #{purchase.status}
