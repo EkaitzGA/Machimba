@@ -1,24 +1,16 @@
-extends ../layout
+extends layout
 
-block header
-    h1 Gestión del negocio 
-    a(href="/admin/products") 
-        button(type="button") Productos
-    a(href="/admin/users") 
-        button(type="button") Usuarios
-    a(href="/admin/purchase_history") 
-        button(type="button") Histórico
+block styles 
+    link(rel="stylesheet", href="/css/createUpdateProduct.css")
 
 block content 
-    a(href=`/admin/products`) 
-            button(type="button") VOLVER A BOLSOS
     form(action="/admin/products/create", method="post")
-        h1 NUEVO BOLSO
+        h1.title-new-product NUEVO PRODUCTO
         label(for="name") 
         input(id="name", type="text", name="name",placeholder="NOMBRE DEL BOLSO") 
 
         label(for="description") 
-        input(id="description", type="text", name="description",placeholder="DESCRIPCION") 
+        textarea(id="description", name="description",placeholder="DESCRIPCION") 
 
         label(for="collection")
         select(id="collection", name="collection", required)
@@ -42,14 +34,4 @@ block content
         label(for="material") 
         input(id="material", type="text", name="material",placeholder="MATERIAL")
 
-
         button(type="submit") CREAR
-
-
-//- name
-//- description
-//- collection
-//- price
-//- color 
-//- material
-//- image

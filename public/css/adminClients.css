@@ -1,0 +1,86 @@
+
+/* Main container */
+.clients-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.clients-container h1 {
+    font-size: 1.8em;
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Clients list */
+.clients-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual client card */
+.client-card {
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    width: calc(33.333% - 20px); /* Adjust based on layout */
+    box-sizing: border-box;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Client card content */
+.client-card p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.client-id {
+    font-weight: bold;
+    color: #007acc;
+}
+
+.client-user-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.client-first-name,
+.client-last-name {
+    color: #555;
+}
+
+.client-email {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+.client-address,
+.client-register-date {
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .client-card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .client-card {
+        width: 100%;
+    }
+}

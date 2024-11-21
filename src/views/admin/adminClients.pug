@@ -1,0 +1,18 @@
+extends layout
+
+block styles 
+        link(rel="stylesheet", href="/css/adminClients.css")
+block content
+        main.clients-container
+                h1 Lista de usuarios
+                article.clients-list
+                        each client in clients
+                                section.client-card
+                                        p.client-id ID-Cliente: #{client.client_id}
+                                        p.client-user-name Nombre de usuario: #{client.user_name}
+                                        p.client-first-name Nombre: #{client.first_name}
+                                        p.client-last-name Apellido: #{client.last_name}
+                                        p.client-email Email: #{client.email}
+                                        p.client-address Dirección: #{client.address}
+                                        p.client-address Teléfono: #{client.phone}
+                                        p.client-register-date Fecha de registro: #{client.register_date}

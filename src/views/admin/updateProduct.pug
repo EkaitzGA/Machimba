@@ -1,20 +1,11 @@
-extends ../layout
+extends layout
 
-block header
-    h1 Gestión del negocio 
-    a(href="/admin/products") 
-        button(type="button") Productos
-    a(href="/admin/users") 
-        button(type="button") Usuarios
-    a(href="admin/purchase_history") 
-        button(type="button") Histórico
+block styles
+    link(rel="stylesheet", href="/css/createUpdateProduct.css")
 
 block content
-    a(href=`/admin/products`)  
-            button(type="button") VOLVER A BOLSOS
     form(action=`/admin/products/${purse.product_id}/updatesubmit` method="POST")
-        
-        h1 ACTUALIZAR BOLSO
+        h1.title-update-product ACTUALIZAR BOLSO
         label(for="pursename") 
         input(id="pursename", type="text", name="pursename",placeholder="NOMBRE DEL BOLSO", value=purse.name) 
 
@@ -38,10 +29,4 @@ block content
         label(for="material") 
         input(id="material", type="text", name="material",placeholder="MATERIAL" value=purse.material)
 
-    
-
         button(type="submit") ACTUALIZAR 
-        
-
-
-

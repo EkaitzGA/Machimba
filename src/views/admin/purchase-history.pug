@@ -1,0 +1,23 @@
+extends layout
+
+block styles
+    link(rel="stylesheet", href="/css/adminProducts.css")
+
+block content 
+    main.purchase-history-container
+        h1.title-purchase-history Registro de pedidos
+        article.purchase-history-container
+            each purchase in history
+                section.purchase-history-card
+                    p ID history: #{history.history_id}
+                    p ID de la compra: #{history.purchase_id}
+                    p ID del cliente: #{history.client_id}
+                    p Fecha: #{history.date}
+                    p Status: #{history.status}
+                    each 
+                    p Nombre del producto: #{history.product_name}
+                    p Cantidad: #{history.product_quantity}
+                    p Material: #{history.product_material}
+                    p Colección: #{history.product_collection}
+                    p Precio del producto: #{history.product_price}
+                    p Subtotal: #{history.product_subtotal}

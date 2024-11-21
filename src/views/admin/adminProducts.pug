@@ -1,13 +1,7 @@
-extends ../layout
+extends layout
 
-block header
-    h1 Gestión del negocio 
-    a(href="/admin/products") 
-        button(type="button") Productos
-    a(href="/admin/users") 
-        button(type="button") Usuarios
-    a(href="/admin/purchase_history") 
-        button(type="button") Histórico
+block styles
+    link(rel="stylesheet", href="/css/adminProducts.css")
 
 block content 
     div.purses-container-admin
@@ -15,26 +9,40 @@ block content
             a(href=`/admin/products/create`) 
                 h3 CREAR BOLSO NUEVO
 
-        div.search-purse
+        div.searchbar-purse-name
             form.search-form(action="/admin/products/search" method="GET")
                 label(for="search") Buscar bolso:
                 input(type="text" id="search" name="search" placeholder="Nombre del bolso...")
                 button(type="submit") Buscar
+        div.searchbar-purse-id
+            form.search-form(action="/admin/products/search" method="GET")
+                label(for="search") Buscar bolso:
+                input(type="text" id="search" name="search" placeholder="ID del bolso...")
+                button(type="submit") Buscar
 
         div.show-purses
-            h3 BOLSOS DISPONIBLES
-            each purse in purses
-                div.purse-card-admin
-                    p= purse.product_id
-                    h3= purse.name
-                    p= purse.description
-                    p Colección: #{purse.collection}
-                    p Precio: #{purse.price}€
-                    img(src=purse.image alt=purse.name)
-                    p Color: #{purse.color}
-                    p Material: #{purse.material}
-                    
-                    a(href=`/admin/products/${purse.product_id}/update`) ACTUALIZAR
-                    
-                    form(action=`/admin/products/${purse.product_id}/delete` method="POST")
-                        button(type="submit") BORRAR
+            h3.title-avalaible-purses BOLSOS DISPONIBLES
+            div.purses-grid
+                each purse in purses
+                    div.purse-card-admin
+                        div.edit-buttons
+                            a(href=`/admin/products/${purse.product_id}/update`)
+                                button(type="button") ACTUALIZAR
+                            form(action=`/admin/products/${purse.product_id}/delete` method="POST")
+                                button(type="submit") BORRAR
+                        
+                        div.purse-header
+                            h3.purse-name #{purse.name}
+                            h5.purse-id ID: #{purse.product_id}
+                        img(src=purse.image alt=purse.name class='purse-img')
+                        p.purse-collection Colección: #{purse.collection}
+                        p.purse-price Precio: #{purse.price}€
+                        p.purse-color Color: #{purse.color}
+                        p.purse-material Material: #{purse.material}
+                        p.purse-description #{purse.description}
+
+    div.button-pages
+        if (page>1)
+            a(href=`/admin/products?page=${page-1}`) Anterior 
+        if page < 6
+            a(href=`/admin/products?page=${page+1}`) Siguiente

@@ -10,25 +10,109 @@ import error from  "../../helpers/errors.js"
 
 async function showUsers(){
     const users = await userModel.findAll()
-    return users
+    return users;
 }
 async function showClients(){
     const clients = await clientModel.findAll({
         include:userModel
     })
-    return clients
+    return cleanClientsByUser(clients);
 }
+
+function cleanClientsByUser(clients) {
+    const cleanClients = [];
+    for (const client of clients) {
+        let cliente = cleanClients.find((e) => e.user_id == client.user_id)
+        if (!cliente) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                };
+            const formatedDate = new Date(client.user.register_date).toLocaleDateString('es-ES', options);
+            cliente = {
+                register_date: formatedDate,
+                client_id: client.client_id,
+                user_name: client.user.user_name,
+                first_name: client.user.first_name,
+                last_name: client.user.last_name,
+                address: client.address,
+                phone: client.phone,
+                email: client.user.email,
+                user_id: client.user_id
+            }
+            cleanClients.push(cliente);
+        }
+    }
+    return cleanClients;
+}
+
 async function showWorkers(){
     const workers = await workerModel.findAll({
         include: userModel
     });
-    return workers
+    return cleanWorkersByUser(workers);
 }
 
-async function showHistory(){
-    const histories = await historyModel.findAll()
-    return histories
+function cleanWorkersByUser(workers) {
+    const cleanWorkers = [];
+    for (const worker of workers) {
+        let trabajador = cleanWorkers.find((e) => e.user_id == worker.user_id)
+        if (!trabajador) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                };
+            const formatedDate = new Date(worker.user.register_date).toLocaleDateString('es-ES', options);
+            trabajador = {
+                register_date: formatedDate,
+                worker_id: worker.worker_id,
+                user_name: worker.user.user_name,
+                first_name: worker.user.first_name,
+                last_name: worker.user.last_name,
+                address: worker.address,
+                phone: worker.phone,
+                email: worker.user.email,
+                user_id: worker.user_id
+            }
+            cleanWorkers.push(trabajador);
+        }
+    }
+    return cleanWorkers;
 }
+
+
+async function showHistory(){
+    const history = await historyModel.findAll()
+    return cleanHistoryByPurchase(history);
+}
+
+function cleanHistoryByPurchase(history) {
+    const purchases = [];
+    for (const register of history) {
+        let purchase = purchases.find((e) => e.purchase_id == register.purchase_id)
+        if (!purchase) {
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                };
+            const formatedDate = new Date(register.date).toLocaleDateString('es-ES', options);
+            purchase = {
+                purchase_id: register.purchase_id,
+                date: formatedDate,
+                status: register.status,
+                products: []
+            }
+            purchases.push(purchase);
+        }
+        purchase.products.push(register);
+    }
+    console.log(purchases[0])
+    return purchases;
+}
+
 
 async function getWorkerById(worker_id){
     const worker = await workerModel.findByPk(worker_id,{
@@ -125,8 +209,13 @@ async function deleteWorker(id) {
 //FUNCIONES PRODUCTO
 
 //READ
-async function showProducts(){
-    const purses = await purseModel.findAll();
+async function showProducts(page=1){
+    const limit = 12
+    const offset = (page-1)*limit
+    const purses = await purseModel.findAll({
+        limit:limit,
+        offset: offset
+    });
     return purses;
 }
 
