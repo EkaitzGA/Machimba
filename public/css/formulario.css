@@ -1,27 +1,62 @@
 .filters-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-right: 120px;
+    padding-left: 120px;
+    background-color: white; /*#F7F3F1*/
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
  }
+
+ .form3 {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center; 
+    width: 100%;
+    padding-bottom: 10px;
+}
+.filter-form {
+    width:70%;
+}
+
+
+.colection-group,
+.color-group,
+.material-group,
+.form3button {
+    display: inline-block;
+    /* gap: 20px; */
+}
+
 
 
 
 
 /*BUSCAR POR QUERY*/
 .form1 {
-    margin: 20px 0;
+    margin-top: 20px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .search-form {
     position: relative;
     max-width: 300px;
+    margin-left: auto;
+    /* margin-right: 80px; */
 }
 
 .search-form input {
     width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    border: 1px solid #ddd; /*none*/
+    /* border-bottom: 1px solid #ddd; */
     outline: none;
     font-size: 14px;
     letter-spacing: 1px;
@@ -64,6 +99,12 @@ input:-webkit-autofill:active {
 
 
 /*VER TODOS*/
+.form2 {
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
 .form2 button {
     padding: 10px;
     border: 1px solid #ddd;
@@ -90,6 +131,7 @@ input:-webkit-autofill:active {
 /*FORM COLLECTION*/
 
 .filter-dropdown-collection  {
+    margin-right: 10px;
     position: relative;
     display: inline-block;
 }
@@ -99,6 +141,7 @@ input:-webkit-autofill:active {
     border: 1px solid #ddd;
     background: white;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .collection-menu {
@@ -133,6 +176,8 @@ input:-webkit-autofill:active {
     width: 100%;
     padding: 2px;
     border: 1px solid white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8rem;
 }
 
 
@@ -155,6 +200,7 @@ input:-webkit-autofill:active {
 /*FORM COLOR*/
 
 .filter-dropdown {
+    margin-right: 10px;
     position: relative;
     display: inline-block;
 }
@@ -164,6 +210,7 @@ input:-webkit-autofill:active {
     border: 1px solid #ddd;
     background: white;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .color-menu {
@@ -198,6 +245,8 @@ input:-webkit-autofill:active {
     width: 100%;
     padding: 2px;
     border: 1px solid white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8rem;
 }
 
 .color-box {
@@ -240,6 +289,7 @@ input:-webkit-autofill:active {
 /* FORM MATERIAL */
 
 .filter-dropdown-material  {
+    margin-right: 10px;
     position: relative;
     display: inline-block;
 }
@@ -249,6 +299,7 @@ input:-webkit-autofill:active {
     border: 1px solid #ddd;
     background: white;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 .material-menu {
@@ -283,6 +334,8 @@ input:-webkit-autofill:active {
     width: 100%;
     padding: 2px;
     border: 1px solid white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8rem;
 }
 
 
@@ -298,9 +351,10 @@ input:-webkit-autofill:active {
 
 
 .form3button {
-    width: 10%;  /* O un ancho específico si prefieres */
+    width: 100px; /**/
+    flex-shrink: 0; /**/
     padding: 10px;
-    margin-top: 20px;  /* Espacio arriba del botón */
+    margin-top: 20px; 
     border: 1px solid #ddd;
     background: white;
     cursor: pointer;

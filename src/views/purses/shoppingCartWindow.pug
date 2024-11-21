@@ -1,0 +1,43 @@
+
+
+block content
+   h1.title TU CARRITO
+
+   if cart && cart.products.length > 0
+       .cart-container
+           .cart-items
+               each purse in cart.products
+                   - const subtotal = purse.purchase_has_product.subtotal
+                   - total = (total || 0) + subtotal
+                   .cart-item
+                       .item-image
+                           img(src=purse.image alt=purse.name)
+                       .item-details
+                           .item-name= purse.name
+                           .item-price #{purse.price}€
+                           .item-controls
+                               form.quantity-form(action="/shopping-cart/update" method="post")
+                                   input(type="hidden" name="product_id" value=purse.product_id)
+                                   .quantity-control
+                                       button.qty-btn(type="button") -
+                                       input.qty-input(type="number" name="quantity" 
+                                                     value=purse.purchase_has_product.quantity min="1")
+                                       button.qty-btn(type="button") +
+                                   button.update-btn(type="submit") Actualizar
+                               form.remove-form(action="/shopping-cart/delete" method="post")
+                                   input(type="hidden" name="product_id" value=purse.product_id)
+                                   button.remove-btn(type="submit") Eliminar
+                           .item-subtotal Subtotal: #{subtotal}€
+
+           .cart-summary
+               .summary-total
+                   span Total 
+                   span #{total}€
+               a(href=`/shopping-cart`)
+                button#checkout-btn(type="button") IR A CARRITO
+
+   else
+       .empty-cart
+           p Tu carrito está vacío
+
+   script(src="/js/shopping-cart.js")

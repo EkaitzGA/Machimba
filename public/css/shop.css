@@ -46,6 +46,7 @@ html {
     padding: 20px;
     max-width: 1200px; 
     margin: 0 auto; 
+    /* background-color: F7F3F1; */
  }
  
  /* Card individual de cada bolso */
@@ -53,14 +54,19 @@ html {
     display: flex;
     flex-direction: column; 
     background: white;
-    padding: 15px;
- }
+    /* padding: 15px; */
+    border: 1px solid black; /*#ddd*/
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 200;
+    letter-spacing: 1px;
+
+   }
  
 
  /* Sección de imagen */
  .image-purse {
     width: 100%;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
  }
  
  .image-purse img {
@@ -73,43 +79,62 @@ html {
  /* Sección de información */
  .info-purse {
     flex-grow: 1; 
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
+    background-color: #F7F3F1;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
  }
  
  .info-purse a {
     text-decoration: none;
-    color: inherit;
+    color: #333;
+    position: relative;
  }
  
  .info-purse h3 {
+    text-transform: uppercase;
     margin: 0 0 10px 0;
-    font-size: 18px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 500;
  }
+
  
  .info-purse .collection {
     color: #666;
     margin: 5px 0;
+    font-size: 13px;
  }
  
  /* Sección de acción (botón) */
  .action-purse {
     margin-top: auto; 
+    background-color: #F7F3F1;
+    height: 36px;
+    /* padding-right: 15px;
+    padding-left: 15px; */
  }
  
  .action-purse button {
-    width: 40%;
+    width: 100%;
     padding: 10px 20px;
-    background-color: white;
-    color: black;
-    border: 1px solid black;
+    background-color: F7F3F1;
+    color: #333;
+    border-top: 1px solid #333;
+    border-left: transparent;
+    border-bottom: transparent;
+    border-right: transparent;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+
  }
  
  .action-purse button:hover {
-    background-color: black;
+    background-color: #333;
     color: white;
-    border: 1px black;
+    border: 1px #333;
  }
  
  .button-pages {

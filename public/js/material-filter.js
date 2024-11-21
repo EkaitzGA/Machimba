@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateButtonText() {
         const checkedMaterials = Array.from(materialCheckboxes)
-            .filter(checkbox => checkbox.checked && checkbox.value !== '') // Ignoramos "Todos"
+            .filter(checkbox => checkbox.checked && checkbox.value !== '') 
             .map(checkbox => checkbox.value);
 
         if (checkedMaterials.length === 0) {
@@ -18,16 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-        // Event listener para los checkboxes
+        
         materialCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
-                // Si se selecciona "Todos", deseleccionar los demás
+               
                 if (this.id === 'all-materials' && this.checked) {
                     materialCheckboxes.forEach(cb => {
                         if (cb.id !== 'all-materials') cb.checked = false;
                     });
                 } else if (this.checked) {
-                    // Si se selecciona cualquier otro, deseleccionar "Todos"
+                  
                     const allMaterialsCheckbox = document.querySelector('#all-materials');
                     if (allMaterialsCheckbox) allMaterialsCheckbox.checked = false;
                 }
@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         isOpen = !isOpen;
     });
 
-    // Evitar que los clicks dentro del menu lo cierren
+    
     materialMenu.addEventListener('click', function(e) {
         e.stopPropagation();
     });
 
-    // Cerrar al hacer click fuera
+   
     window.addEventListener('click', function(e) {
         if (!filterMaterialButton.contains(e.target) && !materialMenu.contains(e.target)) {
             materialMenu.classList.add('hiddenM');

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateButtonText() {
         const checkedColors = Array.from(colorCheckboxes)
-            .filter(checkbox => checkbox.checked && checkbox.value !== '') // Ignoramos "Todos"
+            .filter(checkbox => checkbox.checked && checkbox.value !== '') 
             .map(checkbox => checkbox.value);
  
         if (checkedColors.length === 0) {
@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     colorCheckboxes.forEach(checkbox => {
         checkbox.addEventListener('change', function() {
-            // Si se selecciona "Todos", deseleccionar los demás
+            
             if (this.id === 'all-colors' && this.checked) {
                 colorCheckboxes.forEach(cb => {
                     if (cb.id !== 'all-colors') cb.checked = false;
                 });
             } else if (this.checked) {
-                // Si se selecciona cualquier otro, deseleccionar "Todos"
+                
                 const allColorsCheckbox = document.querySelector('#all-colors');
                 if (allColorsCheckbox) allColorsCheckbox.checked = false;
             }
@@ -48,12 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
         isOpen = !isOpen;
     });
 
-    // Evitar que los clicks dentro del menu lo cierren
+    
     colorMenu.addEventListener('click', function(e) {
         e.stopPropagation();
     });
 
-    // Cerrar al hacer click fuera
+    
     window.addEventListener('click', function(e) {
         if (!filterButton.contains(e.target) && !colorMenu.contains(e.target)) {
             colorMenu.classList.add('hidden');
