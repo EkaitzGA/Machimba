@@ -13,6 +13,9 @@ async function getOrCreateOpenPurchaseByClient(client_id){
     if(!purchase){
         purchase = await create(client_id);
     }
+    if(!purchase){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     return purchase;
 }
 
@@ -22,6 +25,9 @@ async function create(client_id){
         throw new error.ORDER_ALREADY_OPEN();
     }
     const newPurchase = await Purchase.create({client_id});
+    if(!newPurchase){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     return newPurchase;
 }
 

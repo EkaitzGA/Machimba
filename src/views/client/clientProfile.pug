@@ -6,6 +6,8 @@ block styles
 block content
     main(class= 'client-profile-container')
         h1(class='profile-title') Bienvenide a tu perfil, #{client.user.user_name}
+        form(action="/login/logout", method="get")
+            button(type="submit") CERRAR SESIÓN
         article(class= 'client-info-container')
             if client.user 
                 article(class= 'personal-data-container')

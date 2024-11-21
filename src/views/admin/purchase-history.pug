@@ -1,23 +1,24 @@
 extends layout
 
 block styles
-    link(rel="stylesheet", href="/css/adminProducts.css")
+    link(rel="stylesheet", href="/css/adminHistory.css")
 
 block content 
     main.purchase-history-container
         h1.title-purchase-history Registro de pedidos
-        article.purchase-history-container
-            each purchase in history
+        article.purchase-history-list
+            each purchase in histories 
                 section.purchase-history-card
-                    p ID history: #{history.history_id}
-                    p ID de la compra: #{history.purchase_id}
-                    p ID del cliente: #{history.client_id}
-                    p Fecha: #{history.date}
-                    p Status: #{history.status}
-                    each 
-                    p Nombre del producto: #{history.product_name}
-                    p Cantidad: #{history.product_quantity}
-                    p Material: #{history.product_material}
-                    p Colección: #{history.product_collection}
-                    p Precio del producto: #{history.product_price}
-                    p Subtotal: #{history.product_subtotal}
+                    p ID del cliente: #{purchase.client_id}
+                    p ID de la compra: #{purchase.purchase_id}
+                    p Fecha: #{purchase.date}
+                    p Status: #{purchase.status}
+                    section.purchase-product-list
+                        each product in purchase.products
+                            section.purchase-product-card
+                                p Nombre del producto: #{product.product_name}
+                                p Material: #{product.product_material}
+                                p Colección: #{product.product_collection}
+                                p Precio del producto: #{product.product_price}
+                                p Cantidad: #{product.product_quantity}
+                                p Subtotal: #{product.product_subtotal}

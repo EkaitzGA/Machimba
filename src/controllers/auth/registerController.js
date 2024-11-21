@@ -14,7 +14,10 @@ async function register(user_name, first_name, last_name, email, password, passw
         throw new error.CLIENT_ALREADY_EXISTS();
     }
     const newClient = await clientController.createClient(user_name, first_name, last_name, email, password);
-    return newClient;
+    
+    if(!newClient){
+        throw new error.CREATE_DOESNT_WORK();
+    }return newClient;
 }
 
 export const functions ={

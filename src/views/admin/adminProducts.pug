@@ -9,15 +9,10 @@ block content
             a(href=`/admin/products/create`) 
                 h3 CREAR BOLSO NUEVO
 
-        div.searchbar-purse-name
-            form.search-form(action="/admin/products/search" method="GET")
+        div.searchbar-purse
+            form.search-form(action="/admin/products/search-by" method="GET")
                 label(for="search") Buscar bolso:
-                input(type="text" id="search" name="search" placeholder="Nombre del bolso...")
-                button(type="submit") Buscar
-        div.searchbar-purse-id
-            form.search-form(action="/admin/products/search" method="GET")
-                label(for="search") Buscar bolso:
-                input(type="text" id="search" name="search" placeholder="ID del bolso...")
+                input(type="text" id="search" name="search" placeholder="Nombre o ID del bolso...")
                 button(type="submit") Buscar
 
         div.show-purses

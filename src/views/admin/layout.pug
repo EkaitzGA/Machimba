@@ -30,4 +30,7 @@ html(lang="es")
                             a(href='/admin/workers') TRABAJADORES
                         li
                             a(href='/admin/purchase-history') PEDIDOS
+                        li 
+                            form(action="/login/logout", method="get")
+                                button(type="submit") CERRAR SESIÓN
         block content

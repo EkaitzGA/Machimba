@@ -2,11 +2,15 @@ import userModel from "../../models/userModel.js"
 import clientModel from "../../models/clientModel.js"
 import historyModel from "../../models/historyModel.js"
 import { hashPassword } from "../../config/bcrypt.js";
+import error from  "../../helpers/errors.js"
+
 
 async function showClientHistory(client_id) {
     const history = await historyModel.findAll({
         where: { client_id: client_id }
     });
+    if(!history){
+        throw new error.FINDALL_EMPTY();}
     return cleanHistoryByPurchase(history);
 }
 
@@ -38,6 +42,9 @@ async function getClientById(client_id) {
     const personalData = await clientModel.findByPk(client_id, {
         include: userModel
     });
+    if(!personalData){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const options = {
         year: 'numeric',
         month: 'long',
@@ -68,11 +75,17 @@ async function getClientByUserName(user_name) {
             }
         }
     })
+    if(!client){
+        throw new error.USERNAME_NOT_FOUND();
+    }
     return client;
 }
 
 async function createClient(user_name, first_name, last_name, email, password) {
     const hash = await hashPassword(password);
+    if(!hash){
+        throw new error.INVALID_CREDENTIALS();
+    }
     const newUser = await userModel.create({
         user_name: user_name,
         password: hash,
@@ -80,19 +93,34 @@ async function createClient(user_name, first_name, last_name, email, password) {
         first_name: first_name,
         last_name: last_name
     });
+    if(!newUser){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     const newClient = await clientModel.create({
         user_id: newUser.user_id
     });
+    if(!newClient){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     return newClient, newUser;
 }
 
 async function updatePersonalData(client_id, user_name, password, email, first_name, last_name, address, phone) {
     const client = await clientModel.findByPk(client_id);
+    if(!client){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const user = await userModel.findByPk(client.user_id);
+    if(!user){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     user.user_name = user_name;
     if (password) {
         const hash = hashPassword(password);
         user.password = hash;
+        if(!hash){
+            throw new error.INVALID_CREDENTIALS();
+        }
     }
     user.email = email;
     user.first_name = first_name;
@@ -106,7 +134,13 @@ async function updatePersonalData(client_id, user_name, password, email, first_n
 
 async function removeClientProfile(client_id) {
     const client = await clientModel.findByPk(client_id);
+    if(!client){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const userToRemove = await userModel.findByPk(client.user_id);
+    if(!userToRemove){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     await userToRemove.destroy();
     return userToRemove;
 }

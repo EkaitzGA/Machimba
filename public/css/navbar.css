@@ -16,7 +16,8 @@
     display: inline-block; 
 }
 
-.profile-nav a {
+.profile-nav a,
+.profile-nav button {
     text-decoration: none;
     color: #333;
     font-size: 14px;
@@ -26,7 +27,8 @@
 }
 
 /* Efecto hover con línea debajo */
-.profile-nav a:after {
+.profile-nav a:after,
+.profile-nav button:after {
     content: '';
     position: absolute;
     width: 0;
@@ -37,6 +39,7 @@
     transition: width 0.3s ease;
 }
 
-.profile-nav a:hover:after {
+.profile-nav a:hover:after
+.profile-nav button:hover:after {
     width: 100%;
 }

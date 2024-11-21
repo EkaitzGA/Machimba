@@ -3,18 +3,23 @@ import clientModel from "../../models/clientModel.js";
 import workerModel from "../../models/workerModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
-
+import error from  "../../helpers/errors.js"
+import { Op } from "sequelize";
 
 //Funciones USUARIO
 
 async function showUsers(){
     const users = await userModel.findAll()
+    if(!users){
+        throw new error.FINDALL_EMPTY();}
     return users;
 }
 async function showClients(){
     const clients = await clientModel.findAll({
         include:userModel
     })
+    if(!clients){
+        throw new error.FINDALL_EMPTY();}
     return cleanClientsByUser(clients);
 }
 
@@ -50,6 +55,8 @@ async function showWorkers(){
     const workers = await workerModel.findAll({
         include: userModel
     });
+    if(!workers){
+        throw new error.FINDALL_EMPTY();}
     return cleanWorkersByUser(workers);
 }
 
@@ -84,6 +91,8 @@ function cleanWorkersByUser(workers) {
 
 async function showHistory(){
     const history = await historyModel.findAll()
+    if(!history){
+        throw new error.FINDALL_EMPTY();}
     return cleanHistoryByPurchase(history);
 }
 
@@ -99,6 +108,7 @@ function cleanHistoryByPurchase(history) {
                 };
             const formatedDate = new Date(register.date).toLocaleDateString('es-ES', options);
             purchase = {
+                client_id: register.client_id,
                 purchase_id: register.purchase_id,
                 date: formatedDate,
                 status: register.status,
@@ -117,10 +127,13 @@ async function getWorkerById(worker_id){
     const worker = await workerModel.findByPk(worker_id,{
         include: userModel
     });
+    if(!worker){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     return worker;
 }
 
-async function getWorkertByEmail(email) {
+async function getWorkerByEmail(email) {
     const worker = await workerModel.findOne({
         include: {
             model: userModel,
@@ -135,7 +148,13 @@ async function getWorkertByEmail(email) {
 //UPDATE
 async function updateWorker(worker_id,user_name,password,email,first_name,last_name) {
     const worker = await workerModel.findByPk(worker_id);
+    if(!worker){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const user = await userModel.findByPk(worker.user_id);
+    if(!user){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     user.user_name= user_name;
     user.password= password;
     user.email= email;
@@ -150,7 +169,6 @@ async function updateWorker(worker_id,user_name,password,email,first_name,last_n
 //CREATE
 
 async function createWorker(workerData) {
-    try {
     const newUser = await userModel.create({
     user_name: workerData.user_name,
     password: workerData.password, 
@@ -159,10 +177,16 @@ async function createWorker(workerData) {
     last_name: workerData.last_name,
     register_date: workerData.register_date
     });
+    if(!newUser){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     
     const newWorker = await workerModel.create({
     user_id: newUser.user_id,
     });
+    if(!newWorker){
+        throw new error.CREATE_DOESNT_WORK();
+    }
     
     const response = {
     worker_id: newWorker.worker_id,
@@ -177,27 +201,20 @@ async function createWorker(workerData) {
     };
     
     return response;
-    } catch (error) {
-    console.error("Error al crear el trabajador:", error);
-    throw error;
-    }
     }
 
 
 //DELETE
 async function deleteWorker(id) {
-    try {
+    
         const worker = await workerModel.findByPk(id);
-        if (!worker) {
-            throw new Error('Trabajador no encontrado');
+        if(!worker){
+            throw new error.CLIENT_NOT_FOUND();
         }
         await worker.destroy();
         return true;
-    } catch (error) {
-        console.error('Error al borrar el trabajador:', error);
-        throw error;
     }
-}
+
 
 //FUNCIONES PRODUCTO
 
@@ -209,19 +226,34 @@ async function showProducts(page=1){
         limit:limit,
         offset: offset
     });
+    if(!purses){
+        throw new error.FINDALL_EMPTY();}
     return purses;
 }
 
 async function searchProducts(searchTerm) {
-    try {
         const allPurses = await purseModel.findAll({
             order: [['name', 'ASC']]
         });
-        
+        if(!allPurses){
+            throw new error.FINDALL_EMPTY();}
         const purses = allPurses.filter(purse => 
             purse.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         
+        return purses;
+}
+
+async function searchProductsBy(query) {
+    try {
+        const purses = await purseModel.findAll({
+            where: {
+                [Op.or]: [{product_id: query}, {name: {
+                    [Op.like]: `%${query}%`,
+            }}]
+            },
+            order: [['name', 'ASC']]
+        });
         return purses;
     } catch (error) {
         console.error('Error en búsqueda:', error);
@@ -231,6 +263,9 @@ async function searchProducts(searchTerm) {
 
 async function getById(id){
     const purse = await purseModel.findByPk(id);
+    if (!purse) {
+        throw new error.PURSE_NOT_FOUND();
+    }
     const collections = purseModel.getAttributes().collection.values.map(value => ({
         value: value,
         name: value
@@ -240,50 +275,39 @@ async function getById(id){
 
 //UPDATE
 async function updatePurse(id, updatedData) {
-    try {
         const purse = await purseModel.findByPk(id);
         if (!purse) {
-            throw new Error('Bolso no encontrado');
+            throw new error.PURSE_NOT_FOUND();
         }
         await purse.update(updatedData);
         return purse;
-    } catch (error) {
-        console.error('Error en updatePurse:', error);
-        throw error;
-    }
 }
 
 //CREATE
 
 async function createPurse(purseData) {
-    try {
         const newPurse = await purseModel.create(purseData);
+        if(!newPurse){
+            throw new error.CREATE_DOESNT_WORK();
+        }
         return newPurse;
-    } catch (error) {
-        console.error('Error al crear el bolso:', error);
-        throw error;
-    }
+   
 }
 
 
 //DELETE
 async function deletePurse(id) {
-    try {
         const purse = await purseModel.findByPk(id);
         if (!purse) {
-            throw new Error('Bolso no encontrado');
+            throw new error.PURSE_NOT_FOUND();
         }
         await purse.destroy();
         return true;
-    } catch (error) {
-        console.error('Error al borrar el bolso:', error);
-        throw error;
-    }
+   
 }
 
 
 export const functions ={
-  
     showUsers,
     showProducts,
     searchProducts,
@@ -298,6 +322,7 @@ export const functions ={
     createWorker,
     deleteWorker,
     getWorkerById,
-    getWorkertByEmail
+    getWorkerByEmail,
+    searchProductsBy
 }
 export default functions
