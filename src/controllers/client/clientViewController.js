@@ -1,10 +1,16 @@
 import clientController from "./clientController.js";
 
 async function showProfile(req,res){
-    const client_id = parseInt(req.params.id);
+    try{const client_id = parseInt(req.params.id);
     const client = await clientController.getClientById(client_id);
     const history = await clientController.showClientHistory(client_id);
     res.render("client/clientProfile", { client, history });
+    }catch{
+        console.error(error);
+        const url=`/client?message=${error.message}&messageType=error`
+        res.redirect(url);
+
+    }
 }
 
 async function showCompleteHistory(req,res){
@@ -20,16 +26,28 @@ async function updateForm(req, res) {
 }
 
 async function update(req, res) {
-    const {user_name, password, email, first_name, last_name, address, phone} = req.body;
+    try{const {user_name, password, email, first_name, last_name, address, phone} = req.body;
     const client_id = parseInt(req.params.id);
     await clientController.updatePersonalData(client_id, user_name, password, email, first_name, last_name, address, phone);
     res.redirect('/client-profile/' + client_id);
+}catch{
+    console.error(error);
+    const url=`/client-profile?message=${error.message}&messageType=error`
+    res.redirect(url);
+        
+}
 }
 
 async function remove(req, res) {
-    const client_id = parseInt(req.params.id);
+    try{const client_id = parseInt(req.params.id);
     await clientController.removeClientProfile(client_id);
     res.redirect("/home");
+}catch{
+    console.error(error);
+    const url=`/home?message=${error.message}&messageType=error`
+    res.redirect(url);
+        
+}
 }
 
 

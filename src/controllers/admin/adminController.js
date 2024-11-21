@@ -3,6 +3,7 @@ import clientModel from "../../models/clientModel.js";
 import workerModel from "../../models/workerModel.js";
 import historyModel from "../../models/historyModel.js";
 import purseModel from "../../models/purseModel.js"
+import error from  "../../helpers/errors.js"
 
 
 //Funciones USUARIO
@@ -118,6 +119,9 @@ async function getWorkerById(worker_id){
     const worker = await workerModel.findByPk(worker_id,{
         include: userModel
     });
+    if(!worker){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     return worker;
 }
 
@@ -136,7 +140,13 @@ async function getWorkertByEmail(email) {
 //UPDATE
 async function updateWorker(worker_id,user_name,password,email,first_name,last_name) {
     const worker = await workerModel.findByPk(worker_id);
+    if(!worker){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     const user = await userModel.findByPk(worker.user_id);
+    if(!user){
+        throw new error.CLIENT_NOT_FOUND();
+    }
     user.user_name= user_name;
     user.password= password;
     user.email= email;
@@ -187,18 +197,15 @@ async function createWorker(workerData) {
 
 //DELETE
 async function deleteWorker(id) {
-    try {
+    
         const worker = await workerModel.findByPk(id);
-        if (!worker) {
-            throw new Error('Trabajador no encontrado');
+        if(!worker){
+            throw new error.CLIENT_NOT_FOUND();
         }
         await worker.destroy();
         return true;
-    } catch (error) {
-        console.error('Error al borrar el trabajador:', error);
-        throw error;
     }
-}
+
 
 //FUNCIONES PRODUCTO
 
