@@ -5,7 +5,6 @@ form {
     margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
-    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
 }
@@ -31,7 +30,6 @@ input, textarea, select {
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
     font-size: 16px;
     color: #333;
 }
@@ -55,7 +53,6 @@ button {
     background-color: #007BFF;
     color: white;
     border: none;
-    border-radius: 4px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;

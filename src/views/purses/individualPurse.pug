@@ -22,7 +22,9 @@ block content
                         p Material // #{purse.material}
                         p Precio // #{purse.price} EUR
                         
-                        button(type="submit" name="buy" value=purse.id) COMPRAR
+                        form(action="/shopping-cart", method="post") 
+                            input(type="hidden" name='product_id' value=purse.product_id)
+                            button(type="submit" name="buy" value=purse.id) AÑADIR
             
             
     

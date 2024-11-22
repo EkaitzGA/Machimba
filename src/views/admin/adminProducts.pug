@@ -5,18 +5,18 @@ block styles
 
 block content 
     div.purses-container-admin
-        div.create-purse
-            a(href=`/admin/products/create`) 
-                h3 CREAR BOLSO NUEVO
+        div.purses-header
+            div.create-purse
+                a(href=`/admin/products/create`) 
+                    h3 CREAR BOLSO NUEVO
 
-        div.searchbar-purse
-            form.search-form(action="/admin/products/search-by" method="GET")
-                label(for="search") Buscar bolso:
-                input(type="text" id="search" name="search" placeholder="Nombre o ID del bolso...")
-                button(type="submit") Buscar
+            div.searchbar-purse
+                form.search-form(action="/admin/products/search-by" method="GET")
+                    label(for="search")
+                    input(type="text" id="search" name="search" placeholder="Nombre o ID del bolso...")
+                    button(type="submit") Buscar
 
         div.show-purses
-            h3.title-avalaible-purses BOLSOS DISPONIBLES
             div.purses-grid
                 each purse in purses
                     div.purse-card-admin

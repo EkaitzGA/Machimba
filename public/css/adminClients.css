@@ -6,7 +6,6 @@
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
 .clients-container h1 {
@@ -28,7 +27,6 @@
 .client-card {
     background-color: #fdfdfd;
     border: 1px solid #e0e0e0;
-    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: calc(33.333% - 20px); /* Adjust based on layout */

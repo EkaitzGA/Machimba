@@ -6,6 +6,12 @@
     color: #333;
 }
 
+.purses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* Crear bolso */
 .create-purse {
     text-align: center;
@@ -46,22 +52,19 @@
 
 .search-form input {
     padding: 8px;
-    width: 200px;
+    width: 500px;
     border: 1px solid #ccc;
-    border-radius: 4px;
 }
 
 .search-form button {
     padding: 8px 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    background-color: #F7F3F1;
+    border: 1px solid #ddd;
     cursor: pointer;
 }
 
 .search-form button:hover {
-    background-color: #218838;
+    background: #f8f8f8;
 }
 
 /* Título de la sección de bolsos */
@@ -83,7 +86,6 @@
 /* Tarjetas de bolsos */
 .purse-card-admin {
     border: 1px solid #ddd;
-    border-radius: 5px;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #fff;
@@ -115,7 +117,6 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 5px;
     margin-bottom: 15px;
 }
 
@@ -150,25 +151,22 @@
 .edit-buttons form button {
     padding: 8px 12px;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
     font-size: 14px;
 }
 
 .edit-buttons a button {
-    background-color: #ffc107;
-    color: #fff;
+    background-color: #F7F3F1;
 }
 
 .edit-buttons a button:hover {
-    background-color: #e0a800;
+    background: #f8f8f8;
 }
 
 .edit-buttons form button {
-    background-color: #dc3545;
-    color: #fff;
+    background-color: #F7F3F1;
 }
 
 .edit-buttons form button:hover {
-    background-color: #c82333;
+    background: #f8f8f8;
 }

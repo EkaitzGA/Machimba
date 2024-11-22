@@ -4,7 +4,7 @@ block styles
     link(rel="stylesheet", href="/css/createUpdateProduct.css")
 
 block content
-    form(action=`/admin/products/${purse.product_id}/updatesubmit` method="POST")
+    form(action=`/admin/products/${purse.product_id}/updatesubmit` method="POST" class='form')
         h1.title-update-product ACTUALIZAR BOLSO
         label(for="pursename") 
         input(id="pursename", type="text", name="pursename",placeholder="NOMBRE DEL BOLSO", value=purse.name) 
@@ -29,4 +29,4 @@ block content
         label(for="material") 
         input(id="material", type="text", name="material",placeholder="MATERIAL" value=purse.material)
 
-        button(type="submit") ACTUALIZAR 
+        button(type="submit" class='button') ACTUALIZAR 
