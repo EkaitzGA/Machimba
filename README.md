@@ -1,140 +1,159 @@
 
+# 👜 Tienda Online de Bolsos - **Machimba**
 
-👜 Tienda Online de Bolsos - Machimba
-MACHIMBA es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena.
-Esta plataforma está construida utilizando Node.js para el backend y Pug como motor de plantillas para el frontend.
+**MACHIMBAS** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
 
-🛠️ Tecnologías Utilizadas
-Backend: Node.js
-Motor de Plantillas: Pug
-Base de Datos: SQL
-Estilos: CSS puro
-Frontend: JavaScript (manejo dinámico del carrito e interacciones UI/UX)
-Containerización:
-🐳 Contenedor para Node.js
-🐬 Contenedor para MySQL
-Docker Compose para orquestación
-📋 Tabla de Contenidos
-📖 Descripción del Proyecto
-💾 Estructura de la Base de Datos
-🔧 Requisitos
-⚙️ Instalación y Configuración
-📡 Endpoints de la API
-🎨 Consideraciones de Diseño
-🚧 Estado del Proyecto
-🤝 Contribuciones
-📜 Licencia
-👥 Equipo de Desarrollo
-📖 Descripción del Proyecto
-Este proyecto permite gestionar una tienda online de bolsos donde los usuarios pueden:
+---
 
-Registrarse
-Ver y comprar productos
-Consultar el historial de pedidos
-También incluye un panel administrativo para gestionar productos, usuarios y trabajadores.
+## 🚀 Tecnologías Utilizadas
 
-🌟 Funcionalidades Principales
-Página de Inicio (Home)
+- **Backend**: Node.js
+- **Motor de Plantillas**: Pug
+- **Base de Datos**: SQL
+- **Estilos**: CSS puro
+- **Frontend**: JavaScript (manejo dinámico del carrito e interacciones de UI/UX)
+- **Containerización**: Docker
+  - Contenedor para Node.js
+  - Contenedor para MySQL
+  - Docker Compose para orquestación
 
-Presentación de la marca
-Catálogo
+---
 
-Visualización del catálogo de bolsos
-Filtros interactivos para búsqueda
-Detalles individuales de cada producto
-Añadir productos al carrito
-Autenticación
+## 📚 Tabla de Contenidos
 
-Registro e inicio de sesión para usuarios
-Perfil Cliente
+- [Descripción del Proyecto](#descripción-del-proyecto)
+- [Estructura de la Base de Datos](#estructura-de-la-base-de-datos)
+- [Requisitos](#requisitos)
+- [Instalación y Configuración](#instalación-y-configuración)
+- [Endpoints de la API](#endpoints-de-la-api)
+- [Consideraciones de Diseño](#consideraciones-de-diseño)
+- [Estado del Proyecto](#estado-del-proyecto)
+- [Contribuciones](#contribuciones)
+- [Licencia](#licencia)
+- [Equipo de Desarrollo](#equipo-de-desarrollo)
 
-Gestión de datos personales
-Historial de compras
-Carrito de Compra
+---
 
-Visualización de productos seleccionados
-Actualización de cantidades
-Checkout con validación de datos
-Perfil Administrativo
+## 🛒 Descripción del Proyecto
 
-CRUD completo para productos, clientes, trabajadores y pedidos
-Cierre de sesión seguro
-💾 Estructura de la Base de Datos
-La base de datos Machimba incluye las siguientes tablas:
+Este proyecto permite gestionar una tienda online de bolsos, donde los usuarios pueden:
 
-product: Información de los bolsos.
-user: Datos básicos de los usuarios.
-client: Detalles adicionales de los clientes.
-worker: Datos de los empleados.
-purchase: Pedidos realizados.
-purchase_has_product: Relación entre productos y pedidos.
-purchase_history: Historial de pedidos.
-🔧 Requisitos
-Asegúrate de tener instalados:
+1. Registrarse, ver y comprar productos.
+2. Consultar un histórico de sus pedidos.
+3. Los administradores pueden gestionar productos, usuarios y trabajadores.
 
-Node.js (v14 o superior)
-MySQL (v5.7 o superior)
-⚙️ Instalación y Configuración
-Paso 1: Clonar el repositorio
-bash
-Copiar código
-git clone git@github.com:EkaitzGA/Machimba.git
-Paso 2: Instalar dependencias
-bash
-Copiar código
-npm install
-Paso 3: Configurar variables de entorno
-Crea un archivo .env siguiendo el ejemplo en .env.example:
+---
 
-dotenv
-Copiar código
-DB_HOST=machimba_db
-DB_PORT=3308
-APP_HOST=machimba_back
-APP_PORT=3001
-DB_USER="tu usuario"
-DB_PASSWORD="tu contraseña"
-DB_DATABASE=Machimba
-DB_ROOT_PASSWORD=1234
-SESSION_SECRET=clave-super-secreta
-Paso 4: Iniciar contenedor Docker
-bash
-Copiar código
-docker compose up --build
-La aplicación estará disponible en http://localhost:3001.
+## 🗂️ Estructura de la Base de Datos
 
-📡 Endpoints de la API
-GET /purses/api/purses: Lista todos los bolsos.
-GET /purses/api/purses/:id: Información de un bolso específico.
-🎨 Consideraciones de Diseño
-Diseño minimalista y elegante
-Enfoque en la usabilidad
-Experiencia de usuario fluida
-Responsive design para todos los dispositivos
-🚧 Estado del Proyecto
-El proyecto está en desarrollo activo con actualizaciones regulares de funcionalidades y mejoras.
+- **Tablas principales**:
+  1. `product`: Almacena información sobre cada bolso disponible.
+  2. `user`: Almacena los datos de los usuarios.
+  3. `client`: Detalles adicionales sobre los clientes.
+  4. `worker`: Información de los empleados.
+  5. `purchase`: Pedidos realizados.
+  6. `purchase_has_product`: Relación entre productos y pedidos.
+  7. `purchase_history`: Historial de pedidos.
 
-🤝 Contribuciones
-¡Contribuciones son bienvenidas!
+---
 
-Haz un fork del repositorio.
-Crea una nueva rama:
-bash
-Copiar código
-git checkout -b "nueva-rama"
-Realiza los cambios y haz commit:
-bash
-Copiar código
-git commit -m "Mi mejora"
-Envía un Pull Request.
-📜 Licencia
-Este proyecto no cuenta con ninguna licencia.
+## 🛠️ Requisitos
 
-👥 Equipo de Desarrollo
-Desarrollado por:
+Para ejecutar este proyecto, necesitas:
 
-Ekaitz
-Ines
-Samuel
-¡Cada miembro contribuyó para crear una tienda online funcional y bien documentada!
+- **[Node.js](https://nodejs.org/)** (v14 o superior)
+- **[MySQL](https://www.mysql.com/)** (v5.7 o superior)
 
+---
+
+## ⚙️ Instalación y Configuración
+
+1. Clona el repositorio:
+   ```bash
+   git clone git@github.com:EkaitzGA/Machimba.git
+   cd Machimba
+   ```
+
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+
+3. Configura las variables de entorno:
+   - Crea un archivo `.env` siguiendo el ejemplo de `.env.example`:
+
+     ```env
+     DB_HOST=machimba_db
+     DB_PORT=3308
+     APP_HOST=machimba_back
+     APP_PORT=3001
+     DB_USER="tu user"
+     DB_PASSWORD="tu contraseña"
+     DB_DATABASE=Machimba
+     DB_ROOT_PASSWORD=1234
+     SESSION_SECRET=1234
+     ```
+
+4. Inicia Docker:
+   ```bash
+   docker compose up --build
+   ```
+
+   La aplicación estará disponible en **[http://localhost:3001](http://localhost:3001)**.
+
+---
+
+## 📡 Endpoints de la API
+
+- **Todos los bolsos**: `purses/api/purses`
+- **Bolso individual**: `purses/api/purses/:id`
+
+---
+
+## 🎨 Consideraciones de Diseño
+
+- **Diseño minimalista** y elegante.
+- Enfoque en **usabilidad**.
+- **Experiencia de usuario fluida**.
+- Totalmente **responsive** para dispositivos móviles.
+
+---
+
+## 🛠️ Estado del Proyecto
+
+🚧 **En desarrollo activo**: Actualizaciones frecuentes con nuevas funcionalidades y mejoras.
+
+---
+
+## 🤝 Contribuciones
+
+¡Cualquier contribución es bienvenida! Sigue estos pasos:
+
+1. Haz un **fork** del repositorio.
+2. Crea una nueva rama:
+   ```bash
+   git checkout -b "nombre-de-tu-rama"
+   ```
+3. Realiza tus cambios y haz commit:
+   ```bash
+   git commit -m "Descripción de los cambios"
+   ```
+4. Envía un **Pull Request**.
+
+---
+
+## 📜 Licencia
+
+⚠️ Este proyecto **no cuenta con una licencia**.
+
+---
+
+## 👥 Equipo de Desarrollo
+
+Este proyecto fue desarrollado por:
+
+- **[Ekaitz](https://github.com/EkaitzGA)**
+- **[Ines](https://github.com/inesuribeb)**
+- **[Samuel](https://github.com/samucopp)**
+
+Cada miembro contribuyó a distintas etapas del desarrollo para crear una plataforma funcional y bien documentada.
