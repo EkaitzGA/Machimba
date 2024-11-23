@@ -1,127 +1,140 @@
-# Tienda Online de Bolsos - Machimba
 
-**MACHIMBAS** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
 
-## Tecnologías Utilizadas
+👜 Tienda Online de Bolsos - Machimba
+MACHIMBA es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena.
+Esta plataforma está construida utilizando Node.js para el backend y Pug como motor de plantillas para el frontend.
 
+🛠️ Tecnologías Utilizadas
 Backend: Node.js
 Motor de Plantillas: Pug
 Base de Datos: SQL
 Estilos: CSS puro
-Frontend: Javascript (manejo dinámico del carrito y para Interacciones de UI/UX) 
-Containerización: Docker
-                  Contenedor para Node.js
-                  Contenedor para MySQL
-                  Docker Compose para orquestación
+Frontend: JavaScript (manejo dinámico del carrito e interacciones UI/UX)
+Containerización:
+🐳 Contenedor para Node.js
+🐬 Contenedor para MySQL
+Docker Compose para orquestación
+📋 Tabla de Contenidos
+📖 Descripción del Proyecto
+💾 Estructura de la Base de Datos
+🔧 Requisitos
+⚙️ Instalación y Configuración
+📡 Endpoints de la API
+🎨 Consideraciones de Diseño
+🚧 Estado del Proyecto
+🤝 Contribuciones
+📜 Licencia
+👥 Equipo de Desarrollo
+📖 Descripción del Proyecto
+Este proyecto permite gestionar una tienda online de bolsos donde los usuarios pueden:
 
+Registrarse
+Ver y comprar productos
+Consultar el historial de pedidos
+También incluye un panel administrativo para gestionar productos, usuarios y trabajadores.
 
-## Tabla de Contenidos
+🌟 Funcionalidades Principales
+Página de Inicio (Home)
 
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Estructura de la Base de Datos](#estructura-de-la-base-de-datos)
-- [Requisitos](#requisitos)
-- [Instalación y Configuración](#instalación-y-configuración) 
-- [Endpoints de la API](#endpoints-de-la-api)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia) 
-- [Equipo de Desarrollo](#equipo-de-desarrollo)
+Presentación de la marca
+Catálogo
 
----
+Visualización del catálogo de bolsos
+Filtros interactivos para búsqueda
+Detalles individuales de cada producto
+Añadir productos al carrito
+Autenticación
 
-## Descripción del Proyecto
+Registro e inicio de sesión para usuarios
+Perfil Cliente
 
-Este proyecto permite gestionar una tienda online de bolsos, donde los usuarios pueden registrarse, ver y comprar productos, y consultar un histórico de sus pedidos. También cuenta con un panel administrativo para gestionar productos,usuarios y trabajadores.
+Gestión de datos personales
+Historial de compras
+Carrito de Compra
 
-### Paginas principales y Funcionalidades
+Visualización de productos seleccionados
+Actualización de cantidades
+Checkout con validación de datos
+Perfil Administrativo
 
-    1. Página de Inicio (Home) 
-        Presentación de la marca
+CRUD completo para productos, clientes, trabajadores y pedidos
+Cierre de sesión seguro
+💾 Estructura de la Base de Datos
+La base de datos Machimba incluye las siguientes tablas:
 
-    2. Página Catálogo
-        Muestra del catálogo de bolsos
-        Formulario interactivo para filtrar la búsqueda
-        Enlace a una ruta individual de cada bolso con más detalles del mismo Posibilidad de añadir productos a tu compra
-    
-    3. Inicio Sesión/Registro
-        **Autenticación**: Registro e inicio de sesión de usuarios.
+product: Información de los bolsos.
+user: Datos básicos de los usuarios.
+client: Detalles adicionales de los clientes.
+worker: Datos de los empleados.
+purchase: Pedidos realizados.
+purchase_has_product: Relación entre productos y pedidos.
+purchase_history: Historial de pedidos.
+🔧 Requisitos
+Asegúrate de tener instalados:
 
-    4. Perfil Cliente : Acceso exclusivo para clientes para gestionar datos y pedidos.
-        Datos Personales
-        Visualización del perfil actual
-        Formulario de edición con todos los datos Actualización en tiempo real
-        Historial de Compras
-        Vista previa de las últimas transacciones
-        Detalles por compra: fecha de pedido, estado del pedido, total de la compra, productos adqui ridos, dirección de envío utilizada.
+Node.js (v14 o superior)
+MySQL (v5.7 o superior)
+⚙️ Instalación y Configuración
+Paso 1: Clonar el repositorio
+bash
+Copiar código
+git clone git@github.com:EkaitzGA/Machimba.git
+Paso 2: Instalar dependencias
+bash
+Copiar código
+npm install
+Paso 3: Configurar variables de entorno
+Crea un archivo .env siguiendo el ejemplo en .env.example:
 
-    5. Carrito de Compra
-        Visualización de productos seleccionados
-        Actualizar cantidades: control de cantidad por producto Cálculo automático de subtotales y totales
-        Proceso de checkout
-        Formulario de dirección de envío
-        Validación de datos de compra
+dotenv
+Copiar código
+DB_HOST=machimba_db
+DB_PORT=3308
+APP_HOST=machimba_back
+APP_PORT=3001
+DB_USER="tu usuario"
+DB_PASSWORD="tu contraseña"
+DB_DATABASE=Machimba
+DB_ROOT_PASSWORD=1234
+SESSION_SECRET=clave-super-secreta
+Paso 4: Iniciar contenedor Docker
+bash
+Copiar código
+docker compose up --build
+La aplicación estará disponible en http://localhost:3001.
 
-    6. Perfil Administrativo : Acceso exclusivo para trabajadores para gestionar inventario, trabajadores y pedidos.
-    Seccion Productos:
-        Visualización de productos CRUD completo
-        Busqueda por query
-    Sección Clientes:
-        Visualización de datos de cliente Sección Trabajadores:
-        Visualización de datos de trabajador CRUD completo
-    Sección Pedidos
-        Visualización de datos de pedidos
-        Gestión de cuenta Cierre de sesión
+📡 Endpoints de la API
+GET /purses/api/purses: Lista todos los bolsos.
+GET /purses/api/purses/:id: Información de un bolso específico.
+🎨 Consideraciones de Diseño
+Diseño minimalista y elegante
+Enfoque en la usabilidad
+Experiencia de usuario fluida
+Responsive design para todos los dispositivos
+🚧 Estado del Proyecto
+El proyecto está en desarrollo activo con actualizaciones regulares de funcionalidades y mejoras.
 
+🤝 Contribuciones
+¡Contribuciones son bienvenidas!
 
+Haz un fork del repositorio.
+Crea una nueva rama:
+bash
+Copiar código
+git checkout -b "nueva-rama"
+Realiza los cambios y haz commit:
+bash
+Copiar código
+git commit -m "Mi mejora"
+Envía un Pull Request.
+📜 Licencia
+Este proyecto no cuenta con ninguna licencia.
 
+👥 Equipo de Desarrollo
+Desarrollado por:
 
-## Estructura de la Base de Datos
+Ekaitz
+Ines
+Samuel
+¡Cada miembro contribuyó para crear una tienda online funcional y bien documentada!
 
-La base de datos **Machimba** tiene las siguientes tablas:
-
-1. **product**: Almacena información sobre cada bolso disponible en la tienda.
-2. **user**: Almacena los datos de los usuarios.
-3. **client**: Extiende la tabla de usuarios para almacenar detalles adicionales sobre los clientes.
-4. **worker**: Extiende la tabla de usuarios para almacenar detalles de los empleados.
-5. **purchase**: Almacena los pedidos realizados.
-6. **purchase_has_product**: Relaciona los productos con los pedidos y almacena la cantidad de cada producto en cada pedido.
-7. **purchase_history**: Historial de pedidos realizados por los clientes.
-
-## Requisitos
-
-Para ejecutar este proyecto, asegúrate de tener instalados los siguientes programas:
-
-- [Node.js](https://nodejs.org/) (v14 o superior)
-- [MySQL](https://www.mysql.com/) (v5.7 o superior)
-
-## Instalación y configuración
-
-## Endpoints de la API
-
-Se han añadido dos endpoints distintos como muestra para recibir información de todos los bolsos o de forma individual. Esto sirve de ejemplo.
-
-## Consideraciones de Diseño
-
-- Diseño minimalista y elegante
-- nfoque en la usabilidad
-- Experiencia de usuario fluida
-- Responsive design para todos los dispositivos
-
-## Estado del Proyecto
-
-El proyecto está en desarrollo activo, con actualizaciones regulares de funcionalidades y mejoras en la experiencia de usuario.
-
-## Contribuciones
-
-## Licencia
-
-Este proyecto no cuenta con ninguna licencia
-
-## Equipo de Desarrollo
-
-Este proyecto fue desarrollado por los siguientes miembros del equipo:
-
-- **[Ekaitz](https://github.com/EkaitzGA)**
-- **[Ines](https://github.com/inesuribeb)**
-- **[Samuel](https://github.com/samucopp)**
-
-Cada miembro ha contribuido en diversas etapas del desarrollo para crear una tienda online funcional y bien documentada.
