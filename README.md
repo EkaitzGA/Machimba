@@ -1,6 +1,19 @@
 # Tienda Online de Bolsos - Machimba
 
-Este repositorio contiene el backend para la tienda online **Machimba**, especializada en la venta de bolsos de distintas colecciones y estilos. El backend está desarrollado en **Node.js** con **Express** y **MySQL** como base de datos.
+**MACHIMBAS** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
+
+## Tecnologías Utilizadas
+
+Backend: Node.js
+Motor de Plantillas: Pug
+Base de Datos: SQL
+Estilos: CSS puro
+Frontend: Javascript (manejo dinámico del carrito y para Interacciones de UI/UX) 
+Containerización: Docker
+                  Contenedor para Node.js
+                  Contenedor para MySQL
+                  Docker Compose para orquestación
+
 
 ## Tabla de Contenidos
 
@@ -19,12 +32,46 @@ Este repositorio contiene el backend para la tienda online **Machimba**, especia
 
 Este proyecto permite gestionar una tienda online de bolsos, donde los usuarios pueden registrarse, ver y comprar productos, y consultar un histórico de sus pedidos. También cuenta con un panel administrativo para gestionar productos,usuarios y trabajadores.
 
-### Funcionalidades
+### Paginas principales y Funcionalidades
 
-1. **Autenticación**: Registro e inicio de sesión de usuarios.
-2. **Gestión de Productos**: Creación, actualización, y consulta de productos.
-3. **Realización de Pedidos**: Los clientes pueden hacer pedidos y consultar su historial de compras.
-4. **Panel Administrativo**: Acceso exclusivo para trabajadores para gestionar inventario y pedidos.
+    1. Página de Inicio (Home) 
+        Presentación de la marca
+
+    2. Página Catálogo
+        Muestra del catálogo de bolsos
+        Formulario interactivo para filtrar la búsqueda
+        Enlace a una ruta individual de cada bolso con más detalles del mismo Posibilidad de añadir productos a tu compra
+    
+    3. Inicio Sesión/Registro
+        **Autenticación**: Registro e inicio de sesión de usuarios.
+
+    4. Perfil Cliente : Acceso exclusivo para clientes para gestionar datos y pedidos.
+        Datos Personales
+        Visualización del perfil actual
+        Formulario de edición con todos los datos Actualización en tiempo real
+        Historial de Compras
+        Vista previa de las últimas transacciones
+        Detalles por compra: fecha de pedido, estado del pedido, total de la compra, productos adqui ridos, dirección de envío utilizada.
+
+    5. Carrito de Compra
+        Visualización de productos seleccionados
+        Actualizar cantidades: control de cantidad por producto Cálculo automático de subtotales y totales
+        Proceso de checkout
+        Formulario de dirección de envío
+        Validación de datos de compra
+
+    6. Perfil Administrativo : Acceso exclusivo para trabajadores para gestionar inventario, trabajadores y pedidos.
+    Seccion Productos:
+        Visualización de productos CRUD completo
+        Busqueda por query
+    Sección Clientes:
+        Visualización de datos de cliente Sección Trabajadores:
+        Visualización de datos de trabajador CRUD completo
+    Sección Pedidos
+        Visualización de datos de pedidos
+        Gestión de cuenta Cierre de sesión
+
+
 
 
 ## Estructura de la Base de Datos
@@ -50,7 +97,18 @@ Para ejecutar este proyecto, asegúrate de tener instalados los siguientes progr
 
 ## Endpoints de la API
 
-Se han añadido dos endpoints distintos como muestra para recibir información de todos los bolsos o de forma individual. Esto sirve de ejemplo y se podrían crear endpoints para
+Se han añadido dos endpoints distintos como muestra para recibir información de todos los bolsos o de forma individual. Esto sirve de ejemplo.
+
+## Consideraciones de Diseño
+
+- Diseño minimalista y elegante
+- nfoque en la usabilidad
+- Experiencia de usuario fluida
+- Responsive design para todos los dispositivos
+
+## Estado del Proyecto
+
+El proyecto está en desarrollo activo, con actualizaciones regulares de funcionalidades y mejoras en la experiencia de usuario.
 
 ## Contribuciones
 
