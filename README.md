@@ -1,7 +1,7 @@
 
 # 👜 Tienda Online de Bolsos - **Machimba**
 
-**MACHIMBAS** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
+**MACHIMBA** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
 
 ---
 
