@@ -114,6 +114,8 @@ El proyecto está en desarrollo activo, con actualizaciones regulares de funcion
 
 ## Licencia
 
+Este proyecto no cuenta con ninguna licencia
+
 ## Equipo de Desarrollo
 
 Este proyecto fue desarrollado por los siguientes miembros del equipo:
