@@ -1,7 +1,7 @@
 
 # 👜 Tienda Online de Bolsos - **Machimba**
 
-**MACHIMBAS** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
+**MACHIMBA** es una tienda online de bolsos únicos y de edición limitada, diseñados y confeccionados por Rocío Machimbarrena. La plataforma está construida utilizando **Node.js** para el backend y **Pug** como motor de plantillas para el frontend.
 
 ---
 
@@ -21,16 +21,16 @@
 
 ## 📚 Tabla de Contenidos
 
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Estructura de la Base de Datos](#estructura-de-la-base-de-datos)
-- [Requisitos](#requisitos)
-- [Instalación y Configuración](#instalación-y-configuración)
-- [Endpoints de la API](#endpoints-de-la-api)
-- [Consideraciones de Diseño](#consideraciones-de-diseño)
-- [Estado del Proyecto](#estado-del-proyecto)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
-- [Equipo de Desarrollo](#equipo-de-desarrollo)
+- [Descripción del Proyecto](#-descripción-del-proyecto)
+- [Estructura de la Base de Datos](#-estructura-de-la-base-de-datos)
+- [Requisitos](#-requisitos)
+- [Instalación y Configuración](#-instalación-y-configuración)
+- [Endpoints de la API](#-endpoints-de-la-api)
+- [Consideraciones de Diseño](#-consideraciones-de-diseño)
+- [Estado del Proyecto](#-estado-del-proyecto)
+- [Contribuciones](#-contribuciones)
+- [Licencia](#-licencia)
+- [Equipo de Desarrollo](#-equipo-de-desarrollo)
 
 ---
 
